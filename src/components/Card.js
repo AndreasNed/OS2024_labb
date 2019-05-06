@@ -29,7 +29,7 @@ class Card extends React.Component {
                     <div>From: {place.places[0].longName}</div>
                     <div>To: {place.places[1].longName}</div>
 
-                    <div classeName="allRoutes">All transports: {place.routes.map(element => (
+                    <div className="allRoutes">All transports: {place.routes.map(element => (
                         <div className="routeSegment"><br></br>
                             Transport type: {element.name} <br></br>
                             Distance: {getKm(element.distance)} <br></br>

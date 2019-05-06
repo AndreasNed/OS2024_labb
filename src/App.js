@@ -6,13 +6,15 @@ import logga from "./pics/projektlogga.png"
 
 const axios = require('axios');
 
+const key = "";
+
 class App extends Component {
   state = {
     places: []
   };
 
   searchNewRoute = async (from, to) => {
-    const resp = await axios.get(`http://free.rome2rio.com/api/1.4/json/Search?key=${this.key}&oName=${from}&dName=${to}`);
+    const resp = await axios.get(`http://free.rome2rio.com/api/1.4/json/Search?key=${key}&oName=${from}&dName=${to}`);
     const routeData = resp.data;
     this.setState(prevState => ({
       places: [...prevState.places, routeData]
