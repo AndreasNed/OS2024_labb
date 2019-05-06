@@ -31,16 +31,16 @@ class App extends Component {
           <img src={logga} alt ="logga" className="projektlogga"/>
           </div >  
             <div className="headerList">
-            <li className ="listItems"><a href="/"className="colorChanger">sök resor </a></li>
-            <li className ="listItems"><a href="/about"className="colorChanger">läs om eventet </a></li>
-            <li className ="listItems"><a href="/contact" className="colorChanger">läs om våra orter </a></li>
-            <li className ="listItems"><a href="/contact"className="colorChanger">se rekommendat-ioner</a></li>
-      
+              <li className ="listItems"><a href="/"className="colorChanger">sök resor </a></li>
+              <li className ="listItems"><a href="/about"className="colorChanger">läs om eventet </a></li>
+              <li className ="listItems"><a href="/contact" className="colorChanger">läs om våra orter </a></li>
+              <li className ="listItems"><a href="/contact"className="colorChanger">se rekommendat-ioner</a></li>
+        
             </div>
           </header>
             
 
-          <Form onSubmit={this.addNewRoute} className="onSubmit" />
+          <Form onSubmit={this.searchNewRoute} className="onSubmit" />
           <Route places={this.state.places}  className ="routePlaces"/>
 
           <div className="testModul"> detta är en test modul</div>
