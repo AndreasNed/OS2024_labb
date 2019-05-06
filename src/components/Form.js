@@ -1,31 +1,44 @@
 import React, { Component } from "react";
 import './style.css';
 import axios from "axios";
+import DatePicker from "react-datepicker";
 
-const key = process.env.REACT_APP_API_KEY;
+import "react-datepicker/dist/react-datepicker.css";
 
 export default class Form extends Component {
     state = {
-        From: "",
-        To: "",
+        from: "",
+        to: "Stockholm",
+        date: new Date()
     };
 
     handleSubmit = async (event) => {
         event.preventDefault();
-        const resp = await axios.get(`http://free.rome2rio.com/api/1.4/json/Search?key=${key}&oName=${this.state.From}&dName=${this.state.To}`);
-        this.props.onSubmit(resp.data);
-        console.log(this.state.From);
-        console.log(this.state.To);
+        this.props.onSubmit(this.state.from, this.state.to);
+        console.log(this.state.from);
+        console.log(this.state.to);
     }
+
+    handleDateChange = (date) =>{
+        this.setState({date: date})
+    }
+
 
     render() {
         return (
             <form onSubmit={this.handleSubmit}>
-                <input type="text" value={this.state.From} onChange={event => this.setState({ From: event.target.value })} placeholder="From" required />
-                <input type="text" value={this.state.To} onChange={event => this.setState({ To: event.target.value })} placeholder="To" required />
-
-
-                <button>Go!</button>
+                <input className="searchInput From" type="text" value={this.state.From} onChange={event => this.setState({ from: event.target.value })} placeholder="From" required />
+                <select onChange={event => this.setState({ to: event.target.value})}>
+                    <option value="Stockholm">Stockholm</option>
+                    <option value="Falun">Falun</option>
+                    <option value="Åre">Åre</option>
+                </select>
+                <DatePicker
+                    selected={this.state.date}
+                    onChange={this.handleDateChange}
+                    dateFormat= "YYYY/MM/dd"
+                />
+                <button className="searchInput submitBtn">Go!</button>
             </form>
         );
     }
