@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import './style.css';
 import axios from "axios";
 
-
+const key = process.env.REACT_APP_API_KEY;
 
 export default class Form extends Component {
     state = {
