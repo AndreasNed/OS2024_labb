@@ -2,24 +2,24 @@ import React, { Component } from 'react';
 import './App.css';
 import Form from "./components/Form"
 import Route from "./components/Route"
-import logga from "./pics/projektlogga.png"
+
+const axios = require('axios');
+
 class App extends Component {
   state = {
     places: []
   };
-       /*
-        <div className ="ImageDiv">
-          <img src={logga} alt ="logga" className="projektlogga"/>
-          </div>  
-       */
 
-
-
-  addNewRoute = (routeData) => {
+  searchNewRoute = async (from, to) => {
+    const resp = await axios.get(`http://free.rome2rio.com/api/1.4/json/Search?key=${this.key}&oName=${from}&dName=${to}`);
+    const routeData = resp.data;
     this.setState(prevState => ({
       places: [...prevState.places, routeData]
     }));
+
   }
+
+
 
   render() {
     return (
@@ -52,5 +52,5 @@ class App extends Component {
         );
       }
     }
-    
-    export default App;
+
+export default App;
