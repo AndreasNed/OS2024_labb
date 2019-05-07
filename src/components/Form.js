@@ -24,18 +24,25 @@ export default class Form extends Component {
         await (new Promise(resolve => setTimeout(resolve, 200))); // basically sleep 200ms
         
         if (Date.now()-this.state.lastUpdate>=200){
-            const suggestions = (await rome2rio.autocomplete(string)).places;
-            console.log(suggestions);
-            this.setState({
-                suggestions: suggestions ? suggestions : [],
-            }); 
+            this.getSuggestions();
         }
           
     }
 
-    setSuggestion = event => {
+    getSuggestions = async () => {
+        const suggestions = (await rome2rio.autocomplete(this.state.from)).places;
+        console.log(suggestions);
+        this.setState({
+            suggestions: suggestions ? suggestions : [],
+        });
+    }
+
+    setSuggestion = async (event) => {
         event.preventDefault();
-        this.setState({from: event.target.value});
+        await this.setState({
+            from: event.target.value,
+        });
+        this.getSuggestions(); 
         console.log(this.state.from);
         this.render();
     }
