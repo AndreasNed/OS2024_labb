@@ -94,7 +94,7 @@ newSearch = () => {
                     </div>
   
                 :<div className="toggler2div">
-                <button className ="toggler2" onClick = {this.toggler}>
+                <button className ="toggler2" onClick = {this.newSearch}>
                 <span>
                New Search
                 </span>
