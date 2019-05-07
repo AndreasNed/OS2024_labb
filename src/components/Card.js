@@ -6,7 +6,6 @@ class Card extends React.Component {
 
     render(props) {
         const place = this.props;
-        const price = place.routes[0].indicativePrices[0].price;
 
         console.log("place in Card")
         console.log(place);
