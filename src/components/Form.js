@@ -12,21 +12,32 @@ export default class Form extends Component {
         date: new Date(),
         showMe: true,
         suggestions: [],
+        filterAir: false,
+        filterRail : false,
+        filterBus : false,
+        filterCar : false,
     };
+
+    handleOnChange = (event) => {
+        const { name, checked } = event.target;
+        this.setState({
+            [name]: checked
+        })
+    }
 
     updateSearchInput = async (event) => {
         const string = event.target.value;
         this.setState({
-            from: string, 
-            lastUpdate: Date.now() 
+            from: string,
+            lastUpdate: Date.now()
         });
 
         await (new Promise(resolve => setTimeout(resolve, 200))); // basically sleep 200ms
-        
-        if (Date.now()-this.state.lastUpdate>=200){
+
+        if (Date.now() - this.state.lastUpdate >= 200) {
             this.getSuggestions();
         }
-          
+
     }
 
     getSuggestions = async () => {
@@ -42,13 +53,14 @@ export default class Form extends Component {
         await this.setState({
             from: event.target.value,
         });
-        this.getSuggestions(); 
+        this.getSuggestions();
         console.log(this.state.from);
     }
 
     handleSubmit = async (event) => {
         event.preventDefault();
-        this.props.onSubmit(this.state.from, this.state.to);
+        const filters = {air = this.state.filterAir, rail = this.state.filterRail, bus = this.state.filterBus, car = this.state.filterCar}
+        this.props.onSubmit(this.state.from, this.state.to, filters);
         console.log(this.state.from);
         console.log(this.state.to);
         this.toggler();
@@ -58,19 +70,18 @@ export default class Form extends Component {
         this.setState({ date: date })
     }
 
-   toggler = () => {   
-       this.setState({
+    toggler = () => {
+        this.setState({
             showMe: !this.state.showMe,
             from: "",
             suggestions: []
         })
-}
+    }
 
-
-newSearch = () => {
-    this.props.resetList();
-    this.toggler();
-}           
+    newSearch = () => {
+        this.props.resetList();
+        this.toggler();
+    }
 
     render() {
 
@@ -102,17 +113,60 @@ newSearch = () => {
                         />
                         <button className="submitBtn">Go!</button>
                     </form>
-                    </div>
-  
-                :<div className="toggler2div">
-                <button className ="toggler2" onClick = {this.newSearch}>
-                <span>
-               New Search
+
+                    <form>
+                        <div className="checkbox1">
+                            <label>
+                                <input type="checkbox"
+                                value={this.state.filterAir} 
+                                name="filterAir"
+                                onChange={this.handleOnChange} />
+                                Filter flight 
+                            </label>
+                        </div>
+
+                        <div className="checkbox1">
+                            <label>
+                                <input type="checkbox"
+                                value={this.state.filterRail} 
+                                name="filterRail"
+                                onChange={this.handleOnChange} />
+                                Filter trains
+                            </label>
+                        </div>
+
+                        <div className="checkbox1">
+                            <label>
+                                <input type="checkbox"
+                                value={this.state.filterBus} 
+                                name="filterBus"
+                                onChange={this.handleOnChange} />
+                                Filter bus 
+                            </label>
+                        </div>
+
+                        <div className="checkbox1">
+                            <label>
+                                <input type="checkbox"
+                                value={this.state.filterCar} 
+                                name="filterCar"
+                                onChange={this.handleOnChange} />
+                                Filter car 
+                            </label>
+                        </div>
+                    </form>
+
+                </div>
+
+                : <div className="toggler2div">
+                    <button className="toggler2" onClick={this.newSearch}>
+                        <span>
+                            New Search
                 </span>
 
-                </button>
-                </div> 
-      
+                    </button>
+                </div>
+
         );
     }
 }
