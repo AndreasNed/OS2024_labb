@@ -36,7 +36,7 @@ class App extends Component {
               <li className ="listItems"><a href="/"className="colorChanger">sök resor </a></li>
               <li className ="listItems"><a href="/about"className="colorChanger">läs om eventet </a></li>
               <li className ="listItems"><a href="/contact" className="colorChanger">läs om våra orter </a></li>
-              <li className ="listItems"><a href="/contact"className="colorChanger">se rekommendat-ioner</a></li>
+              <li className ="listItems"><a href="/contact"className="colorChanger">se rekommendationer</a></li>
         
             </div>
           </header>

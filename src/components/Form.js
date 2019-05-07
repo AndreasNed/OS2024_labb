@@ -32,6 +32,7 @@ export default class Form extends Component {
     showMe: !this.state.showMe })}
             // TODO CLEAR SEARCH HISTORY whhen pressed 
 
+            
     render() {
 
 
@@ -41,25 +42,35 @@ export default class Form extends Component {
                 <div>
                     <form onSubmit={this.handleSubmit}>
 
-                        <input className="searchInput From" type="text" value={this.state.From} onChange={event => this.setState({ from: event.target.value })} placeholder="From" required />
-                        <select onChange={event => this.setState({ to: event.target.value })}>
+                        <input className="searchInput" type="text" value={this.state.From} onChange={event => this.setState({ from: event.target.value })} placeholder="From" required />
+                        <select className="select" onChange={event => this.setState({ to: event.target.value })}>
+                     
                             <option value="Stockholm">Stockholm</option>
                             <option value="Falun">Falun</option>
                             <option value="Åre">Åre</option>
                         </select>
-                        <DatePicker
+                        <DatePicker className="datePicker"
                             selected={this.state.date}
                             onChange={this.handleDateChange}
                             dateFormat="YYYY/MM/dd"
                         />
-                        <button className="searchInput submitBtn">Go!</button>
+                        <button className="submitBtn">Go!</button>
                     </form>
+                    </div>
+           
 
-                </div>
-                : <button className ="toggler2" onClick = {this.toggler}>
-                click me
-                
+                :<div className="toggler2div">
+                <button className ="toggler2" onClick = {this.toggler}>
+                <span>
+               New Search
+                </span>
                 </button>
+                </div> 
+
+                
+
+
+
                 
         );
     }
