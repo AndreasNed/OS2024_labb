@@ -57,6 +57,7 @@ export default class Form extends Component {
     showMe: !this.state.showMe })
 }
 
+
 newSearch = () => {
     this.props.resetList();
     this.toggler();
@@ -70,7 +71,7 @@ newSearch = () => {
                 <div>
                     <form onSubmit={this.handleSubmit}>
 
-                        <input className="searchInput From" type="text" onChange={this.updateSearchInput} placeholder="From" value={this.state.from} required />
+                        <input className="searchInput" type="text" onChange={this.updateSearchInput} placeholder="From" value={this.state.from} required />
                         <ul>
                         {this.state.suggestions.map(place => (
                            <li>
@@ -78,25 +79,29 @@ newSearch = () => {
                             </li>
                         ))}
                         </ul>
-                        <select onChange={event => this.setState({ to: event.target.value })}>
+                        <select className="select" onChange={event => this.setState({ to: event.target.value })}>
                             <option value="Stockholm">Stockholm</option>
                             <option value="Falun">Falun</option>
                             <option value="Åre">Åre</option>
                         </select>
-                        <DatePicker
+                        <DatePicker className="datePicker"
                             selected={this.state.date}
                             onChange={this.handleDateChange}
                             dateFormat="YYYY/MM/dd"
                         />
-                        <button className="searchInput submitBtn">Go!</button>
+                        <button className="submitBtn">Go!</button>
                     </form>
+                    </div>
+  
+                :<div className="toggler2div">
+                <button className ="toggler2" onClick = {this.toggler}>
+                <span>
+               New Search
+                </span>
 
-                </div>
-                : <button className ="toggler2" onClick = {this.newSearch}>
-                click me
-                
                 </button>
-                
+                </div> 
+      
         );
     }
 }
