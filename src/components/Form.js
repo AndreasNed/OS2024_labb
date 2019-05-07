@@ -21,9 +21,9 @@ export default class Form extends Component {
             lastUpdate: Date.now() 
         });
 
-        await (new Promise(resolve => setTimeout(resolve, 1000))); // basically sleep 100ms
+        await (new Promise(resolve => setTimeout(resolve, 200))); // basically sleep 200ms
         
-        if (Date.now()-this.state.lastUpdate>=1000){
+        if (Date.now()-this.state.lastUpdate>=200){
             const suggestions = (await rome2rio.autocomplete(string)).places;
             console.log(suggestions);
             this.setState({
