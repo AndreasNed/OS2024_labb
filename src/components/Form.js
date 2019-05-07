@@ -111,8 +111,11 @@ export default class Form extends Component {
                             onChange={this.handleDateChange}
                             dateFormat="YYYY/MM/dd"
                         />
+                        <div>
                         <button className="submitBtn">Go!</button>
+                        </div>
                     </form>
+
 
                     <form>
                         <div className="checkbox1">
@@ -158,13 +161,16 @@ export default class Form extends Component {
 
                 </div>
 
-                : <div className="toggler2div">
+                : 
+                   <div className="testdiv">
+                  <div className="toggler2div">
                     <button className="toggler2" onClick={this.newSearch}>
                         <span>
                             New Search
                 </span>
 
                     </button>
+                </div>
                 </div>
 
         );
