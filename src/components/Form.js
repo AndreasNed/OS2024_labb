@@ -55,7 +55,8 @@ export default class Form extends Component {
    toggler = () => {   
        this.setState({
             showMe: !this.state.showMe,
-            from: ""
+            from: "",
+            suggestions: []
         })
 }
 
