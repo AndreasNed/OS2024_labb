@@ -13,8 +13,8 @@ class App extends Component {
     places: []
   };
 
-  searchNewRoute = async (from, to) => {
-    const routeData = await rome2rio.searchRoute(from, to)
+  searchNewRoute = async (from, to, filters) => {
+    const routeData = await rome2rio.searchRoute(from, to, filters)
     this.setState(prevState => ({
       places: [...prevState.places, routeData]
     }));
