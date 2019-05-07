@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import './style.css';
-import axios from "axios";
 import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
@@ -25,12 +24,17 @@ export default class Form extends Component {
 
     handleDateChange = (date) => {
         this.setState({ date: date })
-
     }
+
    toggler = () => {   
        this.setState({
-    showMe: !this.state.showMe })}
-            // TODO CLEAR SEARCH HISTORY whhen pressed 
+    showMe: !this.state.showMe })
+}
+
+newSearch = () => {
+    this.props.resetList();
+    this.toggler();
+}           
 
     render() {
 
@@ -56,7 +60,7 @@ export default class Form extends Component {
                     </form>
 
                 </div>
-                : <button className ="toggler2" onClick = {this.toggler}>
+                : <button className ="toggler2" onClick = {this.newSearch}>
                 click me
                 
                 </button>

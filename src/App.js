@@ -22,7 +22,11 @@ class App extends Component {
 
   }
 
-
+  resetList = () => {
+    this.setState({
+      places : []
+    })
+  }
 
   render() {
     return (
@@ -40,16 +44,13 @@ class App extends Component {
         
             </div>
           </header>
-            
 
-          <Form onSubmit={this.searchNewRoute} className="onSubmit" />
+          <Form onSubmit={this.searchNewRoute}
+          resetList={this.resetList}
+          className="onSubmit" />
           <Route places={this.state.places}  className ="routePlaces"/>
 
-          <div className="testModul"> detta är en test modul</div>
-          <div className="testModul"> detta är en test modul</div>
-          <div className="testModul"> detta är en test modul</div>
-          <div className="testModul"> detta är en test modul</div>
-
+          <div className="testModul"> <br/><br/><br/><br/> </div>
           
       </div>
         );
