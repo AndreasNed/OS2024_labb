@@ -7,16 +7,16 @@ export default class rome2rio{
     static searchRoute = (from, to, filters) => {
         let filterQuery = "";
         if (filters.air){
-            filterQuery.concat("&noAir=true");
+            filterQuery = filterQuery.concat("&noAir=true");
         }
         if (filters.rail){
-            filterQuery.concat("&noRail=true");
+            filterQuery = filterQuery.concat("&noRail=true");
         }
         if (filters.bus){
-            filterQuery.concat("&noBus=true");
+            filterQuery = filterQuery.concat("&noBus=true");
         }
         if (filters.car){
-            filterQuery.concat("&noCar=true");
+            filterQuery = filterQuery.concat("&noCar=true");
         }
         return axios.get(`http://free.rome2rio.com/api/1.4/json/Search?key=${key}&oName=${from}&dName=${to}${filterQuery}`).then(response => response.data);
  
