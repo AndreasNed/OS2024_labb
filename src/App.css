@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  display: grid;
+ 
   background-color: #ffcc00;
 }
 .ourHeader{
@@ -71,7 +71,7 @@ color: #ffcc00;
 
 
 .toggler2 {
-  width: 25%;
+  width: 190px;
   border-radius: 4px;
   background-color: #006699;
   border: none;
@@ -109,9 +109,10 @@ color: #ffcc00;
   right: 0;
 }
 .toggler2div{
+  margin-top: 30px;
+  position: fixed;
+ 
 
-margin-bottom: 14px;
-padding-bottom: 2px;
 }
 
 

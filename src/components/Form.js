@@ -92,11 +92,15 @@ newSearch = () => {
                             onChange={this.handleDateChange}
                             dateFormat="YYYY/MM/dd"
                         />
+                        <div>
                         <button className="submitBtn">Go!</button>
+                        </div>
                     </form>
                     </div>
-  
-                :<div className="toggler2div">
+
+                :
+                <div className="testdiv">
+                <div className="toggler2div">
                 <button className ="toggler2" onClick = {this.newSearch}>
                 <span>
                New Search
@@ -104,7 +108,7 @@ newSearch = () => {
 
                 </button>
                 </div> 
-      
+                </div>                
         );
     }
 }

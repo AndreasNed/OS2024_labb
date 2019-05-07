@@ -49,7 +49,7 @@ class App extends Component {
           className="onSubmit" />
           <Route places={this.state.places}  className ="routePlaces"/>
 
-          <div className="testModul"> <br/><br/><br/><br/> </div>
+          
           
       </div>
         );
