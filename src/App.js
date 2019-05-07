@@ -3,10 +3,10 @@ import './App.css';
 import Form from "./components/Form"
 import Route from "./components/Route"
 import logga from "./pics/projektlogga.png"
+import rome2rio from "./utils/rome2rio"
 
 const axios = require('axios');
 
-const key = process.env.REACT_APP_ROME_2_RIO_API_KEY;
 
 class App extends Component {
   state = {
@@ -14,8 +14,7 @@ class App extends Component {
   };
 
   searchNewRoute = async (from, to) => {
-    const resp = await axios.get(`http://free.rome2rio.com/api/1.4/json/Search?key=${key}&oName=${from}&dName=${to}`);
-    const routeData = resp.data;
+    const routeData = await rome2rio.searchRoute(from, to)
     this.setState(prevState => ({
       places: [...prevState.places, routeData]
     }));
@@ -36,7 +35,7 @@ class App extends Component {
               <li className ="listItems"><a href="/"className="colorChanger">sök resor </a></li>
               <li className ="listItems"><a href="/about"className="colorChanger">läs om eventet </a></li>
               <li className ="listItems"><a href="/contact" className="colorChanger">läs om våra orter </a></li>
-              <li className ="listItems"><a href="/contact"className="colorChanger">se rekommendat-ioner</a></li>
+              <li className ="listItems"><a href="/contact"className="colorChanger">se rekommendationer</a></li>
         
             </div>
           </header>
