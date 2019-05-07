@@ -6,7 +6,7 @@ import logga from "./pics/projektlogga.png"
 
 const axios = require('axios');
 
-const key = "";
+const key = process.env.REACT_APP_ROME_2_RIO_API_KEY;
 
 class App extends Component {
   state = {
