@@ -7,8 +7,6 @@ class Card extends React.Component {
     render(props) {
         const data = this.props.routeData;
 
-        console.log("place in Card")
-        console.log(place);
 
         function getHours(min) {
             return Math.trunc(min / 60) + "h";
@@ -28,7 +26,7 @@ class Card extends React.Component {
                     <div>From: {data.places[0].longName}</div>
                     <div>To: {data.places[1].longName}</div>
 
-                    <div className="allRoutes">All transports: {place.routes.map(element => (
+                    <div className="allRoutes">All transports: {data.routes.map(element => (
                         <div className="routeSegment"><br></br>
                             Transport type: {element.name} <br></br>
                             Distance: {getKm(element.distance)} <br></br>
