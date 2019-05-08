@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Form from "./components/Form"
 import Route from "./components/Route"
+import Card from "./components/Card.js"
 import logga from "./pics/projektlogga.png"
 import rome2rio from "./utils/rome2rio"
 
@@ -10,20 +11,19 @@ const axios = require('axios');
 
 class App extends Component {
   state = {
-    places: []
+    routeData : null
   };
 
   searchNewRoute = async (from, to, filters) => {
     const routeData = await rome2rio.searchRoute(from, to, filters)
     this.setState(prevState => ({
-      places: [...prevState.places, routeData]
+      routeData: routeData
     }));
-
   }
 
   resetList = () => {
     this.setState({
-      places : []
+      routeData : null
     })
   }
 
@@ -47,7 +47,7 @@ class App extends Component {
           <Form onSubmit={this.searchNewRoute}
           resetList={this.resetList}
           className="onSubmit" />
-          <Route places={this.state.places}  className ="routePlaces"/>
+          {this.state.routeData ? (<Card routeData={this.state.routeData}  className ="routePlaces"/>) : null}
 
           
           

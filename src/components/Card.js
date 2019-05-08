@@ -5,7 +5,7 @@ class Card extends React.Component {
 
 
     render(props) {
-        const place = this.props;
+        const data = this.props.routeData;
 
         console.log("place in Card")
         console.log(place);
@@ -25,8 +25,8 @@ class Card extends React.Component {
         return (
             <div>
                 <div className="info">
-                    <div>From: {place.places[0].longName}</div>
-                    <div>To: {place.places[1].longName}</div>
+                    <div>From: {data.places[0].longName}</div>
+                    <div>To: {data.places[1].longName}</div>
 
                     <div className="allRoutes">All transports: {place.routes.map(element => (
                         <div className="routeSegment"><br></br>
