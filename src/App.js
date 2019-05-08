@@ -43,13 +43,13 @@ class App extends Component {
         
             </div>
           </header>
-
+          <div className ="formDiv">
           <Form onSubmit={this.searchNewRoute}
           resetList={this.resetList}
           className="onSubmit" />
           <Route places={this.state.places}  className ="routePlaces"/>
 
-          
+          </div>
           
       </div>
         );

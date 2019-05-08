@@ -92,15 +92,7 @@ export default class Form extends Component {
                     <form onSubmit={this.handleSubmit}>
 
                         <input className="searchInput" type="text" onChange={this.updateSearchInput} placeholder="From" value={this.state.from} required />
-                        <ul>
-                        {this.state.suggestions
-                        .filter((place) => place.canonicalName!==this.state.from) //För att inte alternativet man redan har valt ska vara det enda som finns, kan tas bort, en smaksak
-                        .map(place => (
-                           <li>
-                               <button value={place.canonicalName} onClick={this.setSuggestion} >{place.longName}</button>
-                            </li>
-                        ))}
-                        </ul>
+                        
                         <select className="select" onChange={event => this.setState({ to: event.target.value })}>
                             <option value="Stockholm">Stockholm</option>
                             <option value="Falun">Falun</option>
@@ -111,12 +103,21 @@ export default class Form extends Component {
                             onChange={this.handleDateChange}
                             dateFormat="YYYY/MM/dd"
                         />
+                        <ul className="suggestUl">
+                        {this.state.suggestions
+                        .filter((place) => place.canonicalName!==this.state.from) //För att inte alternativet man redan har valt ska vara det enda som finns, kan tas bort, en smaksak
+                        .map(place => (
+                           <li className= "suggestLi">
+                               <button className="liButtons" value={place.canonicalName} onClick={this.setSuggestion} >{place.longName}</button>
+                            </li>
+                        ))}
+                        </ul>
                         <div>
                         <button className="submitBtn">Go!</button>
                         </div>
                     </form>
 
-
+                    <div className="checkboxes">        
                     <form>
                         <div className="checkbox1">
                             <label>
@@ -158,7 +159,7 @@ export default class Form extends Component {
                             </label>
                         </div>
                     </form>
-
+                    </div>
                 </div>
 
                 : 
