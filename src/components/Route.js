@@ -1,10 +1,10 @@
-import React from 'react';
+/* import React from 'react';
 import Card from "./Card.js"
 
 
 function Route(props) {
 
-    console.log(props);
+    console.log("CHHHEEEECCK " + props.places);
 
     return (
         <div>
@@ -14,4 +14,4 @@ function Route(props) {
     )
 }
 
-export default Route;
+export default Route; */

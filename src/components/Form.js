@@ -94,7 +94,6 @@ export default class Form extends Component {
                         <input className="searchInput" type="text" onChange={this.updateSearchInput} placeholder="From" value={this.state.from} required />
                         <ul>
                         {this.state.suggestions
-                        .filter((place) => place.canonicalName!==this.state.from) //För att inte alternativet man redan har valt ska vara det enda som finns, kan tas bort, en smaksak
                         .map(place => (
                            <li>
                                <button value={place.canonicalName} onClick={this.setSuggestion} >{place.longName}</button>
