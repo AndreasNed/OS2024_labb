@@ -163,7 +163,7 @@ ul {
   top: 50px;
   display: grid;
   grid-template-columns: repeat(2, 15%);
-  grid-template-rows: repeat(10, 100%);
+  grid-template-rows: repeat(10);
   grid-gap: 5px;
   margin-bottom: 15%;
   padding-left: 3%;
