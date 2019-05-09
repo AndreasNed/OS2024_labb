@@ -32,26 +32,29 @@ class App extends Component {
   render() {
     const showResults = this.state.routeData ?  <Card routeData={this.state.routeData}  className ="routePlaces"/> : null
     return (
-      <div>
+      <div className="App">
+    
+        <header>
+          <a href="/" className="navLogo"><img src={logga}/></a>
+          <a href="/" className="nav1">Sök resor</a>
+          <a href="/" className="nav2">Läs om eventet</a>
+          <a href="/" className="nav3">Läs om våra orter</a>
+          <a href="/" className="nav4">Se rekommendationer</a>
+        </header>
         
-      <header>
-        <a href="/" className="navLogo"><img src={logga}/></a>
-        <a href="/" className="nav1">Sök resor</a>
-        <a href="/" className="nav2">Läs om eventet</a>
-        <a href="/" className="nav3">Läs om våra orter</a>
-        <a href="/" className="nav4">Se rekommendationer</a>
-      </header>
-
-      <main>
+        <main>
           <Form onSubmit={this.searchNewRoute}
           resetList={this.resetList}
           className="onSubmit" />
-          <Route places={this.state.places}  className ="routePlaces"/>
-      </main>
+        </main>
+          
+        {showResults}
 
-      <footer>
+        <footer>
         Hej
-      </footer>          
+      </footer> 
+          
+          
       </div>
         );
       }
