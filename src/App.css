@@ -184,3 +184,25 @@ ul {
   min-width: 100%;
   min-height: 100%;
 }
+
+a {
+  color: #ffcc00;
+}
+
+p {
+  color: #ffcc00;
+}
+
+.foot1 {
+  grid-area: 1/9/2/10;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.foot2{
+  grid-area: 1/10/2/11;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
