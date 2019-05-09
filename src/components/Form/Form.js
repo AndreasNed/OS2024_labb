@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import './style.css';
+import '../style.css';
 import DatePicker from "react-datepicker";
-import rome2rio from "../utils/rome2rio";
+import rome2rio from "../../utils/rome2rio";
 
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -108,7 +108,6 @@ export default class Form extends Component {
                             <div>
                         <ul className="suggestUl">
                         {this.state.suggestions
-                        .filter((place) => place.canonicalName!==this.state.from) //För att inte alternativet man redan har valt ska vara det enda som finns, kan tas bort, en smaksak
                         .map(place => (
                            <li className= "suggestLi">
                                <button className="liButtons" value={place.canonicalName} onClick={this.setSuggestion} >{place.longName}</button>
@@ -119,53 +118,50 @@ export default class Form extends Component {
                         <div>
                             <button className="submitBtn">Go!</button>
                         </div>
-                    </form>
 
-
-                    <div className="checkboxes">        
-                    <form>
-                        <div className="checkbox1">
-                            <label>
-                                <input type="checkbox"
-                                value={this.state.filterAir} 
-                                name="filterAir"
-                                onChange={this.handleOnChange} />
-                                Filter flight 
-                            </label>
+                        <div className="checkboxes">        
+                            <div className="checkbox1">
+                                <label>
+                                    <input type="checkbox"
+                                    value={this.state.filterAir} 
+                                    name="filterAir"
+                                    onChange={this.handleOnChange} />
+                                    Filter flight 
+                                </label>
                             </div>
 
                             <div className="checkbox1">
                                 <label>
                                     <input type="checkbox"
-                                        value={this.state.filterRail}
-                                        name="filterRail"
-                                        onChange={this.handleOnChange} />
+                                    value={this.state.filterRail} 
+                                    name="filterRail"
+                                    onChange={this.handleOnChange} />
                                     Filter trains
-                            </label>
+                                </label>
                             </div>
 
                             <div className="checkbox1">
                                 <label>
                                     <input type="checkbox"
-                                        value={this.state.filterBus}
-                                        name="filterBus"
-                                        onChange={this.handleOnChange} />
-                                    Filter bus
-                            </label>
+                                    value={this.state.filterBus} 
+                                    name="filterBus"
+                                    onChange={this.handleOnChange} />
+                                    Filter bus 
+                                </label>
                             </div>
 
                             <div className="checkbox1">
                                 <label>
                                     <input type="checkbox"
-                                        value={this.state.filterCar}
-                                        name="filterCar"
-                                        onChange={this.handleOnChange} />
-                                    Filter car
-                            </label>
+                                    value={this.state.filterCar} 
+                                    name="filterCar"
+                                    onChange={this.handleOnChange} />
+                                    Filter car 
+                                </label>
                             </div>
-                        </form>
+                        </div>
 
-                    </div>
+                    </form>
                 </div>
 
                 :
