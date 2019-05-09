@@ -113,10 +113,6 @@ export default class Form extends Component {
                         <div>
                         <button className="submitBtn">Go!</button>
                         </div>
-                    </form>
-
-
-                    <form>
                         <div className="checkbox1">
                             <label>
                                 <input type="checkbox"
