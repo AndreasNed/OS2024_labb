@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import './style.css';
 import DatePicker from "react-datepicker";
 import rome2rio from "../utils/rome2rio";
-
 import "react-datepicker/dist/react-datepicker.css";
 
 export default class Form extends Component {
@@ -172,10 +171,7 @@ export default class Form extends Component {
                 <div className="testdiv">
                     <div className="toggler2div">
                         <button className="toggler2" onClick={this.newSearch}>
-                            <span>
-                                New Search
-                </span>
-
+                         <span>New search</span>           
                         </button>
                     </div>
                 </div>

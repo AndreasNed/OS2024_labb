@@ -42,9 +42,9 @@ class Card extends React.Component {
                     <div>From: {data.places[0].longName}</div>
                     <div>To: {data.places[1].longName}</div>
 
-                    {routeSegment}
-
                 </div>
+                <div className = "routeDiv">  
+                  {routeSegment}</div>
             </div>
         )
     }
