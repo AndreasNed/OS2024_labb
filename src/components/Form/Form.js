@@ -121,72 +121,71 @@ export default class Form extends Component {
 
 
                         <div className="checkboxes">
+                            <div className="flexiboi">
 
 
+                                <div className="checkbox1">
+                                    <div className="optText">don't allow planes</div>
+                                    <label className="switch">
+                                        <input type="checkbox"
+                                            value={this.state.filterAir}
+                                            name="filterAir"
+                                            onChange={this.handleOnChange}
+                                        />
+                                        <span class="slider round"></span>
+                                        z<br></br>
 
 
-                            <div className="checkbox1">
-                            <div>don't allow air travel</div>
-                                <label className="switch">
-                                    <input type="checkbox"
-                                        value={this.state.filterAir}
-                                        name="filterAir"
-                                        onChange={this.handleOnChange}
-                                    />
-                                    <span class="slider round"></span>
-                                    z<br></br>
-                              
-                                  
-                            </label>
+                                    </label>
+                                </div>
+                                <div className="checkbox1">
+                                    <div className="optText">  don't allow trains</div>
+                                    <label className="switch">
+                                        <input type="checkbox"
+                                            value={this.state.filterRail}
+                                            name="filterAir"
+                                            onChange={this.handleOnChange}
+                                        />
+                                        <span class="slider round"></span>
+                                        <br></br>
+
+
+                                    </label>
+                                </div>
+
+                                <div className="checkbox1">
+                                    <div className="optText"> don't allow bus</div>
+                                    <label className="switch">
+                                        <input type="checkbox"
+                                            value={this.state.filterBus}
+                                            name="filterAir"
+                                            onChange={this.handleOnChange}
+                                        />
+                                        <span class="slider round"></span>
+                                        <br></br>
+
+
+                                    </label>
+                                </div>
+                                <div className="checkbox1">
+                                    <div className="optText">don't allow car</div>
+                                    <label className="switch">
+                                        <input type="checkbox"
+                                            value={this.state.filterCar}
+                                            name="filterAir"
+                                            onChange={this.handleOnChange}
+                                        />
+                                        <span class="slider round"></span>
+                                        <br></br>
+
+
+                                    </label>
+                                </div>
                             </div>
-                            <div className="checkbox1">
-                            <div>  don't allow trains</div>
-                                <label className="switch">
-                                    <input type="checkbox"
-                                        value={this.state.filterRail}
-                                        name="filterAir"
-                                        onChange={this.handleOnChange}
-                                    />
-                                    <span class="slider round"></span>
-                                    <br></br>
-                                
-                               
-                            </label>
-                            </div>
-
-                            <div className="checkbox1">
-                            <div> don't allow bus</div>
-                                <label className="switch">
-                                    <input type="checkbox"
-                                        value={this.state.filterBus}
-                                        name="filterAir"
-                                        onChange={this.handleOnChange}
-                                    />
-                                    <span class="slider round"></span>
-                                    <br></br>
-                                  
-                                   
-                             </label>
-                            </div>
-                            <div className="checkbox1">
-                            <div>don't allow car</div>
-                                <label className="switch">
-                                    <input type="checkbox"
-                                        value={this.state.filterCar}
-                                        name="filterAir"
-                                        onChange={this.handleOnChange}
-                                    />
-                                    <span class="slider round"></span>
-                                    <br></br>
-                               
-                                    
-                          </label>
-                            </div>
-
-                            </div>
+                        </div>
 
 
-                  
+
 
                     </form>
                 </div >

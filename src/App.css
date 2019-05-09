@@ -146,12 +146,7 @@ color: #ffcc00;
   background-color: #006699;
 }
 
-.checkboxes {
-  position: relative;
-  bottom: 50px;
-  margin: 15px;
 
-}
 
 
 .switch {
@@ -214,9 +209,26 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
+.flexiboi{
+  display:  flex;
+  position: relative;
+  justify-content: center;
 
+}
 
+.checkboxes {
+    margin-left: 10%;
+  position: relative;
+  justify-content: center;
+  bottom: 50px;
+  margin: 15px;
 
+}
+.optText{
+margin-left: 5%;
+margin-bottom: 2%;
+
+}
 
 
 
