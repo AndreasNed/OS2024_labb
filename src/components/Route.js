@@ -1,17 +1,35 @@
-/* import React from 'react';
-import Card from "./Card.js"
+import React from 'react';
 
 
-function Route(props) {
+export default class Route extends React.Component{
 
-    console.log("CHHHEEEECCK " + props.places);
+    getHours(min) {
+        return Math.trunc(min / 60) + "h";
+    }
 
-    return (
-        <div>
-            {props.places.map(place => <Card {...place} />)}
+    getMin(min) {
+        return min % 60 + "min";
+    }
+
+    getKm(distance){
+        return Math.trunc(distance) + "km";
+    }
+
+    render(){
+        
+        const props = this.props;
+        return (
+        <div className="routeSegment">
+            <div>Transport type: {props.name}</div>
+            <div>Distance: {this.getKm(props.distance)}</div>
+            <div>Total Duration: {this.getHours(props.totalDuration)} {this.getMin(props.totalDuration)}</div>
+            <div>Price: {props.indicativePrices ? 
+                props.indicativePrices.map(x => (
+                    <span>{x.priceLow ? x.priceLow + " - " + x.priceHigh
+                    : x.name ? x.name + " " + x.price : x.price} {x.currency} </span>
+            )) : "Not available"}
+            </div>
+            <br/>
         </div>
-
-    )
+    )}
 }
-
-export default Route; */
