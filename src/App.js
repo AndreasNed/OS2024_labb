@@ -36,11 +36,14 @@ class App extends Component {
     
         <header>
           <a href="/" className="navLogo"><img src={logga}/></a>
+        </header>
+
+        <nav>
           <a href="/" className="nav1">Sök resor</a>
           <a href="/" className="nav2">Läs om eventet</a>
           <a href="/" className="nav3">Läs om våra orter</a>
           <a href="/" className="nav4">Se rekommendationer</a>
-        </header>
+        </nav>
         
         <main>
           <Form onSubmit={this.searchNewRoute}
@@ -50,9 +53,9 @@ class App extends Component {
           
         {showResults}
 
-        <footer>
-        Hej
-      </footer> 
+        <footer className="footerContent">
+        
+        </footer> 
           
           
       </div>

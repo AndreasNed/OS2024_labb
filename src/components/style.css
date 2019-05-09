@@ -6,11 +6,44 @@ body {
     background-color: #ffcc00;
   }
 
+header{
+  display: grid;
+  grid-template-columns: repeat(5, 20%);
+  grid-template-rows: repeat(1, 100%);
+  background-color: #006699;
+}
+
+nav {
+  height: 25px;
+  display: grid;
+  grid-template-columns: repeat(4, 25%);
+  grid-template-rows: repeat(1, 100%);
+  background-color: #006699;
+}
+
+main {
+  /*
+  display: grid;
+  grid-template-columns: repeat(10, 10%);
+  grid-template-rows: repeat(15, 10%);
+  */
+  text-align: center;
+}
+
 footer {
   width: 100%;
-  height: 50px;
+  height: 40px;
   background-color: #006699;
-  position: absolute;
+  background-attachment: scroll;
+  position: fixed;
   bottom: 0px;
- 
+}
+
+.allRoutes {
+  display: flex;
+  text-align: center;
+}
+
+.routeSegment {
+
 }
