@@ -13,9 +13,9 @@ export default class Form extends Component {
         showMe: true,
         suggestions: [],
         filterAir: false,
-        filterRail : false,
-        filterBus : false,
-        filterCar : false,
+        filterRail: false,
+        filterBus: false,
+        filterCar: false,
     };
 
     handleOnChange = (event) => {
@@ -59,7 +59,7 @@ export default class Form extends Component {
 
     handleSubmit = async (event) => {
         event.preventDefault();
-        const filters = {air: this.state.filterAir, rail: this.state.filterRail, bus: this.state.filterBus, car: this.state.filterCar}
+        const filters = { air: this.state.filterAir, rail: this.state.filterRail, bus: this.state.filterBus, car: this.state.filterCar }
         this.props.onSubmit(this.state.from, this.state.to, filters);
         console.log(this.state.from);
         console.log(this.state.to);
@@ -93,7 +93,7 @@ export default class Form extends Component {
 
                         <input className="searchInput" type="text" onChange={this.updateSearchInput} placeholder="From" value={this.state.from} required />
 
-                      
+
                         <select className="select" onChange={event => this.setState({ to: event.target.value })}>
                             <option value="Stockholm">Stockholm</option>
                             <option value="Falun">Falun</option>
@@ -104,6 +104,8 @@ export default class Form extends Component {
                             onChange={this.handleDateChange}
                             dateFormat="YYYY/MM/dd"
                         />
+                        
+                            <div>
                         <ul className="suggestUl">
                         {this.state.suggestions
                         .map(place => (
@@ -112,8 +114,9 @@ export default class Form extends Component {
                             </li>
                         ))}
                         </ul>
+                        </div>
                         <div>
-                        <button className="submitBtn">Go!</button>
+                            <button className="submitBtn">Go!</button>
                         </div>
 
                         <div className="checkboxes">        
@@ -161,19 +164,18 @@ export default class Form extends Component {
                     </form>
                 </div>
 
-                : 
-                   <div className="testdiv">
-                  <div className="toggler2div">
-                    <button className="toggler2" onClick={this.newSearch}>
-                        <span>
-                            New Search
+                :
+                <div className="testdiv">
+                    <div className="toggler2div">
+                        <button className="toggler2" onClick={this.newSearch}>
+                            <span>
+                                New Search
                 </span>
 
-                    </button>
-                </div>
+                        </button>
+                    </div>
                 </div>
 
         );
     }
 }
-    
