@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-class Card extends React.Component {
+class RouteList extends React.Component {
 
     render(props) {
         const data = this.props.routeData;
@@ -50,4 +50,4 @@ class Card extends React.Component {
     }
 }
 
-export default Card;
+export default RouteList;

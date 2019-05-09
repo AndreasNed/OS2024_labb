@@ -4,7 +4,7 @@ import Form from "./components/Form/Form"
 import Route from "./components/Route"
 import logga from "./pics/projektlogga.png"
 import rome2rio from "./utils/rome2rio"
-import Card from "./components/Card/Card"
+import Card from "./components/RouteList/RouteList"
 
 const axios = require('axios');
 
