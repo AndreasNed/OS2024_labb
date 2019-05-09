@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
 import Form from "./components/Form/Form"
-import Route from "./components/Route"
 import logga from "./pics/projektlogga.png"
 import rome2rio from "./utils/rome2rio"
 import RouteList from "./components/RouteList/RouteList"
 
 
 
-const axios = require('axios');
 
 
 class App extends Component {
@@ -36,7 +34,7 @@ class App extends Component {
       <div className="App">
     
         <header>
-          <a href="/" className="navLogo"><img src={logga}/></a>
+          <a href="/" className="navLogo"><img src={logga} alt="2sweden logo"/></a>
         </header>
 
         <nav>
