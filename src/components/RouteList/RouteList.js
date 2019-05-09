@@ -11,7 +11,7 @@ export default class RouteList extends React.Component {
         let aPrice;
         let bPrice;
         console.log("a", a);
-        if (a.indicativePrices[0]){
+        if (a.indicativePrices){
             aPrice = a.indicativePrices[0].priceLow;
             aPrice = aPrice ? aPrice : a.indicativePrices[0].price;
         }
@@ -20,7 +20,7 @@ export default class RouteList extends React.Component {
         }
 
         if (b.indicativePrices[0]){
-            bPrice = b.indicativePrices[0].priceLow;
+            bPrice = b.indicativePrices.priceLow;
             bPrice = bPrice ? bPrice : b.indicativePrices[0].price;
         }
         else {
