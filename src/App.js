@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 import Form from "./components/Form"
 import Route from "./components/Route"
-import Card from "./components/Card.js"
 import logga from "./pics/projektlogga.png"
 import rome2rio from "./utils/rome2rio"
 import Card from "./components/Card"
