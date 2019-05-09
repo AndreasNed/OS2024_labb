@@ -37,26 +37,35 @@ class App extends Component {
     return (
       <div className="App">
     
-          <header className="ourHeader">
-          <div className ="ImageDiv">
-          <img src={logga} alt ="logga" className="projektlogga"/>
-          </div >  
-            <div className="headerList">
-              <li className ="listItems"><a href="/"className="colorChanger">sök resor </a></li>
-              <li className ="listItems"><a href="/about"className="colorChanger">läs om eventet </a></li>
-              <li className ="listItems"><a href="/contact" className="colorChanger">läs om våra orter </a></li>
-              <li className ="listItems"><a href="/contact"className="colorChanger">se rekommendationer</a></li>
+        <header>
+          <a href="/" className="navLogo"><img src={logga}/></a>
+        </header>
+
+        <nav>
+          <a href="/" className="nav1">Sök resor</a>
+          <a href="/" className="nav2">Läs om eventet</a>
+          <a href="/" className="nav3">Läs om våra orter</a>
+          <a href="/" className="nav4">Se rekommendationer</a>
+        </nav>
         
-            </div>
-          </header>
-          <div className ="formDiv">
+        <main>
           <Form onSubmit={this.searchNewRoute}
           resetList={this.resetList}
           className="onSubmit" />
-
-          </div>
+        </main>
           
         {showResults}
+
+        <footer className="footerContent">
+        <ul className="foot1">
+          <a href="/">Kontakt</a>
+          <a href="/">Om oss</a>
+        </ul> 
+        <ul className="foot2"> 
+          <a href="https://bit.ly/2vOZHyk">Årstavägen 19</a>
+          <a href="/">08-557 683 53</a>
+          </ul>
+        </footer> 
           
       </div>
         );

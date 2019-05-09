@@ -58,7 +58,7 @@ export default class RouteList extends React.Component {
                 break;
         }
 
-        const sortedRoutes = [...data.routes].sort(activeSort);      
+        const sortedRoutes = [...data.routes].sort(activeSort);
 
         return (
             <div>
@@ -74,7 +74,7 @@ export default class RouteList extends React.Component {
                     </select> 
 
                     {data.routes.length ?
-                        (<div className="allRoutes">All transports: {sortedRoutes.map(element => 
+                        (<div className="routeDiv">All transports: {sortedRoutes.map(element => 
                             <Route {...element}/>
                         )}</div>)
                     : <div>Sorry, there are no transports for that journey</div>}
@@ -85,4 +85,3 @@ export default class RouteList extends React.Component {
         )
     }
 }
-
