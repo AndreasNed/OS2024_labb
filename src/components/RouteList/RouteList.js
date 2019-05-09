@@ -62,11 +62,14 @@ export default class RouteList extends React.Component {
 
         return (
             <div>
+                <div className ="infoDiv">
                 <div className="info">
-                    <div>From: {data.places[0].longName}</div>
+                <div>From: {data.places[0].longName}</div>
                     <div>To: {data.places[1].longName}</div>
+                </div>
+                    
 
-                    <select className="select" onChange={event => this.setState({ sortFunction: event.target.value })}>
+                    <select className="select2" onChange={event => this.setState({ sortFunction: event.target.value })}>
                             <option value="duration">Sort by Duration</option>
                             <option value="price">Sort by Price</option>
                             <option value="distance">Sort by distance</option>

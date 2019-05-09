@@ -118,6 +118,13 @@ color: #ffcc00;
   border-style: none;
   margin: 2px;
 }
+.select2{
+ top:230px;
+ background-attachment: scroll;
+  position: fixed;
+  left: 2%;
+  z-index: 1;
+}
 
 .datePicker {
   position: relative;
@@ -156,9 +163,9 @@ ul {
   top: 50px;
   display: grid;
   grid-template-columns: repeat(2, 15%);
-  grid-template-rows: repeat(10), 100%;
+  grid-template-rows: repeat(10, 100%);
   grid-gap: 5px;
-  margin-bottom: 5%;
+  margin-bottom: 15%;
   padding-left: 3%;
   padding-right: 3%;
   margin-top: 3%;
@@ -183,6 +190,7 @@ ul {
 .suggestLi{
   min-width: 100%;
   min-height: 100%;
+ 
 }
 
 a {
@@ -206,3 +214,9 @@ p {
   flex-direction: column;
   align-self: center;
 }
+
+.infoDiv{
+  margin-left: 300px;
+    text-align: center;
+  margin: 5px;
+  }
