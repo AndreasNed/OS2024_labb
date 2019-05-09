@@ -40,6 +40,15 @@ footer {
 
 }
 
+.footerContent {
+  display: flex;
+  flex-direction: row-reverse;
+  font-size: 8pt;
+  display: grid;
+  grid-template-columns: repeat(10, 10%);
+  grid-template-rows: repeat(1, 100%);
+}
+
 .allRoutes {
 
   display: grid;
