@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import './style.css';
+import '../style.css';
 import DatePicker from "react-datepicker";
 import rome2rio from "../../utils/rome2rio";
 
@@ -88,7 +89,8 @@ export default class Form extends Component {
         return (
 
             this.state.showMe ?
-                <div>
+
+                <div data-test="mainDiv">
                     <form onSubmit={this.handleSubmit}>
 
                         <input className="searchInput" type="text" onChange={this.updateSearchInput} placeholder="From" value={this.state.from} required />

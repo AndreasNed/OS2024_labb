@@ -6,6 +6,7 @@ import logga from "./pics/projektlogga.png"
 import rome2rio from "./utils/rome2rio"
 import RouteList from "./components/RouteList/RouteList"
 
+
 const axios = require('axios');
 
 
@@ -29,7 +30,10 @@ class App extends Component {
  
 
   render() {
-    const showResults = this.state.routeData ?  <RouteList routeData={this.state.routeData}  className ="routePlaces"/> : null
+    const showResults = this.state.routeData 
+    ?  <RouteList routeData={this.state.routeData}  className ="routePlaces"/> 
+    : null
+
     return (
       <div className="App">
     
@@ -50,11 +54,9 @@ class App extends Component {
           resetList={this.resetList}
           className="onSubmit" />
 
-
           </div>
           
         {showResults}
-          
           
       </div>
         );
