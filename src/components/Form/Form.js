@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import './style.css';
+import '../style.css';
 import DatePicker from "react-datepicker";
 import rome2rio from "../../utils/rome2rio";
 
