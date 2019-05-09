@@ -1,5 +1,5 @@
 import React from 'react';
-import Route from './Route'
+import Route from '../Route'
 
 
 export default class RouteList extends React.Component {

@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
-import Form from "./components/Form"
+import Form from "./components/Form/Form"
 import Route from "./components/Route"
 import logga from "./pics/projektlogga.png"
 import rome2rio from "./utils/rome2rio"
-import RouteList from "./components/RouteList"
+import RouteList from "./components/RouteList/RouteList"
 
 const axios = require('axios');
 
