@@ -4,7 +4,8 @@ import Form from "./components/Form/Form"
 import Route from "./components/Route"
 import logga from "./pics/projektlogga.png"
 import rome2rio from "./utils/rome2rio"
-import Card from "./components/RouteList/RouteList"
+import RouteList from "./components/RouteList/RouteList"
+
 
 const axios = require('axios');
 
@@ -19,7 +20,6 @@ class App extends Component {
     this.setState(({
        routeData
     }));
-
   }
 
   resetList = () => {
@@ -30,9 +30,10 @@ class App extends Component {
  
 
   render() {
-    const showResults = (this.state.routeData 
-    ?  <Card routeData={this.state.routeData}  className ="routePlaces"/> 
-    : null)
+    const showResults = this.state.routeData 
+    ?  <RouteList routeData={this.state.routeData}  className ="routePlaces"/> 
+    : null
+
     return (
       <div className="App">
     
