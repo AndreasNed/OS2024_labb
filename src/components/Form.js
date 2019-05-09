@@ -93,14 +93,7 @@ export default class Form extends Component {
 
                         <input className="searchInput" type="text" onChange={this.updateSearchInput} placeholder="From" value={this.state.from} required />
 
-                        <ul>
-                        {this.state.suggestions
-                        .map(place => (
-                           <li>
-                               <button value={place.canonicalName} onClick={this.setSuggestion} >{place.longName}</button>
-                            </li>
-                        ))}
-                        </ul>
+                      
                         <select className="select" onChange={event => this.setState({ to: event.target.value })}>
                             <option value="Stockholm">Stockholm</option>
                             <option value="Falun">Falun</option>
