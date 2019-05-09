@@ -104,7 +104,8 @@ export default class Form extends Component {
                             onChange={this.handleDateChange}
                             dateFormat="YYYY/MM/dd"
                         />
-
+                        
+                            <div>
                         <ul className="suggestUl">
                         {this.state.suggestions
                         .filter((place) => place.canonicalName!==this.state.from) //För att inte alternativet man redan har valt ska vara det enda som finns, kan tas bort, en smaksak
@@ -114,7 +115,7 @@ export default class Form extends Component {
                             </li>
                         ))}
                         </ul>
-
+                        </div>
                         <div>
                             <button className="submitBtn">Go!</button>
                         </div>
