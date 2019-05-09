@@ -6,6 +6,7 @@ import logga from "./pics/projektlogga.png"
 import rome2rio from "./utils/rome2rio"
 import RouteList from "./components/RouteList/RouteList"
 
+
 const axios = require('axios');
 
 
@@ -53,7 +54,14 @@ class App extends Component {
         {showResults}
 
         <footer className="footerContent">
-        
+        <ul className="foot1">
+          <a href="/">Kontakt</a>
+          <a href="/">Om oss</a>
+        </ul> 
+        <ul className="foot2"> 
+          <a href="https://bit.ly/2vOZHyk">Årstavägen 19</a>
+          <a href="/">08-557 683 53</a>
+          </ul>
         </footer> 
           
           

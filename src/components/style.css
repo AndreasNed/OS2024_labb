@@ -40,12 +40,38 @@ footer {
 
 }
 
-.allRoutes {
+.footerContent {
   display: flex;
+  flex-direction: row-reverse;
+  font-size: 8pt;
+  display: grid;
+  grid-template-columns: repeat(10, 10%);
+  grid-template-rows: repeat(1, 100%);
+}
+
+.allRoutes {
+
+  display: grid;
+  grid-template-columns: repeat(1, 100%);
+  grid-template-rows: repeat(10), 100%;
   text-align: center;
 }
 
 .routeSegment {
-
+  text-align: center;
+  color: #ffcc00;
+  background-color: grey;
+  border-radius: 4px;
+  margin-top: 6px;
+  z-index: 2;
 }
 
+.routeDiv{
+  position: relative;
+  top:100px;
+padding-left: 15px;
+padding-right: 15px;
+opacity: 0.9;
+padding-left: 20%;
+padding-right: 20%;
+}

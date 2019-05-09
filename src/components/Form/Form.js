@@ -168,9 +168,7 @@ export default class Form extends Component {
                 <div className="testdiv">
                     <div className="toggler2div">
                         <button className="toggler2" onClick={this.newSearch}>
-                            <span>
-                                New Search
-                </span>
+                         <span>New search</span>           
 
                         </button>
                     </div>
