@@ -29,27 +29,26 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-    
-          <header className="ourHeader">
-          <div className ="ImageDiv">
-          <img src={logga} alt ="logga" className="projektlogga"/>
-          </div >  
-            <div className="headerList">
-              <li className ="listItems"><a href="/"className="colorChanger">sök resor </a></li>
-              <li className ="listItems"><a href="/about"className="colorChanger">läs om eventet </a></li>
-              <li className ="listItems"><a href="/contact" className="colorChanger">läs om våra orter </a></li>
-              <li className ="listItems"><a href="/contact"className="colorChanger">se rekommendationer</a></li>
+      <div>
         
-            </div>
-          </header>
+      <header>
+        <a href="/" className="navLogo"><img src={logga}/></a>
+        <a href="/" className="nav1">Sök resor</a>
+        <a href="/" className="nav2">Läs om eventet</a>
+        <a href="/" className="nav3">Läs om våra orter</a>
+        <a href="/" className="nav4">Se rekommendationer</a>
+      </header>
 
+      <main>
           <Form onSubmit={this.searchNewRoute}
           resetList={this.resetList}
           className="onSubmit" />
           <Route places={this.state.places}  className ="routePlaces"/>
+      </main>
 
-          
+      <footer>
+        Hej
+      </footer>
           
       </div>
         );
