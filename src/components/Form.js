@@ -13,9 +13,9 @@ export default class Form extends Component {
         showMe: true,
         suggestions: [],
         filterAir: false,
-        filterRail : false,
-        filterBus : false,
-        filterCar : false,
+        filterRail: false,
+        filterBus: false,
+        filterCar: false,
     };
 
     handleOnChange = (event) => {
@@ -59,7 +59,7 @@ export default class Form extends Component {
 
     handleSubmit = async (event) => {
         event.preventDefault();
-        const filters = {air: this.state.filterAir, rail: this.state.filterRail, bus: this.state.filterBus, car: this.state.filterCar}
+        const filters = { air: this.state.filterAir, rail: this.state.filterRail, bus: this.state.filterBus, car: this.state.filterCar }
         this.props.onSubmit(this.state.from, this.state.to, filters);
         console.log(this.state.from);
         console.log(this.state.to);
@@ -93,7 +93,7 @@ export default class Form extends Component {
 
                         <input className="searchInput" type="text" onChange={this.updateSearchInput} placeholder="From" value={this.state.from} required />
 
-                      
+
                         <select className="select" onChange={event => this.setState({ to: event.target.value })}>
                             <option value="Stockholm">Stockholm</option>
                             <option value="Falun">Falun</option>
@@ -104,6 +104,7 @@ export default class Form extends Component {
                             onChange={this.handleDateChange}
                             dateFormat="YYYY/MM/dd"
                         />
+
                         <ul className="suggestUl">
                         {this.state.suggestions
                         .filter((place) => place.canonicalName!==this.state.from) //För att inte alternativet man redan har valt ska vara det enda som finns, kan tas bort, en smaksak
@@ -113,10 +114,12 @@ export default class Form extends Component {
                             </li>
                         ))}
                         </ul>
+
                         <div>
-                        <button className="submitBtn">Go!</button>
+                            <button className="submitBtn">Go!</button>
                         </div>
                     </form>
+
 
                     <div className="checkboxes">        
                     <form>
@@ -128,54 +131,54 @@ export default class Form extends Component {
                                 onChange={this.handleOnChange} />
                                 Filter flight 
                             </label>
-                        </div>
+                            </div>
 
-                        <div className="checkbox1">
-                            <label>
-                                <input type="checkbox"
-                                value={this.state.filterRail} 
-                                name="filterRail"
-                                onChange={this.handleOnChange} />
-                                Filter trains
+                            <div className="checkbox1">
+                                <label>
+                                    <input type="checkbox"
+                                        value={this.state.filterRail}
+                                        name="filterRail"
+                                        onChange={this.handleOnChange} />
+                                    Filter trains
                             </label>
-                        </div>
+                            </div>
 
-                        <div className="checkbox1">
-                            <label>
-                                <input type="checkbox"
-                                value={this.state.filterBus} 
-                                name="filterBus"
-                                onChange={this.handleOnChange} />
-                                Filter bus 
+                            <div className="checkbox1">
+                                <label>
+                                    <input type="checkbox"
+                                        value={this.state.filterBus}
+                                        name="filterBus"
+                                        onChange={this.handleOnChange} />
+                                    Filter bus
                             </label>
-                        </div>
+                            </div>
 
-                        <div className="checkbox1">
-                            <label>
-                                <input type="checkbox"
-                                value={this.state.filterCar} 
-                                name="filterCar"
-                                onChange={this.handleOnChange} />
-                                Filter car 
+                            <div className="checkbox1">
+                                <label>
+                                    <input type="checkbox"
+                                        value={this.state.filterCar}
+                                        name="filterCar"
+                                        onChange={this.handleOnChange} />
+                                    Filter car
                             </label>
-                        </div>
-                    </form>
+                            </div>
+                        </form>
+
                     </div>
                 </div>
 
-                : 
-                   <div className="testdiv">
-                  <div className="toggler2div">
-                    <button className="toggler2" onClick={this.newSearch}>
-                        <span>
-                            New Search
+                :
+                <div className="testdiv">
+                    <div className="toggler2div">
+                        <button className="toggler2" onClick={this.newSearch}>
+                            <span>
+                                New Search
                 </span>
 
-                    </button>
-                </div>
+                        </button>
+                    </div>
                 </div>
 
         );
     }
 }
-    
