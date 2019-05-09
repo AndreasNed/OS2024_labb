@@ -104,71 +104,98 @@ export default class Form extends Component {
                             onChange={this.handleDateChange}
                             dateFormat="YYYY/MM/dd"
                         />
-                        
-                            <div>
-                        <ul className="suggestUl">
-                        {this.state.suggestions
-                        .map(place => (
-                           <li className= "suggestLi">
-                               <button className="liButtons" value={place.canonicalName} onClick={this.setSuggestion} >{place.longName}</button>
-                            </li>
-                        ))}
-                        </ul>
+
+                        <div>
+                            <ul className="suggestUl">
+                                {this.state.suggestions
+                                    .map(place => (
+                                        <li className="suggestLi">
+                                            <button className="liButtons" value={place.canonicalName} onClick={this.setSuggestion} >{place.longName}</button>
+                                        </li>
+                                    ))}
+                            </ul>
                         </div>
                         <div>
                             <button className="submitBtn">Go!</button>
                         </div>
 
-                        <div className="checkboxes">        
+
+                        <div className="checkboxes">
+
+
+
+
                             <div className="checkbox1">
-                                <label>
+                            <div>don't allow air travel</div>
+                                <label className="switch">
                                     <input type="checkbox"
-                                    value={this.state.filterAir} 
-                                    name="filterAir"
-                                    onChange={this.handleOnChange} />
-                                    Filter flight 
-                                </label>
+                                        value={this.state.filterAir}
+                                        name="filterAir"
+                                        onChange={this.handleOnChange}
+                                    />
+                                    <span class="slider round"></span>
+                                    z<br></br>
+                              
+                                  
+                            </label>
+                            </div>
+                            <div className="checkbox1">
+                            <div>  don't allow trains</div>
+                                <label className="switch">
+                                    <input type="checkbox"
+                                        value={this.state.filterRail}
+                                        name="filterAir"
+                                        onChange={this.handleOnChange}
+                                    />
+                                    <span class="slider round"></span>
+                                    <br></br>
+                                
+                               
+                            </label>
                             </div>
 
                             <div className="checkbox1">
-                                <label>
+                            <div> don't allow bus</div>
+                                <label className="switch">
                                     <input type="checkbox"
-                                    value={this.state.filterRail} 
-                                    name="filterRail"
-                                    onChange={this.handleOnChange} />
-                                    Filter trains
-                                </label>
+                                        value={this.state.filterBus}
+                                        name="filterAir"
+                                        onChange={this.handleOnChange}
+                                    />
+                                    <span class="slider round"></span>
+                                    <br></br>
+                                  
+                                   
+                             </label>
+                            </div>
+                            <div className="checkbox1">
+                            <div>don't allow car</div>
+                                <label className="switch">
+                                    <input type="checkbox"
+                                        value={this.state.filterCar}
+                                        name="filterAir"
+                                        onChange={this.handleOnChange}
+                                    />
+                                    <span class="slider round"></span>
+                                    <br></br>
+                               
+                                    
+                          </label>
                             </div>
 
-                            <div className="checkbox1">
-                                <label>
-                                    <input type="checkbox"
-                                    value={this.state.filterBus} 
-                                    name="filterBus"
-                                    onChange={this.handleOnChange} />
-                                    Filter bus 
-                                </label>
                             </div>
 
-                            <div className="checkbox1">
-                                <label>
-                                    <input type="checkbox"
-                                    value={this.state.filterCar} 
-                                    name="filterCar"
-                                    onChange={this.handleOnChange} />
-                                    Filter car 
-                                </label>
-                            </div>
-                        </div>
+
+                  
 
                     </form>
-                </div>
+                </div >
 
                 :
                 <div className="testdiv">
                     <div className="toggler2div">
                         <button className="toggler2" onClick={this.newSearch}>
-                         <span>New search</span>           
+                            <span>New search</span>
 
                         </button>
                     </div>
