@@ -137,6 +137,7 @@ color: #ffcc00;
   border-style: none;
   color: #ffcc00;
   background-color: #006699;
+  margin-top: 5%;
 }
 
 .checkboxes {
@@ -161,7 +162,6 @@ ul {
   margin-bottom: 5%;
   padding-left: 3%;
   padding-right: 3%;
-  margin-top: 3%;
   
   
 }
