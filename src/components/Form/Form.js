@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import './style.css';
+import '../style.css';
 import DatePicker from "react-datepicker";
-import rome2rio from "../utils/rome2rio";
+import rome2rio from "../../utils/rome2rio";
 
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -88,7 +88,7 @@ export default class Form extends Component {
         return (
 
             this.state.showMe ?
-                <div>
+                <div data-test="mainDiv">
                     <form onSubmit={this.handleSubmit}>
 
                         <input className="searchInput" type="text" onChange={this.updateSearchInput} placeholder="From" value={this.state.from} required />
@@ -106,7 +106,6 @@ export default class Form extends Component {
                         />
                         <ul className="suggestUl">
                         {this.state.suggestions
-                        .filter((place) => place.canonicalName!==this.state.from) //För att inte alternativet man redan har valt ska vara det enda som finns, kan tas bort, en smaksak
                         .map(place => (
                            <li className= "suggestLi">
                                <button className="liButtons" value={place.canonicalName} onClick={this.setSuggestion} >{place.longName}</button>

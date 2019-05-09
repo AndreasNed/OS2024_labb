@@ -33,12 +33,12 @@ class Card extends React.Component {
                     )) : "Not available"}</div>
                 </div>
             ))}</div>)
-            : <div>Sorry, there's no transports for that journy</div>
+            : <div>Sorry, there's no transports for that journey</div>
         
 
         return (
             <div>
-                <div className="info">
+                <div className="info" data-test="info">
                     <div>From: {data.places[0].longName}</div>
                     <div>To: {data.places[1].longName}</div>
 
