@@ -252,6 +252,7 @@ margin-bottom: 2%;
 
 
 
+
 ul {
   list-style-type: none;
 }
@@ -285,6 +286,11 @@ ul {
   margin-top: 3%;
   min-width: 100%;
   min-height: 100%;
+}
+
+.liButtons:hover, .submitBtn:hover {
+  background-color: #0086B9;
+  cursor: pointer;
 }
 
 .suggestLi{
