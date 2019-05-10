@@ -5,10 +5,6 @@ import logga from "./pics/projektlogga.png"
 import rome2rio from "./utils/rome2rio"
 import RouteList from "./components/RouteList/RouteList"
 
-
-
-
-
 class App extends Component {
   state = {
     routeData: null
@@ -26,7 +22,6 @@ class App extends Component {
       routeData : null
     })
   }
- 
 
   render() {
     const showResults = this.state.routeData 

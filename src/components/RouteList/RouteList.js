@@ -57,7 +57,6 @@ export default class RouteList extends React.Component {
                 activeSort = this.segmentsSort;
                 break;
             default:
-
         }
 
         const sortedRoutes = [...data.routes].sort(activeSort);
@@ -69,7 +68,6 @@ export default class RouteList extends React.Component {
                         <div>From: {data.places[0].longName}</div>
                         <div>To: {data.places[1].longName}</div>
                     </div>
-
 
                     <select className="select2" onChange={event => this.setState({ sortFunction: event.target.value })}>
                         <option value="duration">Sort by Duration</option>
@@ -83,7 +81,6 @@ export default class RouteList extends React.Component {
                             <Route {...element} />
                         )}</div>)
                         : <div>Sorry, there are no transports for that journey</div>}
-
 
                 </div>
             </div>
