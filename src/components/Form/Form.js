@@ -79,6 +79,12 @@ export default class Form extends Component {
     }
 
     newSearch = () => {
+        this.setState({
+            filterAir : false,
+            filterBus : false,
+            filterCar : false,
+            filterRail : false
+        })
         this.props.resetList();
         this.toggler();
     }
