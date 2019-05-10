@@ -95,6 +95,7 @@ color: #ffcc00;
 .toggler2div{
   margin-top: 30px;
   position: fixed;
+  z-index: 2;
 }
 
 
