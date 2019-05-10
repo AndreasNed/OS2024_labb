@@ -5,10 +5,6 @@ import logga from "./pics/projektlogga.png"
 import rome2rio from "./utils/rome2rio"
 import RouteList from "./components/RouteList/RouteList"
 
-
-
-
-
 class App extends Component {
   state = {
     routeData: null
@@ -26,10 +22,12 @@ class App extends Component {
       routeData : null
     })
   }
- 
 
   render() {
-    const showResults = this.state.routeData ?  <RouteList routeData={this.state.routeData}  className ="routePlaces"/> : null
+    const showResults = this.state.routeData 
+    ?  <RouteList routeData={this.state.routeData}  className ="routePlaces"/> 
+    : null
+
     return (
       <div className="App">
     
@@ -62,7 +60,6 @@ class App extends Component {
           <a href="/">08-557 683 53</a>
           </ul>
         </footer> 
-          
           
       </div>
         );

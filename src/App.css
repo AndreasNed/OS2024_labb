@@ -54,7 +54,6 @@ color: #ffcc00;
 
 }
 
-
 .toggler2 {
   background-color: #006699;
   color: #ffcc00;
@@ -97,8 +96,6 @@ color: #ffcc00;
   position: fixed;
   z-index: 2;
 }
-
-
 
 .searchInput {
   position: relative;
@@ -146,9 +143,6 @@ color: #ffcc00;
   color: #ffcc00;
   background-color: #006699;
 }
-
-
-
 
 .switch {
   position: relative;
@@ -231,32 +225,9 @@ margin-bottom: 2%;
 
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ul {
   list-style-type: none;
 }
-
 
 .suggestUl{ 
   justify-content: center;
@@ -270,8 +241,6 @@ ul {
   padding-left: 3%;
   padding-right: 3%;
   margin-top: 3%;
-  
-  
 }
 
 .liButtons{

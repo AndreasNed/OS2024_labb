@@ -88,7 +88,8 @@ export default class Form extends Component {
         return (
 
             this.state.showMe ?
-                <div>
+
+                <div data-test="mainDiv">
                     <form onSubmit={this.handleSubmit}>
 
                         <input className="searchInput" type="text" onChange={this.updateSearchInput} placeholder="From" value={this.state.from} required />
@@ -119,10 +120,8 @@ export default class Form extends Component {
                             <button className="submitBtn">Go!</button>
                         </div>
 
-
                         <div className="checkboxes">
                             <div className="flexiboi">
-
 
                                 <div className="checkbox1">
                                     <div className="optText">don't allow planes</div>
@@ -133,8 +132,7 @@ export default class Form extends Component {
                                             onChange={this.handleOnChange}
                                         />
                                         <span class="slider round"></span>
-                                        z<br></br>
-
+                                        <br></br>
 
                                     </label>
                                 </div>
@@ -143,12 +141,11 @@ export default class Form extends Component {
                                     <label className="switch">
                                         <input type="checkbox"
                                             value={this.state.filterRail}
-                                            name="filterAir"
+                                            name="filterRail"
                                             onChange={this.handleOnChange}
                                         />
                                         <span class="slider round"></span>
                                         <br></br>
-
 
                                     </label>
                                 </div>
@@ -158,12 +155,11 @@ export default class Form extends Component {
                                     <label className="switch">
                                         <input type="checkbox"
                                             value={this.state.filterBus}
-                                            name="filterAir"
+                                            name="filterBus"
                                             onChange={this.handleOnChange}
                                         />
                                         <span class="slider round"></span>
                                         <br></br>
-
 
                                     </label>
                                 </div>
@@ -172,20 +168,16 @@ export default class Form extends Component {
                                     <label className="switch">
                                         <input type="checkbox"
                                             value={this.state.filterCar}
-                                            name="filterAir"
+                                            name="filterCar"
                                             onChange={this.handleOnChange}
                                         />
                                         <span class="slider round"></span>
                                         <br></br>
 
-
                                     </label>
                                 </div>
                             </div>
                         </div>
-
-
-
 
                     </form>
                 </div >
