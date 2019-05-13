@@ -94,12 +94,9 @@ export default class Form extends Component {
         return (
 
             this.state.showMe ?
-
                 <div data-test="mainDiv">
                     <form onSubmit={this.handleSubmit}>
-
                         <input className="searchInput" type="text" onChange={this.updateSearchInput} placeholder="From" value={this.state.from} required />
-
 
                         <select className="select" onChange={event => this.setState({ to: event.target.value })}>
                             <option value="Stockholm">Stockholm</option>
