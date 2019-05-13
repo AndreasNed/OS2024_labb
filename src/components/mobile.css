@@ -1,7 +1,93 @@
-@media only screen and (max-width: 414px) {
+@media only screen and (max-width: 630px) {
 
-    header {
-            background-color: #ffffff
-        }
+
+    nav {
+        height: 85px;
+        display: block;
+        background-color: #006699;
+    }
+
+
+    .form{
+        display: block;
 
     }
+
+    .searchInput{
+        display: block;
+        margin:0 auto;
+        width: 50%;
+        margin-bottom: 1%;
+
+    }
+
+    .select{
+        display: block;
+        margin:0 auto;
+        width: 22%;
+        margin-bottom: 1%;
+
+    }
+
+    .submitBtn {
+        bottom: 25%;
+    }
+
+
+    body {
+        background-image: url(../pics/background4.jpg);
+        background-attachment: fixed;
+        background-repeat: repeat-x;
+        background-size: 200%;
+        background-color: #ffcc00;
+    }
+
+    .footerContent {
+        /* display: flex; */
+        /* flex-direction: row-reverse; */
+        /* font-size: 8pt; */
+        /* display: grid; */
+        grid-template-columns: max-content;
+        /* grid-template-rows: repeat(1, 100%); */
+    }
+
+    .slider {
+        top: 12px;
+    }
+
+    .switch {
+        width: 33px;
+        height: 33px;
+    }
+
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 10px;
+        width: 10px;
+        left: 4px;
+        bottom: 5px;
+        background-color: white;
+        transition: .4s;
+    }
+    .slider::after {
+        left: 1px;
+    }
+    
+    .optText {
+        margin-left: 5%;
+        margin-bottom: 2%;
+        font-size: 12px;
+    }
+
+
+    .main{
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .flexiboi {
+        top: 85px;
+    }
+
+}
+
