@@ -1,5 +1,7 @@
 import React, {Component} from "react";
+import "./tablet.css";
 import './style.css';
+
 
 export default class Myheader extends Component {
   render() {

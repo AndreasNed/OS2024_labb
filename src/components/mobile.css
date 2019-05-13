@@ -1,8 +1,7 @@
-@media only screen and (max-width: 576px){
+@media only screen and (max-width: 414px) {
 
-    nav {
-        display: block;
+    header {
+            background-color: #ffffff
+        }
+
     }
-
-
-}

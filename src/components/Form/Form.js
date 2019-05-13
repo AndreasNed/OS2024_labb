@@ -5,6 +5,9 @@ import rome2rio from "../../utils/rome2rio";
 
 import "react-datepicker/dist/react-datepicker.css";
 
+import "../tablet.css";
+import "../mobile.css";
+
 export default class Form extends Component {
     state = {
         from: "",

@@ -5,6 +5,8 @@ import logga from "./pics/projektlogga.png"
 import rome2rio from "./utils/rome2rio"
 import RouteList from "./components/RouteList/RouteList"
 
+import "./components/tablet.css"
+
 class App extends Component {
   state = {
     routeData: null

@@ -1,0 +1,21 @@
+@media only screen and (max-width: 1024px){
+
+
+    header{
+        display: grid;
+        grid-template-columns: repeat(5, 20%);
+        grid-template-rows: repeat(1, 100%);
+        background-color: red;
+      }
+
+      .footerContent{
+        display: flex;
+        /* flex-direction: row-reverse; */
+        font-size: 8pt;
+        display: grid;
+        /* grid-template-columns: max-content; */
+        grid-template-rows: repeat(1, 100%);
+      }
+}
+
+
