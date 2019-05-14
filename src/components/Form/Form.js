@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import '../style.css';
 import DatePicker from "react-datepicker";
 import rome2rio from "../../utils/rome2rio";
+import Filters from "../Filters"
 
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -123,67 +124,10 @@ export default class Form extends Component {
                             <button className="submitBtn">Go!</button>
                         </div>
 
-                        <div className="checkboxes">
-                            <div className="flexiboi">
-
-                                <div className="checkbox1">
-                                    <div className="optText">don't allow planes</div>
-                                    <label className="switch">
-                                        <input type="checkbox"
-                                            value={this.state.filterAir}
-                                            name="filterAir"
-                                            onChange={this.handleOnChange}
-                                        />
-                                        <span class="slider round"></span>
-                                        <br></br>
-
-                                    </label>
-                                </div>
-                                <div className="checkbox1">
-                                    <div className="optText">  don't allow trains</div>
-                                    <label className="switch">
-                                        <input type="checkbox"
-                                            value={this.state.filterRail}
-                                            name="filterRail"
-                                            onChange={this.handleOnChange}
-                                        />
-                                        <span class="slider round"></span>
-                                        <br></br>
-
-                                    </label>
-                                </div>
-
-                                <div className="checkbox1">
-                                    <div className="optText"> don't allow bus</div>
-                                    <label className="switch">
-                                        <input type="checkbox"
-                                            value={this.state.filterBus}
-                                            name="filterBus"
-                                            onChange={this.handleOnChange}
-                                        />
-                                        <span class="slider round"></span>
-                                        <br></br>
-
-                                    </label>
-                                </div>
-                                <div className="checkbox1">
-                                    <div className="optText">don't allow car</div>
-                                    <label className="switch">
-                                        <input type="checkbox"
-                                            value={this.state.filterCar}
-                                            name="filterCar"
-                                            onChange={this.handleOnChange}
-                                        />
-                                        <span class="slider round"></span>
-                                        <br></br>
-
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
+                        {this.props.filterButtons}
 
                     </form>
-                </div >
+                </div>
 
                 :
                 <div className="testdiv">

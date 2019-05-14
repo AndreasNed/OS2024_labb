@@ -35,7 +35,20 @@ export default class RouteList extends React.Component {
 
     constructor(props) {
         super();
-        this.state = { sortFunction: "duration" };
+        this.state = { 
+            sortFunction: "duration",
+            filterAir : false,
+            filterBus : false,
+            filterCar : false,
+            filterRail : false
+         };
+    }
+
+    handleOnChange = (event) => {
+        const { name, checked } = event.target;
+        this.setState({
+            [name]: checked
+        })
     }
 
     render(props) {
@@ -70,6 +83,8 @@ export default class RouteList extends React.Component {
                         <div>To: {data.places[1].longName}</div>
                     </div>
 
+                    {this.props.filterButtons}
+
                     <select className="select2" onChange={event => this.setState({ sortFunction: event.target.value })}>
                         <option value="duration">Sort by Duration</option>
                         <option value="price">Sort by Price</option>
@@ -78,7 +93,9 @@ export default class RouteList extends React.Component {
                     </select>
 
                     {data.routes.length ?
-                        (<div className="routeDiv">All transports: {sortedRoutes.map(element =>
+                        (<div className="routeDiv">All transports: {sortedRoutes
+                            //filter(this.state.filterAir ? element => element)
+                            .map(element =>
                             <Route {...element} />
                         )}</div>)
                         : <div>Sorry, there are no transports for that journey</div>}
