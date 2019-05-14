@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import '../style.css';
 import DatePicker from "react-datepicker";
 import rome2rio from "../../utils/rome2rio";
+import Filters from "../Filters"
 
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -15,10 +16,6 @@ export default class Form extends Component {
         date: new Date(),
         showMe: true,
         suggestions: [],
-        filterAir: false,
-        filterRail: false,
-        filterBus: false,
-        filterCar: false,
     };
 
     handleOnChange = (event) => {
@@ -82,24 +79,25 @@ export default class Form extends Component {
     }
 
     newSearch = () => {
-        this.setState({
-            filterAir : false,
-            filterBus : false,
-            filterCar : false,
-            filterRail : false
-        })
         this.props.resetList();
         this.toggler();
     }
 
     render() {
-
         return (
-
+            
             this.state.showMe ?
                 <div data-test="mainDiv">
                     <form onSubmit={this.handleSubmit}>
-                        <input className="searchInput" type="text" onChange={this.updateSearchInput} placeholder="From" value={this.state.from} required />
+                        <input className="searchInput" list="data" type="text" onChange={this.updateSearchInput} placeholder="From" value={this.state.from} required />
+                        <datalist id="data">
+                            {
+                                this.state.suggestions
+                                .map((place, key) =>
+                                    <option key={key} value={place.longName} />
+                                )
+                            }
+                        </datalist>
 
                         <select className="select" onChange={event => this.setState({ to: event.target.value })}>
                             <option value="Stockholm">Stockholm</option>
@@ -111,82 +109,14 @@ export default class Form extends Component {
                             onChange={this.handleDateChange}
                             dateFormat="YYYY/MM/dd"
                         />
-
-                        <div>
-                            <ul className="suggestUl">
-                                {this.state.suggestions
-                                    .map(place => (
-                                        <li className="suggestLi">
-                                            <button className="liButtons" value={place.canonicalName} onClick={this.setSuggestion} >{place.longName}</button>
-                                        </li>
-                                    ))}
-                            </ul>
-                        </div>
                         <div>
                             <button className="submitBtn">Go!</button>
                         </div>
 
-                        <div className="checkboxes">
-                            <div className="flexiboi">
-
-                                <div className="checkbox1">
-                                    <div className="optText">don't allow planes</div>
-                                    <label className="switch">
-                                        <input type="checkbox"
-                                            value={this.state.filterAir}
-                                            name="filterAir"
-                                            onChange={this.handleOnChange}
-                                        />
-                                        <span class="slider round"></span>
-                                        <br></br>
-
-                                    </label>
-                                </div>
-                                <div className="checkbox1">
-                                    <div className="optText">  don't allow trains</div>
-                                    <label className="switch">
-                                        <input type="checkbox"
-                                            value={this.state.filterRail}
-                                            name="filterRail"
-                                            onChange={this.handleOnChange}
-                                        />
-                                        <span class="slider round"></span>
-                                        <br></br>
-
-                                    </label>
-                                </div>
-
-                                <div className="checkbox1">
-                                    <div className="optText"> don't allow bus</div>
-                                    <label className="switch">
-                                        <input type="checkbox"
-                                            value={this.state.filterBus}
-                                            name="filterBus"
-                                            onChange={this.handleOnChange}
-                                        />
-                                        <span class="slider round"></span>
-                                        <br></br>
-
-                                    </label>
-                                </div>
-                                <div className="checkbox1">
-                                    <div className="optText">don't allow car</div>
-                                    <label className="switch">
-                                        <input type="checkbox"
-                                            value={this.state.filterCar}
-                                            name="filterCar"
-                                            onChange={this.handleOnChange}
-                                        />
-                                        <span class="slider round"></span>
-                                        <br></br>
-
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
+                        {this.props.filterButtons}
 
                     </form>
-                </div >
+                </div>
 
                 :
                 <div className="testdiv">
