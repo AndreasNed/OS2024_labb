@@ -85,9 +85,11 @@ class App extends Component {
     return (
       <div className="App">
     
-        <header>
-          <a href="/" className="navLogo"><img src={logga} alt="2sweden logo"/></a>
-        </header>
+    <header>
+          <div className="navLogo">
+          <a href="/"><img src={logga} alt="2sweden logo"/></a>
+          </div>
+    </header>
 
         <nav>
           <a href="/" className="nav1">Sök resor</a>
