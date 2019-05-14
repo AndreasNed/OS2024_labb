@@ -13,10 +13,6 @@ export default class Form extends Component {
         date: new Date(),
         showMe: true,
         suggestions: [],
-        filterAir: false,
-        filterRail: false,
-        filterBus: false,
-        filterCar: false,
     };
 
     handleOnChange = (event) => {
@@ -80,24 +76,25 @@ export default class Form extends Component {
     }
 
     newSearch = () => {
-        this.setState({
-            filterAir : false,
-            filterBus : false,
-            filterCar : false,
-            filterRail : false
-        })
         this.props.resetList();
         this.toggler();
     }
 
     render() {
-
         return (
-
+            
             this.state.showMe ?
                 <div data-test="mainDiv">
                     <form onSubmit={this.handleSubmit}>
-                        <input className="searchInput" type="text" onChange={this.updateSearchInput} placeholder="From" value={this.state.from} required />
+                        <input className="searchInput" list="data" type="text" onChange={this.updateSearchInput} placeholder="From" value={this.state.from} required />
+                        <datalist id="data">
+                            {
+                                this.state.suggestions
+                                .map((place, key) =>
+                                    <option key={key} value={place.longName} />
+                                )
+                            }
+                        </datalist>
 
                         <select className="select" onChange={event => this.setState({ to: event.target.value })}>
                             <option value="Stockholm">Stockholm</option>
@@ -109,17 +106,6 @@ export default class Form extends Component {
                             onChange={this.handleDateChange}
                             dateFormat="YYYY/MM/dd"
                         />
-
-                        <div>
-                            <ul className="suggestUl">
-                                {this.state.suggestions
-                                    .map(place => (
-                                        <li className="suggestLi">
-                                            <button className="liButtons" value={place.canonicalName} onClick={this.setSuggestion} >{place.longName}</button>
-                                        </li>
-                                    ))}
-                            </ul>
-                        </div>
                         <div>
                             <button className="submitBtn">Go!</button>
                         </div>

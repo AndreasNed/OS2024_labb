@@ -37,10 +37,6 @@ export default class RouteList extends React.Component {
         super();
         this.state = { 
             sortFunction: "duration",
-            filterAir : false,
-            filterBus : false,
-            filterCar : false,
-            filterRail : false
          };
     }
 
@@ -94,7 +90,6 @@ export default class RouteList extends React.Component {
 
                     {data.routes.length ?
                         (<div className="routeDiv">All transports: {sortedRoutes
-                            //filter(this.state.filterAir ? element => element)
                             .map(element =>
                             <Route {...element} />
                         )}</div>)
