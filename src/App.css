@@ -295,3 +295,7 @@ p {
     text-align: center;
   margin: 5px;
   }
+
+  .languages {
+    z-index: 999;
+  }

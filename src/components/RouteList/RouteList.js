@@ -1,6 +1,6 @@
 import React from 'react';
 import Route from '../Route'
-
+import { Trans } from "@lingui/macro"
 
 export default class RouteList extends React.Component {
 
@@ -73,6 +73,7 @@ export default class RouteList extends React.Component {
 
         return (
             <div>
+                <Trans>
                 <div className="infoDiv">
                     <div className="info">
                         <div>From: {data.places[0].longName}</div>
@@ -96,6 +97,7 @@ export default class RouteList extends React.Component {
                         : <div>Sorry, there are no transports for that journey</div>}
 
                 </div>
+                </Trans>
             </div>
         )
     }

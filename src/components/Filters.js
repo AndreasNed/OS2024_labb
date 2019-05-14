@@ -1,4 +1,5 @@
 import React from 'react'
+import { Trans } from "@lingui/macro"
 
 
 export default class Filters extends React.Component{
@@ -17,7 +18,7 @@ export default class Filters extends React.Component{
                             <div className="flexiboi">
 
                                 <div className="checkbox1">
-                                    <div className="optText">don't allow planes</div>
+                                    <div className="optText"><Trans>don't allow planes</Trans></div>
                                     <label className="switch">
                                         <input type="checkbox"
                                             name="filterAir"
@@ -30,7 +31,7 @@ export default class Filters extends React.Component{
                                     </label>
                                 </div>
                                 <div className="checkbox1">
-                                    <div className="optText">  don't allow trains</div>
+                                    <div className="optText"><Trans>don't allow trains</Trans></div>
                                     <label className="switch">
                                         <input type="checkbox"
                                             name="filterRail"
@@ -44,7 +45,7 @@ export default class Filters extends React.Component{
                                 </div>
 
                                 <div className="checkbox1">
-                                    <div className="optText"> don't allow bus</div>
+                                    <div className="optText"><Trans>don't allow bus</Trans></div>
                                     <label className="switch">
                                         <input type="checkbox"
                                             name="filterBus"
@@ -57,7 +58,7 @@ export default class Filters extends React.Component{
                                     </label>
                                 </div>
                                 <div className="checkbox1">
-                                    <div className="optText">don't allow car</div>
+                                    <div className="optText"><Trans>don't allow car</Trans></div>
                                     <label className="switch">
                                         <input type="checkbox"
                                             name="filterCar"

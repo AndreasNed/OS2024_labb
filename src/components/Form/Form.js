@@ -3,6 +3,7 @@ import '../style.css';
 import DatePicker from "react-datepicker";
 import rome2rio from "../../utils/rome2rio";
 import Filters from "../Filters"
+import { Trans } from "@lingui/macro"
 
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -119,7 +120,7 @@ export default class Form extends Component {
                 <div className="testdiv">
                     <div className="toggler2div">
                         <button className="toggler2" onClick={this.newSearch}>
-                            <span>New search</span>
+                            <span><Trans>New search</Trans></span>
 
                         </button>
                     </div>
