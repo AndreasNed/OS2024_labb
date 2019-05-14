@@ -6,6 +6,8 @@ import rome2rio from "./utils/rome2rio"
 import RouteList from "./components/RouteList/RouteList"
 import Filters from "./components/Filters"
 
+import "./components/tablet.css"
+
 class App extends Component {
   state = {
     routeData : null,

@@ -6,6 +6,9 @@ import Filters from "../Filters"
 
 import "react-datepicker/dist/react-datepicker.css";
 
+import "../tablet.css";
+import "../mobile.css";
+
 export default class Form extends Component {
     state = {
         from: "",
