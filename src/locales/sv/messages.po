@@ -29,6 +29,22 @@ msgstr "<0>Sök resa</0><1>Läs mer om eventet</1><2>Läs mer om orterna</2><3>S
 msgid "Distance:"
 msgstr "Distans:"
 
+#: src/components/Filters.js:48
+msgid "Don't show bus"
+msgstr "Visa inte bussar"
+
+#: src/components/Filters.js:61
+msgid "Don't show car"
+msgstr "Visa inte bilfärd"
+
+#: src/components/Filters.js:21
+msgid "Don't show flights"
+msgstr "Visa inte flyg"
+
+#: src/components/Filters.js:34
+msgid "Don't show trains"
+msgstr "Visa inte tåg"
+
 #: src/components/Form/Form.js:123
 msgid "New search"
 msgstr "Ny sökning"
@@ -44,19 +60,3 @@ msgstr "Total restid:"
 #: src/components/Route.js:23
 msgid "Transport type:"
 msgstr "Färdsätt:"
-
-#: src/components/Filters.js:48
-msgid "don't allow bus"
-msgstr "visa inte bussar"
-
-#: src/components/Filters.js:61
-msgid "don't allow car"
-msgstr "visa inte bil"
-
-#: src/components/Filters.js:21
-msgid "don't allow planes"
-msgstr "visa inte flyg"
-
-#: src/components/Filters.js:34
-msgid "don't allow trains"
-msgstr "visa inte tåg"

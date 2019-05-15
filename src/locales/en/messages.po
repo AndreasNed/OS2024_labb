@@ -29,6 +29,22 @@ msgstr "<0>Travel</0><1>Read about the event</1><2>Read about the cities</2><3>S
 msgid "Distance:"
 msgstr "Distance:"
 
+#: src/components/Filters.js:48
+msgid "Don't show bus"
+msgstr "Don't show bus"
+
+#: src/components/Filters.js:61
+msgid "Don't show car"
+msgstr "Don't show car"
+
+#: src/components/Filters.js:21
+msgid "Don't show flights"
+msgstr "Don't show flights"
+
+#: src/components/Filters.js:34
+msgid "Don't show trains"
+msgstr "Don't show trains"
+
 #: src/components/Form/Form.js:123
 msgid "New search"
 msgstr "New search"
@@ -44,19 +60,3 @@ msgstr "Total Duration:"
 #: src/components/Route.js:23
 msgid "Transport type:"
 msgstr "Transport type:"
-
-#: src/components/Filters.js:48
-msgid "don't allow bus"
-msgstr "don't allow bus"
-
-#: src/components/Filters.js:61
-msgid "don't allow car"
-msgstr "don't allow car"
-
-#: src/components/Filters.js:21
-msgid "don't allow planes"
-msgstr "don't allow planes"
-
-#: src/components/Filters.js:34
-msgid "don't allow trains"
-msgstr "don't allow trains"

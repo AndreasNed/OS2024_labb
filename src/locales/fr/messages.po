@@ -15,48 +15,48 @@ msgstr ""
 
 #: src/components/RouteList/RouteList.js:76
 msgid "<0><1><2>From: {0}</2><3>To: {1}</3></1>{2}<4><5>Sort by Duration</5><6>Sort by Price</6><7>Sort by distance</7><8>Sort by segments</8></4>{3}</0>"
-msgstr ""
+msgstr "<0><1><2>De: {0}</2><3>Á: {1}</3></1>{2}<4><5>Trier par durée</5><6>Trier par prix</6><7>Trier par distance</7><8>Trier par segments</8></4>{3}</0>"
 
 #: src/App.js:164
 msgid "<0>Contact</0><1>About us</1>"
-msgstr ""
+msgstr "<0>Contact</0><1>À propos de nous</1>"
 
 #: src/App.js:145
 msgid "<0>Travel</0><1>Read about the event</1><2>Read about the cities</2><3>See recommendations</3>"
-msgstr ""
+msgstr "<0>Rechercher un voyage</0><1>Lire à propos de l'événement</1><2>Lire sur les villes</2><3>Voir les recommandations</3>"
 
 #: src/components/Route.js:24
 msgid "Distance:"
-msgstr ""
+msgstr "Distance:"
+
+#: src/components/Filters.js:48
+msgid "Don't show bus"
+msgstr "Ne montre pas les bus"
+
+#: src/components/Filters.js:61
+msgid "Don't show car"
+msgstr "Ne montre pas les voitures"
+
+#: src/components/Filters.js:21
+msgid "Don't show flights"
+msgstr "Ne montre pas les vols"
+
+#: src/components/Filters.js:34
+msgid "Don't show trains"
+msgstr "Ne montre pas les trains"
 
 #: src/components/Form/Form.js:123
 msgid "New search"
-msgstr ""
+msgstr "Nouvelle recherche"
 
 #: src/components/Route.js:26
 msgid "Price:"
-msgstr ""
+msgstr "Prix:"
 
 #: src/components/Route.js:25
 msgid "Total Duration:"
-msgstr ""
+msgstr "Durée totale:"
 
 #: src/components/Route.js:23
 msgid "Transport type:"
-msgstr ""
-
-#: src/components/Filters.js:48
-msgid "don't allow bus"
-msgstr ""
-
-#: src/components/Filters.js:61
-msgid "don't allow car"
-msgstr ""
-
-#: src/components/Filters.js:21
-msgid "don't allow planes"
-msgstr ""
-
-#: src/components/Filters.js:34
-msgid "don't allow trains"
-msgstr ""
+msgstr "Type de transport:"

@@ -18,7 +18,7 @@ export default class Filters extends React.Component{
                             <div className="flexiboi">
 
                                 <div className="checkbox1">
-                                    <div className="optText"><Trans>don't allow planes</Trans></div>
+                                    <div className="optText"><Trans>Don't show flights</Trans></div>
                                     <label className="switch">
                                         <input type="checkbox"
                                             name="filterAir"
@@ -31,7 +31,7 @@ export default class Filters extends React.Component{
                                     </label>
                                 </div>
                                 <div className="checkbox1">
-                                    <div className="optText"><Trans>don't allow trains</Trans></div>
+                                    <div className="optText"><Trans>Don't show trains</Trans></div>
                                     <label className="switch">
                                         <input type="checkbox"
                                             name="filterRail"
@@ -45,7 +45,7 @@ export default class Filters extends React.Component{
                                 </div>
 
                                 <div className="checkbox1">
-                                    <div className="optText"><Trans>don't allow bus</Trans></div>
+                                    <div className="optText"><Trans>Don't show bus</Trans></div>
                                     <label className="switch">
                                         <input type="checkbox"
                                             name="filterBus"
@@ -58,7 +58,7 @@ export default class Filters extends React.Component{
                                     </label>
                                 </div>
                                 <div className="checkbox1">
-                                    <div className="optText"><Trans>don't allow car</Trans></div>
+                                    <div className="optText"><Trans>Don't show car</Trans></div>
                                     <label className="switch">
                                         <input type="checkbox"
                                             name="filterCar"

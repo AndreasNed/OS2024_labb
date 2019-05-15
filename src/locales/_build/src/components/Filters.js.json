@@ -1,5 +1,5 @@
 {
-  "don't allow planes": {
+  "Don't show flights": {
     "origin": [
       [
         "src/components/Filters.js",
@@ -7,7 +7,7 @@
       ]
     ]
   },
-  "don't allow trains": {
+  "Don't show trains": {
     "origin": [
       [
         "src/components/Filters.js",
@@ -15,7 +15,7 @@
       ]
     ]
   },
-  "don't allow bus": {
+  "Don't show bus": {
     "origin": [
       [
         "src/components/Filters.js",
@@ -23,7 +23,7 @@
       ]
     ]
   },
-  "don't allow car": {
+  "Don't show car": {
     "origin": [
       [
         "src/components/Filters.js",
