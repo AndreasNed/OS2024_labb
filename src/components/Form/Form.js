@@ -109,9 +109,8 @@ export default class Form extends Component {
                             onChange={this.handleDateChange}
                             dateFormat="YYYY/MM/dd"
                         />
-                        <div>
+                        
                             <button className="submitBtn">Go!</button>
-                        </div>
 
                         {this.props.filterButtons}
 

@@ -54,34 +54,35 @@
     .searchInput{
         display: block;
         margin:0 auto;
-        width: 51%;
+        width: 200px;
         margin-bottom: 1%;
         position: relative;
-        top: 85px;
+        top: 55px;
     }
 
     .select{
         display: block;
         margin:0 auto;
-        width: 25%;
+        width: 97px;
         margin-bottom: 1%;
         position: relative;
-        top: 85px;
-        right: 55px;
+        top: 55px;
+        right: 52px;
     }
 
     .datePicker {
-        width: 60%;
+        width: 97px;
         position: relative;
-        top: 45px;
-        left: 55px;
+        top: 14px;
+        left: 150px;
     }
 
     .submitBtn {
-        width: 51%;
+        width: 200px;
         bottom: 25%;
         position: relative;
         top: 50px;
+        right: 50px;
     }
 
     .footerContent {
