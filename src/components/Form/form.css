@@ -12,26 +12,38 @@ form {
 }
 
 .searchInput {
-    grid-area: 2/2/3/5;
-
+    grid-area: 2/3/3/6;
+    border-radius: 30px;
 }
 
 .selectDestination {
-    grid-area: 2/5/3/7;
+    grid-area: 2/6/3/7;
+    border-radius: 30px;
+    border-style: none;
+    
 
 }
 
 .react-datepicker-wrapper {
     grid-area: 2/7/4/8;
+    border-radius: 30px;
+
 }
 
 .datePicker {
-    height: 46px;
+    width: 100%;
+    height: 50px;
+    border-radius: 30px;
+    border-style: none;
+    
 }
 
 .submitButton {
-    grid-area: 5/5/7/7;
-
+    background-color: blueviolet;
+    width: 100px;
+    grid-area: 2/8/3/9;
+    border-radius: 30px;
+    border-style: none;
 }
 
 .newSearchButton {
@@ -41,9 +53,10 @@ form {
 /******* FILTER.JS *******/
 
 .mainDivFilter {
-    grid-area: 4/2/5/10;
+    grid-area: 3/2/4/10;
     display: flex;
     justify-content: space-around;
+    align-items: flex-end;
 }
 
 .checkboxFilterPlane {
@@ -59,4 +72,22 @@ form {
 
 .checkboxFilterCar {
 
+}
+
+/******* ROUTE.JS *******/
+
+.routeDiv {
+
+}
+
+.routeSegment {
+    color: #ffcc00;
+    height: 100px;
+    background-color: #cb3a00;
+    border-style: none;
+    border-radius: 15px 50px;
+    margin: 5px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }

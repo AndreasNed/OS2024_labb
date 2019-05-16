@@ -102,7 +102,9 @@ class App extends Component {
           filterButtons={filterButtons}
           resetList={this.resetList}
           className="onSubmit" />
+          {showResults}
         </main>
+
           
         <footer>
           <div className="footerInfo1">

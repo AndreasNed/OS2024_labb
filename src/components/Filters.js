@@ -11,7 +11,7 @@ export default class Filters extends React.Component {
         return (
             <div className="mainDivFilter">
 
-                <div className="checkboxFilterPlanes">
+                <div className="checkboxFilterPlane">
                     
                     <label>Don't allow plane</label>
                     <input type="checkbox" 
@@ -21,7 +21,7 @@ export default class Filters extends React.Component {
                     />
                 </div>
 
-                <div className="checkboxFilterTrains">
+                <div className="checkboxFilterTrain">
                     <label>Don't allow train</label>
                     <input type="checkbox"
                             name="filterRail"
@@ -30,7 +30,7 @@ export default class Filters extends React.Component {
                     />
                 </div>
 
-                <div className="checkboxFilterTrains">
+                <div className="checkboxFilterBus">
                     <label>Don't allow bus</label>
                     <input type="checkbox"
                             name="filterBus"
