@@ -1,26 +1,62 @@
+/******* FORM.JS *******/
+
+
 .mainDivForm {
+     
+}
+
+form {
     display: grid;
     grid-template-columns: repeat(10, 10%);
-    grid-template-rows: repeat(10, 52.4px); 
+    grid-template-rows: repeat(10, 52.4px);
 }
 
 .searchInput {
-    grid-area: 5/5/7/7;
+    grid-area: 2/2/3/5;
+
 }
 
 .selectDestination {
-    grid-area: 5/5/7/7;
+    grid-area: 2/5/3/7;
 
+}
+
+.react-datepicker-wrapper {
+    grid-area: 2/7/4/8;
 }
 
 .datePicker {
-
+    height: 46px;
 }
 
 .submitButton {
+    grid-area: 5/5/7/7;
 
 }
 
 .newSearchButton {
+    
+}
+
+/******* FILTER.JS *******/
+
+.mainDivFilter {
+    grid-area: 4/2/5/10;
+    display: flex;
+    justify-content: space-around;
+}
+
+.checkboxFilterPlane {
+}
+
+.checkboxFilterTrain {
+    
+}
+
+.checkboxFilterBus {
+    
+}
+
+.checkboxFilterCar {
 
 }

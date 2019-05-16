@@ -9,62 +9,45 @@ export default class Filters extends React.Component {
 
     render() {
         return (
-                <div className="flexiboi">
+            <div className="mainDivFilter">
 
-                    <div className="checkbox1">
-                        <div className="optText">don't allow planes</div>
-                        <label className="switch">
-                            <input type="checkbox"
-                                name="filterAir"
-                                onChange={this.handleOnChange}
-                                checked={this.props.filterAir}
-                            />
-                            <span class="slider round"></span>
-                            <br></br>
-
-                        </label>
-                    </div>
-                    <div className="checkbox1">
-                        <div className="optText">  don't allow trains</div>
-                        <label className="switch">
-                            <input type="checkbox"
-                                name="filterRail"
-                                onChange={this.handleOnChange}
-                                checked={this.props.filterRail}
-                            />
-                            <span class="slider round"></span>
-                            <br></br>
-
-                        </label>
-                    </div>
-
-                    <div className="checkbox1">
-                        <div className="optText"> don't allow bus</div>
-                        <label className="switch">
-                            <input type="checkbox"
-                                name="filterBus"
-                                onChange={this.handleOnChange}
-                                checked={this.props.filterBus}
-                            />
-                            <span class="slider round"></span>
-                            <br></br>
-
-                        </label>
-                    </div>
-                    <div className="checkbox1">
-                        <div className="optText">don't allow car</div>
-                        <label className="switch">
-                            <input type="checkbox"
-                                name="filterCar"
-                                onChange={this.handleOnChange}
-                                checked={this.props.filterCar}
-                            />
-                            <span class="slider round"></span>
-                            <br></br>
-
-                        </label>
-                    </div>
+                <div className="checkboxFilterPlanes">
+                    
+                    <label>Don't allow plane</label>
+                    <input type="checkbox" 
+                        name="filterAir" 
+                        onChange={this.handleOnChange}
+                        checked={this.props.filterAir}
+                    />
                 </div>
+
+                <div className="checkboxFilterTrains">
+                    <label>Don't allow train</label>
+                    <input type="checkbox"
+                            name="filterRail"
+                            onChange={this.handleOnChange}
+                            checked={this.props.filterRail}
+                    />
+                </div>
+
+                <div className="checkboxFilterTrains">
+                    <label>Don't allow bus</label>
+                    <input type="checkbox"
+                            name="filterBus"
+                            onChange={this.handleOnChange}
+                            checked={this.props.filterBus}
+                    />
+                </div>
+
+                <div className="checkboxFilterCar">
+                    <label>Don't allow car</label>
+                    <input type="checkbox"
+                            name="filterCar"
+                            onChange={this.handleOnChange}
+                            checked={this.props.filterCar}
+                    />
+                </div>
+            </div>
         )
     }
 }
