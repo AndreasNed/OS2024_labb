@@ -1,18 +1,36 @@
+
+.App {
+  display: grid;
+  width: 100vw;
+  height: 100vh;
+  grid-template-columns: 20% 30% 30% 20%;
+  grid-template-rows: 10% 10% 80% 10%;
+  grid-template-areas: 'header header header header'
+                        'nav nav nav nav'
+                           ' aside main main main' 
+                           'footer footer footer footer';
+}
+
 header {
+  grid-area: header;
   background-color: black;
-  width: 100%;
-  height: 100px;
+  display: flex;
 }
 
 nav {
-  background-color: blueviolet;
-  width: 100%;
+  grid-area: nav;
+  background-color: aqua;
 }
 
 main {
+  grid-area: main;
+  background-color: blue;
 
 }
 
 footer {
+  grid-area: footer;
+  background-color: green;
 
 }
+
