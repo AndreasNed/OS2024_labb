@@ -83,7 +83,7 @@ export default class Form extends Component {
 
     render() {
         return (
-            this.state.showMe ?
+            true ?
                 <div className="mainDivForm">
                     <form onSubmit={this.handleSubmit}>
                         <input className="searchInput" list="data" type="text" onChange={this.updateSearchInput} placeholder="From" value={this.state.from} required />
