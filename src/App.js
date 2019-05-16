@@ -90,7 +90,10 @@ class App extends Component {
     </header>
 
         <nav>
-
+          <a href="/">Sök resor</a>
+          <a href="/">Läs om eventet</a>
+          <a href="/">Läs om våra orter</a>
+          <a href="/">Se rekommendationer</a>
         </nav>
         
         <main>
