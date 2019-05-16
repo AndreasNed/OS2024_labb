@@ -83,7 +83,7 @@ class App extends Component {
     : null
 
     return (
-      <div className="App">
+      <div className="grid-container">
     
     <header>
 
@@ -94,32 +94,7 @@ class App extends Component {
         </nav>
         
         <main>
-          asd
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          asd
+
         </main>
           
         <footer>
