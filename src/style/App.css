@@ -17,7 +17,6 @@
 .grid-container {
   width: 100vw;
   height: 100vh;
-
 }
 
 header {
@@ -28,8 +27,11 @@ header {
   grid-template-rows: repeat(1, 100%);  
   background-color: black;
   background-image: url(../pics/layout.jpg)
-  
 }
+
+    .headerLogo {
+      grid-area: 1/2/2/3;
+    }
 
 nav {
   width: 100%;
@@ -37,12 +39,14 @@ nav {
   display: grid;
   grid-template-columns: repeat(4, 25%);
   grid-template-rows: repeat(1, 100%);  
-  background-color: aqua;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  
+  background-color: #0477b1;
 }
+    nav a {
+      color: #ffcc00;
+      display: flex;
+      justify-self: center;
+      align-self: center;
+    }
 
 main {
   width: 100%;
@@ -50,7 +54,7 @@ main {
   display: grid;
   grid-template-columns: repeat(10, 10%);
   grid-template-rows: repeat(10, 52.4px);  
-  background-color: blue;
+  background-color: #ffcc00;
   overflow: auto;
 }
 
@@ -60,23 +64,23 @@ footer {
   display: grid;
   grid-template-columns: repeat(5, 20%);
   grid-template-rows: repeat(1, 100%);  
-  background-color: green;
+  background-color: #006699;
   position: relative;
   bottom: 0px;
 }
 
-.headerLogo {
-  grid-area: 1/2/2/3;
-}
+    .footerInfo1 {
+      grid-area: 1/4/2/5;
+      display: flex;
+      flex-direction: column;
+    }
 
-.footerInfo1 {
-  grid-area: 1/4/2/5;
-  display: flex;
-  flex-direction: column;
-}
+    .footerInfo2 {
+      grid-area: 1/5/2/6;
+      display: flex;
+      flex-direction: column;
+    }
 
-.footerInfo2 {
-  grid-area: 1/5/2/6;
-  display: flex;
-  flex-direction: column;
-}
+    footer a {
+      color: #ffcc00;
+    }
