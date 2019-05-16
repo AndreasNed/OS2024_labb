@@ -1,7 +1,8 @@
 @media only screen and (max-width: 630px) {
 
     header {
-        background-image: url(../pics/mobileHeader.jpg);
+        background-image: url(../pics/layout.jpg);
+        width: 100%;
     }
 
     body {
@@ -9,8 +10,8 @@
         background-attachment: fixed;
         background-repeat: no-repeat;
         background-size: 220%;
-        background-position: 0px 25%;
         background-color: #ffcc00;
+        background-position: 0px 100px;
         }
         
     nav {
@@ -26,7 +27,7 @@
     }
 
     .navLogo {
-        opacity: 0;
+        grid-area: 1/2/2/3;
     }
 
     .nav1 {
@@ -130,6 +131,8 @@
 
     .flexiboi {
         top: 85px;
+        display: flex;
+        
     }
 
 }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Form from "./components/Form/Form"
-import logga from "./pics/head.jpg"
+import logga from "./pics/projektlogga.png"
 import rome2rio from "./utils/rome2rio"
 import RouteList from "./components/RouteList/RouteList"
 import Filters from "./components/Filters"

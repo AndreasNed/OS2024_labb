@@ -64,9 +64,12 @@ footer {
   border-radius: 4px;
   margin-top: 6px;
   z-index: 2;
+  width: 400px;
+  margin-left: -79px;
 }
 
 .routeDiv{
+  margin-top:50px;
   position: relative;
   top:50px;
 padding-left: 15px;
