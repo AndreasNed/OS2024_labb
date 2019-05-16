@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import './style/App.css';
 import Form from "./components/Form/Form"
 import logga from "./pics/projektlogga.png"
 import rome2rio from "./utils/rome2rio"
