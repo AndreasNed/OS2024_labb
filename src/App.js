@@ -86,36 +86,19 @@ class App extends Component {
       <div className="App">
     
     <header>
-          <div className="navLogo">
-          <a href="/"><img src={logga} alt="2sweden logo"/></a>
-          </div>
+
     </header>
 
         <nav>
-          <a href="/" className="nav1">Sök resor</a>
-          <a href="/" className="nav2">Läs om eventet</a>
-          <a href="/" className="nav3">Läs om våra orter</a>
-          <a href="/" className="nav4">Se rekommendationer</a>
+
         </nav>
         
         <main>
-          <Form onSubmit={this.searchNewRoute}
-          filterButtons={filterButtons}
-          resetList={this.resetList}
-          className="onSubmit" />
+
         </main>
           
-        {showResults}
+        <footer>
 
-        <footer className="footerContent">
-        <ul className="foot1">
-          <a href="/">Kontakt</a>
-          <a href="/">Om oss</a>
-        </ul> 
-        <ul className="foot2"> 
-          <a href="https://bit.ly/2vOZHyk">Årstavägen 19</a>
-          <a href="/">08-557 683 53</a>
-          </ul>
         </footer> 
           
       </div>
