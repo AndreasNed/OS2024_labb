@@ -49,7 +49,7 @@ main {
   height: 524px;
   display: grid;
   grid-template-columns: repeat(10, 10%);
-  grid-template-rows: repeat(10, 10%);  
+  grid-template-rows: repeat(10, 52.4px);  
   background-color: blue;
   overflow: auto;
 }
@@ -61,7 +61,7 @@ footer {
   grid-template-columns: repeat(5, 20%);
   grid-template-rows: repeat(1, 100%);  
   background-color: green;
-  position: absolute;
+  position: relative;
   bottom: 0px;
 }
 
