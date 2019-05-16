@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import './style/App.css';
 import Form from "./components/Form/Form"
-import logga from "./pics/projektlogga.png"
 import rome2rio from "./utils/rome2rio"
 import RouteList from "./components/RouteList/RouteList"
 import Filters from "./components/Filters"
+import headerLogo from "./pics/headerLogo.png"
+
 
 import "./components/tablet.css"
 
@@ -86,7 +87,7 @@ class App extends Component {
       <div className="grid-container">
     
     <header>
-        <a href="/" className="headerLogo"></a>
+        <a href="/" className="headerLogo"><img src={headerLogo} alt="2sweden logo"/></a>
     </header>
 
         <nav>
@@ -101,7 +102,14 @@ class App extends Component {
         </main>
           
         <footer>
-
+          <div className="footerInfo1">
+            <a href="/">Kontakt</a>
+            <a href="/">Om oss</a>
+          </div>
+          <div className="footerInfo2">
+            <a href="https://bit.ly/2vOZHyk%22%3EÅrstavägen 19">Årstavägen 19</a>
+            <a href="/">08-557 683 53</a>
+          </div>        
         </footer> 
           
       </div>
