@@ -98,7 +98,10 @@ class App extends Component {
         </nav>
         
         <main>
-          
+          <Form onSubmit={this.searchNewRoute}
+          filterButtons={filterButtons}
+          resetList={this.resetList}
+          className="onSubmit" />
         </main>
           
         <footer>

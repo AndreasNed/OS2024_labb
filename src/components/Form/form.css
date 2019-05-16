@@ -1,0 +1,26 @@
+.mainDivForm {
+    display: grid;
+    grid-template-columns: repeat(10, 10%);
+    grid-template-rows: repeat(10, 52.4px); 
+}
+
+.searchInput {
+    grid-area: 5/5/7/7;
+}
+
+.selectDestination {
+    grid-area: 5/5/7/7;
+
+}
+
+.datePicker {
+
+}
+
+.submitButton {
+
+}
+
+.newSearchButton {
+
+}
