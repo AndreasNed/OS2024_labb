@@ -86,7 +86,7 @@ class App extends Component {
       <div className="grid-container">
     
     <header>
-
+        <a href="/" className="headerLogo"></a>
     </header>
 
         <nav>

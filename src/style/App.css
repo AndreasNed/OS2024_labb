@@ -30,6 +30,7 @@ header {
   grid-area: header;
   background-color: black;
   display: flex;
+  background-image: url(../pics/layout.jpg)
 }
 
 nav {
@@ -37,6 +38,7 @@ nav {
   background-color: aqua;
   display: flex;
   justify-content: space-around;
+  align-items: center;
 }
 
 main {
@@ -51,3 +53,6 @@ footer {
 
 }
 
+.headerLogo {
+  background-image: url(../pics/headerLogo.png);
+}
