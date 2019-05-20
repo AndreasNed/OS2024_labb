@@ -36,7 +36,7 @@ export default class RouteList extends React.Component {
     constructor(props) {
         super();
         this.state = { 
-            sortFunction: "duration",
+            sortFunction: "Duration",
          };
     }
 
@@ -48,55 +48,59 @@ export default class RouteList extends React.Component {
     }
 
     render(props) {
-        const data = this.props.routeData;
 
-        let activeSort = null;
-        const sortState = this.state.sortFunction;
-        console.log("Sort state", sortState);
-        switch (sortState) {
-            case 'duration':
-                activeSort = this.durationSort;
-                break;
-            case "price":
-                activeSort = this.priceSort;
-                break;
-            case "distance":
-                activeSort = this.distanceSort;
-                break;
-            case "segments":
-                activeSort = this.segmentsSort;
-                break;
-            default:
-        }
+        if (this.props.routeData){
+            const data = this.props.routeData;
 
-        const sortedRoutes = [...data.routes].sort(activeSort);
+            let activeSort = null;
+            const sortState = this.state.sortFunction;
+            console.log("Sort state", sortState);
+            switch (sortState) {
+                case 'Duration':
+                    activeSort = this.durationSort;
+                    break;
+                case "Price":
+                    activeSort = this.priceSort;
+                    break;
+                case "Distance":
+                    activeSort = this.distanceSort;
+                    break;
+                case "Segments":
+                    activeSort = this.segmentsSort;
+                    break;
+                default:
+            }
 
-        return (
-                <div className="mainDivInfo">
-                    <div className="routeProperties">
-                        <div>From: {data.places[0].longName}</div>
-                        <div>To: {data.places[1].longName}</div>
+            const sortedRoutes = [...data.routes].sort(activeSort);
 
-                        <select className="sortBy" onChange={event => this.setState({ sortFunction: event.target.value })}>
-                        <option value="Duration">Sort by Duration</option>
-                        <option value="Price">Sort by Price</option>
-                        <option value="Distance">Sort by distance</option>
-                        <option value="Segments">Sort by segments</option>
-                    </select>
+            return (
+                    <div className="mainDivInfo">
+                        <div className="routeProperties">
+                            <div>From: {data.places[0].longName}</div>
+                            <div>To: {data.places[1].longName}</div>
+
+                            <select className="sortBy" onChange={event => this.setState({ sortFunction: event.target.value })}>
+                            <option value="Duration">Sort by Duration</option>
+                            <option value="Price">Sort by Price</option>
+                            <option value="Distance">Sort by distance</option>
+                            <option value="Segments">Sort by segments</option>
+                        </select>
+                        </div>
+
+
+
+
+                        {data.routes.length ?
+                            (<div className="routeDiv">
+                                {sortedRoutes.map(element =>
+                                <Route {...element} />
+                            )}</div>)
+                            : <div>Sorry, there are no transports for that journey.</div>}
+
                     </div>
-
-
-
-
-                    {data.routes.length ?
-                        (<div className="routeDiv">
-                            {sortedRoutes.map(element =>
-                            <Route {...element} />
-                        )}</div>)
-                        : <div>Sorry, there are no transports for that journey.</div>}
-
-                </div>
-            
-        )
+                
+            )
+        }
+        return null;
     }
 }
