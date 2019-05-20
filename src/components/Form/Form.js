@@ -86,7 +86,7 @@ export default class Form extends Component {
             true ?
                 <div className="mainDivForm">
                     <form onSubmit={this.handleSubmit}>
-                        <input className="searchInput" list="data" type="text" placeholder="Sök din resa" onChange={this.updateSearchInput} placeholder="From" value={this.state.from} required />
+                        <input className="searchInput" list="data" type="text"  onChange={this.updateSearchInput} placeholder="From" value={this.state.from} required />
                         <datalist id="data">
                             {
                                 this.state.suggestions
