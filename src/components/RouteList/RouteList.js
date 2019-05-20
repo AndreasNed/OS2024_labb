@@ -36,7 +36,7 @@ export default class RouteList extends React.Component {
     constructor(props) {
         super();
         this.state = { 
-            sortFunction: "duration",
+            sortFunction: "Duration",
          };
     }
 
@@ -54,16 +54,16 @@ export default class RouteList extends React.Component {
         const sortState = this.state.sortFunction;
         console.log("Sort state", sortState);
         switch (sortState) {
-            case 'duration':
+            case 'Duration':
                 activeSort = this.durationSort;
                 break;
-            case "price":
+            case "Price":
                 activeSort = this.priceSort;
                 break;
-            case "distance":
+            case "Distance":
                 activeSort = this.distanceSort;
                 break;
-            case "segments":
+            case "Segments":
                 activeSort = this.segmentsSort;
                 break;
             default:
@@ -87,9 +87,10 @@ export default class RouteList extends React.Component {
 
 
 
-
+                        
                     {data.routes.length ?
-                        (<div className="routeDiv">
+                        (
+                        <div className="routeDiv">
                             {sortedRoutes.map(element =>
                             <Route {...element} />
                         )}</div>)
