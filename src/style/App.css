@@ -157,17 +157,21 @@ footer {
 
   .checkboxFilterPlane{
    padding: 1%;
+   text-align: center;
   }
   .checkboxFilterTrain{
     padding: 1%;
+    text-align: center;
     
   }
   .checkboxFilterBus{
     padding: 1%;
+    text-align: center;
 
   }
   .checkboxFilterCar{
     padding: 1%;
+    text-align: center;
     
 
 
