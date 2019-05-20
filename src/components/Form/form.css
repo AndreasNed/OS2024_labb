@@ -77,11 +77,15 @@ form {
 /******* ROUTE.JS *******/
 
 .routeDiv {
-    margin-bottom: 5%;
+    display: flex;
+    flex-flow: wrap;
+    justify-content: center;
+    margin-bottom: 10%;
 }
 
 .routeSegment {
     color: #006699;
+    width: 90%;
     height: 100px;
     background-color: #ffdb4b;
     border-style: solid;
