@@ -81,10 +81,10 @@ form {
 }
 
 .routeSegment {
-    color: #ffcc00;
+    color: #006699;
     height: 100px;
-    background-color: #cb3a00;
-    border-style: none;
+    background-color: #ffdb4b;
+    border-style: solid;
     border-radius: 15px 50px;
     margin: 5px;
     display: flex;
