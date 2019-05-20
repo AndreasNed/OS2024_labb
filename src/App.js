@@ -8,10 +8,11 @@ import headerLogo from "./pics/headerLogo.png"
 
 
 import "./components/tablet.css"
+import "./components/mobile.css"
 
 class App extends Component {
   state = {
-    routeData : null,
+    routeData: null,
     filterAir: false,
     filterRail: false,
     filterBus: false,
@@ -30,96 +31,98 @@ class App extends Component {
 
   resetList = () => {
     this.setState({
-      routeData : null
+      routeData: null
     })
   }
 
   updateFilters = (event) => {
     const { name, checked } = event.target;
     this.setState({
-        [name]: checked
+      [name]: checked
     })
     console.log(name + ": " + checked);
-}
+  }
 
   render() {
 
-    let data = this.state.routeData ? {...this.state.routeData} : null;
+    let data = this.state.routeData ? { ...this.state.routeData } : null;
     console.log(data);
-    if (data){
+    if (data) {
       data.routes = data.routes
-      .filter(element => {
-        return this.state.filterAir 
-        ? !element.name.toUpperCase().includes("FLY")
-        : true;
-      })
-      .filter(element => {
-        return this.state.filterRail 
-        ? !element.name.toUpperCase().includes("TRAIN")
-        : true;
-      })
-      .filter(element => {
-        return this.state.filterBus
-        ? !element.name.toUpperCase().includes("BUS")
-        : true;
-      })
-      .filter(element => {
-        return this.state.filterCar
-        ? !element.name.toUpperCase().includes("DRIVE")
-        : true;
-      })
+        .filter(element => {
+          return this.state.filterAir
+            ? !element.name.toUpperCase().includes("FLY")
+            : true;
+        })
+        .filter(element => {
+          return this.state.filterRail
+            ? !element.name.toUpperCase().includes("TRAIN")
+            : true;
+        })
+        .filter(element => {
+          return this.state.filterBus
+            ? !element.name.toUpperCase().includes("BUS")
+            : true;
+        })
+        .filter(element => {
+          return this.state.filterCar
+            ? !element.name.toUpperCase().includes("DRIVE")
+            : true;
+        })
     }
-      /*if(this.state.filterAir && this.state.filterBus && this.state.filterRail && this.state.filterCar){
-        return{
-          <div></div>
+    /*if(this.state.filterAir && this.state.filterBus && this.state.filterRail && this.state.filterCar){
+      return{
+        <div></div>
 
-        }
+      }
 
-      } */
+    } */
 
 
-    const filterButtons = <Filters filterFunc={this.updateFilters} {...this.state}/>
+    const filterButtons = <Filters filterFunc={this.updateFilters} {...this.state} />
     const showResults = data
-    ?  <RouteList routeData={data}  filterButtons={filterButtons} className ="routePlaces"/> 
-    : null
+      ? <RouteList routeData={data} filterButtons={filterButtons} className="routePlaces" />
+      : null
 
     return (
       <div className="grid-container">
-    
-    <header>
-        <a href="/" className="headerLogo"><img src={headerLogo} alt="2sweden logo"/></a>
-    </header>
+
+        <header>
+          <a href="/" className="headerLogo"><img src={headerLogo} alt="2sweden logo" /></a>
+        </header>
 
         <nav>
-          <a href="/">Sök resor</a>
-          <a href="/">Läs om eventet</a>
-          <a href="/">Läs om våra orter</a>
-          <a href="/">Se rekommendationer</a>
+          <a className="navbar1" href="/">Sök resor</a>
+          <a className="navbar2" href="/">Läs om eventet</a>
+          <a className="navbar3" href="/">Läs om våra orter</a>
+          <a className="navbar4" href="/">Se rekommendationer</a>
         </nav>
-        
+
         <main>
           <Form onSubmit={this.searchNewRoute}
-          filterButtons={filterButtons}
-          resetList={this.resetList}
-          className="onSubmit" />
+            filterButtons={filterButtons}
+            resetList={this.resetList}
+            className="onSubmit" />
           {showResults}
         </main>
 
-          
+
         <footer>
           <div className="footerInfo1">
-            <a href="/">Kontakt</a>
             <a href="/">Om oss</a>
           </div>
+          <div className="footerInfo3">
+          <a href="/">Kontakt</a>
+          </div>
           <div className="footerInfo2">
-            <a href="https://bit.ly/2vOZHyk%22%3EÅrstavägen 19">Årstavägen 19</a>
+            <a href="https://bit.ly/2vOZHyk"> Årstavägen 19</a>
             <a href="/">08-557 683 53</a>
-          </div>        
-        </footer> 
-          
+          </div>
+        </footer>
+
       </div>
-        );
-      }
-    }
+    );
+  }
+}
 
 export default App;

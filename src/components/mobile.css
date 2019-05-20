@@ -1,0 +1,44 @@
+@media (max-width: 700px) {
+
+    nav {
+        display: flex;
+        text-align: center;
+    }
+
+    form {
+        display: grid;
+        grid-template-columns: repeat(10, 10%);
+        grid-template-rows: repeat(5, 52.4px);
+    }
+
+    .searchInput {
+        grid-area: 2/3/2/9;  
+        text-align: center;  
+    }
+
+    .selectDestination {
+        grid-area: 3/3/3/6;
+    }
+
+    .react-datepicker-wrapper {
+        grid-area: 4/6/3/9; 
+    }
+
+    .submitButton {
+        grid-area: 5/5/5/7;
+    }
+    .mainDivFilter {
+        grid-area: 4/1/4/11;
+    }
+
+    .routeProperties {
+        display: initial;
+        text-align: center;
+    }
+
+    footer{
+        display: flex;
+        justify-content: space-around;
+    }
+
+}
