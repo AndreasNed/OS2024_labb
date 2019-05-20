@@ -1,9 +1,6 @@
 /******* FORM.JS *******/
 
-
-.mainDivForm {
-     
-}
+.mainDivForm {}
 
 form {
     display: grid;
@@ -14,20 +11,21 @@ form {
 .searchInput {
     grid-area: 2/3/3/6;
     border-radius: 30px;
+    text-align: center;
 }
 
-.selectDestination {
+.selectDestination {   
+    /******* OBS padding left behöver fixas inför responsivitet *******/
     grid-area: 2/6/3/7;
     border-radius: 30px;
     border-style: none;
+    padding-left: 23%;      
     
-
 }
 
 .react-datepicker-wrapper {
     grid-area: 2/7/4/8;
     border-radius: 30px;
-
 }
 
 .datePicker {
@@ -35,7 +33,7 @@ form {
     height: 50px;
     border-radius: 30px;
     border-style: none;
-    
+    text-align: center;
 }
 
 .submitButton {
@@ -46,9 +44,8 @@ form {
     border-style: none;
 }
 
-.newSearchButton {
-    
-}
+.newSearchButton {}
+
 
 /******* FILTER.JS *******/
 
@@ -59,20 +56,14 @@ form {
     align-items: flex-end;
 }
 
-.checkboxFilterPlane {
-}
+.checkboxFilterPlane {}
 
-.checkboxFilterTrain {
-    
-}
+.checkboxFilterTrain {}
 
-.checkboxFilterBus {
-    
-}
+.checkboxFilterBus {}
 
-.checkboxFilterCar {
+.checkboxFilterCar {}
 
-}
 
 /******* ROUTE.JS *******/
 
@@ -96,11 +87,10 @@ form {
     align-items: center;
 }
 
+
 /******* ROUTELIST.JS *******/
 
-.mainDivInfo {
-    
-}
+.mainDivInfo {}
 
 .routeProperties {
     color: #006699;
@@ -116,7 +106,6 @@ form {
     display: flex;
     justify-content: space-around;
     align-items: center;
-
 }
 
 .sortBy {
