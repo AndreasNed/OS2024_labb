@@ -108,7 +108,7 @@ export default class Form extends Component {
                             dateFormat="YYYY/MM/dd"
                         />
 
-                        <button className="submitButton">Go!</button>
+                        <button className="submitButton"><Trans>Go!</Trans></button>
 
                         {this.props.filterButtons}
 
