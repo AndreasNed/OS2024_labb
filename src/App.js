@@ -146,10 +146,10 @@ class App extends Component {
               ))}
             </ul>
             <Trans>
-              <a className="navbar1" href="/">Sök resor</a>
-              <a className="navbar2" href="/">Läs om eventet</a>
-              <a className="navbar3" href="/">Läs om våra orter</a>
-              <a className="navbar4" href="/">Se rekommendationer</a>
+              <a className="navbar1" href="/">Travel</a>
+              <a className="navbar2" href="/">Read about the event</a>
+              <a className="navbar3" href="/">Read about the ciities</a>
+              <a className="navbar4" href="/">See recommendations</a>
             </Trans>
           </nav>
 
