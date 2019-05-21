@@ -1,13 +1,11 @@
 import React, { Component } from "react";
-import '../style.css';
+import '../../style/App.css';
+import './form.css'
 import DatePicker from "react-datepicker";
 import rome2rio from "../../utils/rome2rio";
 import Filters from "../Filters"
 
 import "react-datepicker/dist/react-datepicker.css";
-
-import "../tablet.css";
-import "../mobile.css";
 
 export default class Form extends Component {
     state = {
@@ -85,21 +83,20 @@ export default class Form extends Component {
 
     render() {
         return (
-            
-            this.state.showMe ?
-                <div data-test="mainDiv">
+            true ?
+                <div className="mainDivForm">
                     <form onSubmit={this.handleSubmit}>
-                        <input className="searchInput" list="data" type="text" onChange={this.updateSearchInput} placeholder="From" value={this.state.from} required />
+                        <input className="searchInput" list="data" type="text"  onChange={this.updateSearchInput} placeholder="From" value={this.state.from} required />
                         <datalist id="data">
                             {
                                 this.state.suggestions
-                                .map((place, key) =>
-                                    <option key={key} value={place.longName} />
-                                )
+                                    .map((place, key) =>
+                                        <option key={key} value={place.longName} />
+                                    )
                             }
                         </datalist>
 
-                        <select className="select" onChange={event => this.setState({ to: event.target.value })}>
+                        <select className="selectDestination" onChange={event => this.setState({ to: event.target.value })}>
                             <option value="Stockholm">Stockholm</option>
                             <option value="Falun">Falun</option>
                             <option value="Åre">Åre</option>
@@ -109,9 +106,8 @@ export default class Form extends Component {
                             onChange={this.handleDateChange}
                             dateFormat="YYYY/MM/dd"
                         />
-                        <div>
-                            <button className="submitBtn">Go!</button>
-                        </div>
+
+                        <button className="submitButton">Go!</button>
 
                         {this.props.filterButtons}
 
@@ -119,15 +115,10 @@ export default class Form extends Component {
                 </div>
 
                 :
-                <div className="testdiv">
-                    <div className="toggler2div">
-                        <button className="toggler2" onClick={this.newSearch}>
-                            <span>New search</span>
+                    <button className="newSearchButton" onClick={this.newSearch}>
+                        <span>New search</span>
 
-                        </button>
-                    </div>
-                </div>
-
+                    </button>
         );
     }
 }

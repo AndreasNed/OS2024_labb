@@ -1,31 +1,6 @@
-@media only screen and (max-width: 1024px){
+@media (max-width: 1000px) {
 
 
-    header{
-        display: grid;
-        grid-template-columns: repeat(5, 20%);
-        grid-template-rows: repeat(1, 100%);
-      }
-
-      .footerContent{
-        /* flex-direction: row-reverse; */
-        font-size: 8pt;
-        display: grid;
-        grid-template-columns: max-content;
-        grid-template-rows: repeat(1, 100%);
-      }
-
-      body {
-        background-image: url(../pics/background4.jpg);
-        background-attachment: fixed;
-        background-repeat: repeat-x;
-        background-size: 100%;
-        background-color: #ffcc00;
-    }
-    .main{
-        -webkit-overflow-scrolling: touch;
-    }
 
 }
-
 

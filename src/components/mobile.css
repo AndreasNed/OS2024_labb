@@ -1,93 +1,44 @@
-@media only screen and (max-width: 630px) {
-
+@media (max-width: 700px) {
 
     nav {
-        height: 85px;
-        display: block;
-        background-color: #006699;
+        display: flex;
+        text-align: center;
     }
 
-
-    .form{
-        display: block;
-
+    form {
+        display: grid;
+        grid-template-columns: repeat(10, 10%);
+        grid-template-rows: repeat(6, 52.4px);
     }
 
-    .searchInput{
-        display: block;
-        margin:0 auto;
-        width: 50%;
-        margin-bottom: 1%;
-
+    .searchInput {
+        grid-area: 2/3/2/9;  
+        text-align: center;  
     }
 
-    .select{
-        display: block;
-        margin:0 auto;
-        width: 22%;
-        margin-bottom: 1%;
-
+    .selectDestination {
+        grid-area: 3/3/3/6;
     }
 
-    .submitBtn {
-        bottom: 25%;
+    .react-datepicker-wrapper {
+        grid-area: 4/6/3/9; 
     }
 
-
-    body {
-        background-image: url(../pics/background4.jpg);
-        background-attachment: fixed;
-        background-repeat: repeat-x;
-        background-size: 200%;
-        background-color: #ffcc00;
+    .submitButton {
+        grid-area: 6/5/6/7;
+    }
+    .mainDivFilter {
+        grid-area: 5/1/5/11;
     }
 
-    .footerContent {
-        /* display: flex; */
-        /* flex-direction: row-reverse; */
-        /* font-size: 8pt; */
-        /* display: grid; */
-        grid-template-columns: max-content;
-        /* grid-template-rows: repeat(1, 100%); */
+    .routeProperties {
+        display: initial;
+        text-align: center;
     }
 
-    .slider {
-        top: 12px;
-    }
-
-    .switch {
-        width: 33px;
-        height: 33px;
-    }
-
-    .slider:before {
-        position: absolute;
-        content: "";
-        height: 10px;
-        width: 10px;
-        left: 4px;
-        bottom: 5px;
-        background-color: white;
-        transition: .4s;
-    }
-    .slider::after {
-        left: 1px;
-    }
-    
-    .optText {
-        margin-left: 5%;
-        margin-bottom: 2%;
-        font-size: 12px;
-    }
-
-
-    .main{
-        -webkit-overflow-scrolling: touch;
-    }
-
-    .flexiboi {
-        top: 85px;
+    footer{
+        display: flex;
+        justify-content: space-around;
     }
 
 }
-
