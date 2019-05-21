@@ -112,7 +112,7 @@ export default class Form extends Component {
 
                         {this.props.filterButtons}
 
-                    </form>npm 
+                    </form>
                 </div>
 
                 :
