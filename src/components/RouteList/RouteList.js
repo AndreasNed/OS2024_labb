@@ -1,6 +1,6 @@
 import React from 'react';
 import Route from '../Route'
-
+import { Trans } from "@lingui/macro"
 
 export default class RouteList extends React.Component {
 
@@ -35,9 +35,9 @@ export default class RouteList extends React.Component {
 
     constructor(props) {
         super();
-        this.state = { 
+        this.state = {
             sortFunction: "Duration",
-         };
+        };
     }
 
     handleOnChange = (event) => {
@@ -72,32 +72,29 @@ export default class RouteList extends React.Component {
         const sortedRoutes = [...data.routes].sort(activeSort);
 
         return (
-                <div className="mainDivInfo">
-                    <div className="routeProperties">
+            <div className="mainDivInfo">
+                <div className="routeProperties">
+                    <Trans>
                         <div>From: {data.places[0].longName}</div>
                         <div>To: {data.places[1].longName}</div>
-
                         <select className="sortBy" onChange={event => this.setState({ sortFunction: event.target.value })}>
-                        <option value="Duration">Sort by Duration</option>
-                        <option value="Price">Sort by Price</option>
-                        <option value="Distance">Sort by distance</option>
-                        <option value="Segments">Sort by segments</option>
-                    </select>
-                    </div>
+                            <option value="Duration">Sort by Duration</option>
+                            <option value="Price">Sort by Price</option>
+                            <option value="Distance">Sort by distance</option>
+                            <option value="Segments">Sort by segments</option>
+                        </select>
+                    </Trans>
+                </div>
 
-
-
-                        
-                    {data.routes.length ?
-                        (
+                {data.routes.length ?
+                    (
                         <div className="routeDiv">
                             {sortedRoutes.map(element =>
-                            <Route {...element} />
-                        )}</div>)
-                        : <div>Sorry, there are no transports for that journey.</div>}
+                                <Route {...element} />
+                            )}</div>)
+                    : <div><Trans>Sorry, there are no transports for that journey.</Trans></div>}
 
-                </div>
-            
+            </div>
         )
     }
 }

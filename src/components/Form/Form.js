@@ -4,6 +4,7 @@ import './form.css'
 import DatePicker from "react-datepicker";
 import rome2rio from "../../utils/rome2rio";
 import Filters from "../Filters"
+import { Trans } from "@lingui/macro"
 
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -107,7 +108,7 @@ export default class Form extends Component {
                             dateFormat="YYYY/MM/dd"
                         />
 
-                        <button className="submitButton">Go!</button>
+                        <button className="submitButton"><Trans>Go!</Trans></button>
 
                         {this.props.filterButtons}
 
@@ -116,7 +117,7 @@ export default class Form extends Component {
 
                 :
                     <button className="newSearchButton" onClick={this.newSearch}>
-                        <span>New search</span>
+                        <span><Trans>New search</Trans></span>
 
                     </button>
         );

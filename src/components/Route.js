@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Trans } from "@lingui/macro"
 
 export default class Route extends React.Component{
 
@@ -20,10 +20,10 @@ export default class Route extends React.Component{
         const props = this.props;
         return (
         <div className="routeSegment">
-            <div>Transport type: {props.name}</div>
-            <div>Distance: {this.getKm(props.distance)}</div>
-            <div>Total Duration: {this.getHours(props.totalDuration)} {this.getMin(props.totalDuration)}</div>
-            <div>Price: {props.indicativePrices ? 
+            <div><Trans>Transport type: </Trans> {props.name}</div>
+            <div><Trans>Distance: </Trans> {this.getKm(props.distance)}</div>
+            <div><Trans>Total Duration: </Trans> {this.getHours(props.totalDuration)} {this.getMin(props.totalDuration)}</div>
+            <div><Trans>Price: </Trans> {props.indicativePrices ? 
                 props.indicativePrices.map(x => (
                     <span>{x.priceLow ? x.priceLow + " - " + x.priceHigh
                     : x.name ? x.name + " " + x.price : x.price} {x.currency} </span>

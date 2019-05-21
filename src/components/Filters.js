@@ -1,5 +1,6 @@
-import React from 'react';
+import React from 'react'
 import '../style/App.css';
+import { Trans } from "@lingui/macro"
 
 export default class Filters extends React.Component {
 
@@ -12,7 +13,7 @@ export default class Filters extends React.Component {
             <div className="mainDivFilter">
                 <div className="checkboxFilterPlane">
                 <div className="FilterText">
-                Don't allow plane
+                <Trans>Don't show flights</Trans>
                 </div >
                     <label class="switch">
                             <input type="checkbox"
@@ -26,7 +27,7 @@ export default class Filters extends React.Component {
 
                 <div className="checkboxFilterTrain">
                 <div className="FilterText">
-                Don't allow train
+                <Trans>Don't show trains</Trans>
                 </div >
                     <label class="switch">
                             <input type="checkbox"
@@ -40,7 +41,7 @@ export default class Filters extends React.Component {
 
                 <div className="checkboxFilterBus">
                 <div className="FilterText">
-                Don't allow bis
+                <Trans>Don't show bus</Trans>
                 </div >
                     <label class="switch">
                             <input type="checkbox"
@@ -54,7 +55,7 @@ export default class Filters extends React.Component {
 
                 <div className="checkboxFilterCar">
                 <div className="FilterText">
-                Don't allow car
+                <Trans>Don't show car</Trans>
                 </div >
                     <label class="switch">
                             <input type="checkbox"

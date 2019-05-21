@@ -1,0 +1,62 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2019-05-14 14:17+0200\n"
+"Mime-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: zh\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
+
+#: src/components/RouteList/RouteList.js:76
+msgid "<0><1><2>From: {0}</2><3>To: {1}</3></1>{2}<4><5>Sort by Duration</5><6>Sort by Price</6><7>Sort by distance</7><8>Sort by segments</8></4>{3}</0>"
+msgstr "<0><1><2>从: {0}</2><3>至: {1}</3></1>{2}<4><5>按持续时间排序</5><6>按价格排序</6><7>按距离排序</7><8>按细分排序</8></4>{3}</0>"
+
+#: src/App.js:164
+msgid "<0>Contact</0><1>About us</1>"
+msgstr "<0>联系</0><1>关于我们</1>"
+
+#: src/App.js:145
+msgid "<0>Travel</0><1>Read about the event</1><2>Read about the cities</2><3>See recommendations</3>"
+msgstr "<0>搜索旅行</0><1>了解活动</1><2>了解城市</2><3>见建议</3>"
+
+#: src/components/Route.js:24
+msgid "Distance:"
+msgstr "距离:"
+
+#: src/components/Filters.js:48
+msgid "Don't show bus"
+msgstr "不要显示公共汽车"
+
+#: src/components/Filters.js:61
+msgid "Don't show car"
+msgstr "不要展示汽车"
+
+#: src/components/Filters.js:21
+msgid "Don't show flights"
+msgstr "不要显示航班"
+
+#: src/components/Filters.js:34
+msgid "Don't show trains"
+msgstr "不要显示火车"
+
+#: src/components/Form/Form.js:123
+msgid "New search"
+msgstr "新搜索"
+
+#: src/components/Route.js:26
+msgid "Price:"
+msgstr "价钱:"
+
+#: src/components/Route.js:25
+msgid "Total Duration:"
+msgstr "总持续时间:"
+
+#: src/components/Route.js:23
+msgid "Transport type:"
+msgstr "运输类型:"

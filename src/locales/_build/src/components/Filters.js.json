@@ -1,0 +1,34 @@
+{
+  "Don't show flights": {
+    "origin": [
+      [
+        "src/components/Filters.js",
+        21
+      ]
+    ]
+  },
+  "Don't show trains": {
+    "origin": [
+      [
+        "src/components/Filters.js",
+        34
+      ]
+    ]
+  },
+  "Don't show bus": {
+    "origin": [
+      [
+        "src/components/Filters.js",
+        48
+      ]
+    ]
+  },
+  "Don't show car": {
+    "origin": [
+      [
+        "src/components/Filters.js",
+        61
+      ]
+    ]
+  }
+}

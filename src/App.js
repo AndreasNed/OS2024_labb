@@ -4,11 +4,22 @@ import Form from "./components/Form/Form"
 import rome2rio from "./utils/rome2rio"
 import RouteList from "./components/RouteList/RouteList"
 import Filters from "./components/Filters"
+import { I18nProvider } from "@lingui/react"
+import { Trans } from "@lingui/macro"
 import headerLogo from "./pics/headerLogo.png"
-
-
 import "./components/tablet.css"
 import "./components/mobile.css"
+
+const languages = {
+  en: "English",
+  sv: "Svenska",
+  es: "Español",
+  fr: "Français",
+  de: "Deutsch",
+  ru: "Pусский",
+  zh: "中國"
+}
+
 
 class App extends Component {
   state = {
@@ -17,8 +28,38 @@ class App extends Component {
     filterRail: false,
     filterBus: false,
     filterCar: false,
-
+    language: "en",
+    catalogs: {}
   };
+
+  componentDidMount() {
+    this.loadLanguage(this.state.language)
+  }
+
+  loadLanguage = async language => {
+    const catalogs = await import(`./locales/${language}/messages.js`)
+    this.setState(state => ({
+      catalogs: {
+        ...state.catalogs,
+        [language]: catalogs
+      }
+    }))
+  }
+
+  shouldComponentUpdate(nextProps, { language, catalogs }) {
+    if (language !== this.state.language && !catalogs[language]) {
+      this.loadLanguage(language)
+      return false;
+    }
+    return true;
+  }
+
+  handleOnClick = (event) => {
+    const language = event.target.value;
+    this.setState({
+      language
+    })
+  }
 
   searchNewRoute = async (from, to, filters) => {
     const routeData = await rome2rio.searchRoute(from, to, filters)
@@ -45,6 +86,7 @@ class App extends Component {
 
   render() {
 
+    const { language, catalogs } = this.state;
     let data = this.state.routeData ? { ...this.state.routeData } : null;
     console.log(data);
     if (data) {
@@ -85,42 +127,55 @@ class App extends Component {
       : null
 
     return (
-      <div className="grid-container">
+      <I18nProvider language={language} catalogs={catalogs}>
+        <div className="grid-container">
 
-        <header>
-          <a href="/" className="headerLogo"><img src={headerLogo} alt="2sweden logo" /></a>
-        </header>
+          <header>
+            <a href="/" className="headerLogo"><img src={headerLogo} alt="2sweden logo" /></a>
+          </header>
 
-        <nav>
-          <a className="navbar1" href="/">Sök resor</a>
-          <a className="navbar2" href="/">Läs om eventet</a>
-          <a className="navbar3" href="/">Läs om våra orter</a>
-          <a className="navbar4" href="/">Se rekommendationer</a>
-        </nav>
+          <nav>
+            <ul className="languages">
+              {Object.keys(languages).map(lang => (
+                <li key={lang}>
+                  <button onClick={this.handleOnClick}
+                    value={lang}>
+                    {languages[lang]}
+                  </button>
+                </li>
+              ))}
+            </ul>
+            <Trans>
+              <a className="navbar1" href="/">Sök resor</a>
+              <a className="navbar2" href="/">Läs om eventet</a>
+              <a className="navbar3" href="/">Läs om våra orter</a>
+              <a className="navbar4" href="/">Se rekommendationer</a>
+            </Trans>
+          </nav>
 
-        <main>
-          <Form onSubmit={this.searchNewRoute}
-            filterButtons={filterButtons}
-            resetList={this.resetList}
-            className="onSubmit" />
-          {showResults}
-        </main>
+          <main>
+            <Form onSubmit={this.searchNewRoute}
+              filterButtons={filterButtons}
+              resetList={this.resetList}
+              className="onSubmit" />
+            {showResults}
+          </main>
 
+          <footer>
+            <div className="footerInfo1">
+              <a href="/"><Trans>About us</Trans></a>
+            </div>
+            <div className="footerInfo3">
+              <a href="/"><Trans>Contact</Trans></a>
+            </div>
+            <div className="footerInfo2">
+              <a href="https://bit.ly/2vOZHyk"> Årstavägen 19</a>
+              <a href="/">08-557 683 53</a>
+            </div>
+          </footer>
 
-        <footer>
-          <div className="footerInfo1">
-            <a href="/">Om oss</a>
-          </div>
-          <div className="footerInfo3">
-          <a href="/">Kontakt</a>
-          </div>
-          <div className="footerInfo2">
-            <a href="https://bit.ly/2vOZHyk"> Årstavägen 19</a>
-            <a href="/">08-557 683 53</a>
-          </div>
-        </footer>
-
-      </div>
+        </div>
+      </I18nProvider>
     );
   }
 }
