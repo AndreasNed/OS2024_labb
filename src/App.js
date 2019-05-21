@@ -4,7 +4,7 @@ import Form from "./components/Form/Form"
 import rome2rio from "./utils/rome2rio"
 import RouteList from "./components/RouteList/RouteList"
 import Filters from "./components/Filters"
-import headerLogo from "./pics/headerLogo.png"
+import headerLogo from "./pics/headerLogo.jpg"
 
 
 import "./components/tablet.css"
@@ -92,10 +92,10 @@ class App extends Component {
         </header>
 
         <nav>
-          <a className="navbar1" href="/">Sök resor</a>
-          <a className="navbar2" href="/">Läs om eventet</a>
-          <a className="navbar3" href="/">Läs om våra orter</a>
-          <a className="navbar4" href="/">Se rekommendationer</a>
+          <a className="navbar1" href="/">Sök resa</a>
+          <a className="navbar2" href="/">Eventet</a>
+          <a className="navbar3" href="/">Våra städer</a>
+          <a className="navbar4" href="/">Tips</a>
         </nav>
 
         <main>
@@ -109,10 +109,8 @@ class App extends Component {
 
         <footer>
           <div className="footerInfo1">
-            <a href="/">Om oss</a>
-          </div>
-          <div className="footerInfo3">
           <a href="/">Kontakt</a>
+          <a href="/">Om oss</a>
           </div>
           <div className="footerInfo2">
             <a href="https://bit.ly/2vOZHyk"> Årstavägen 19</a>

@@ -11,42 +11,55 @@ export default class Filters extends React.Component {
         return (
             <div className="mainDivFilter">
 
-                <div className="checkboxFilterPlane">
-                    
-                    <label>Don't allow plane</label>
-                    <input type="checkbox" 
+                <label className="checkboxContainer">
+                    <div className="containerLabel">
+                    No planes
+                    </div>
+                    <input 
+                        type="checkbox" 
                         name="filterAir" 
                         onChange={this.handleOnChange}
                         checked={this.props.filterAir}
                     />
-                </div>
+                    <span className="checkmark"></span>
+                </label>
 
-                <div className="checkboxFilterTrain">
-                    <label>Don't allow train</label>
+                <label className="checkboxContainer">
+                <div className="containerLabel">
+                    No trains
+                    </div>
                     <input type="checkbox"
                             name="filterRail"
                             onChange={this.handleOnChange}
                             checked={this.props.filterRail}
                     />
-                </div>
+                    <span className="checkmark"></span>
+                </label>
 
-                <div className="checkboxFilterBus">
-                    <label>Don't allow bus</label>
+                <label className="checkboxContainer">
+                    <div className="containerLabel">
+                    No buses
+                    </div>
                     <input type="checkbox"
                             name="filterBus"
                             onChange={this.handleOnChange}
                             checked={this.props.filterBus}
                     />
-                </div>
+                    <span className="checkmark"></span>
+                </label>
 
-                <div className="checkboxFilterCar">
-                    <label>Don't allow car</label>
+                <label className="checkboxContainer">
+                    <div className="containerLabel">
+                    No cars
+                    </div>
                     <input type="checkbox"
                             name="filterCar"
                             onChange={this.handleOnChange}
                             checked={this.props.filterCar}
                     />
-                </div>
+                    <span className="checkmark"></span>
+                </label>
+
             </div>
         )
     }
