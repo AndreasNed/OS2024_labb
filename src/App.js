@@ -5,9 +5,9 @@ import rome2rio from "./utils/rome2rio"
 import RouteList from "./components/RouteList/RouteList"
 import Filters from "./components/Filters"
 import headerLogo from "./pics/headerLogo.png"
-import SearchHandler from "./components/SearchHandler"
-import {BrowserRouter, Switch, Route} from 'react-router-dom'
+import {BrowserRouter, Route} from 'react-router-dom'
 import queryString from 'query-string';
+
 
 
 import "./components/tablet.css"
@@ -107,9 +107,7 @@ class App extends Component {
 
 
     const filterButtons = <Filters filterFunc={this.updateFilters} {...this.state} />
-    const showResults = data
-      ? <RouteList routeData={data} filterButtons={filterButtons} className="routePlaces" />
-      : null
+
 
     return (
       <div className="grid-container">
@@ -130,11 +128,10 @@ class App extends Component {
             filterButtons={filterButtons}
             resetList={this.resetList}
             className="onSubmit" />
-            <div>{this.buildUrl()}</div>
             <BrowserRouter>
               <Route path="/:from/:to" component={({match, location}) => this.initialiseFromUrl({match, location})}/>
             </BrowserRouter>
-            <RouteList routeData={data}/>
+            <RouteList shareUrl={this.buildUrl()} routeData={data}/>
             </main>
 
 

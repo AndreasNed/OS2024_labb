@@ -93,3 +93,12 @@ footer {
       border-style: none;
       grid-area: 5/5/7/7;
   }
+
+.shareDiv{
+  display: flex;
+}
+
+.shareButton {
+  padding: 20px 5px;
+  cursor: pointer;
+}

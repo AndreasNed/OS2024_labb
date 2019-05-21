@@ -3,7 +3,6 @@ import '../../style/App.css';
 import './form.css'
 import DatePicker from "react-datepicker";
 import rome2rio from "../../utils/rome2rio";
-import Filters from "../Filters"
 
 import "react-datepicker/dist/react-datepicker.css";
 

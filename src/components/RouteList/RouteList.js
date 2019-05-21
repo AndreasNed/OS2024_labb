@@ -1,5 +1,11 @@
 import React from 'react';
 import Route from '../Route'
+import {
+    FacebookShareButton,
+    FacebookIcon,
+    TwitterShareButton,
+    TwitterIcon,
+  } from 'react-share';
 
 
 export default class RouteList extends React.Component {
@@ -76,6 +82,11 @@ export default class RouteList extends React.Component {
             return (
                     <div className="mainDivInfo">
                         <div className="routeProperties">
+                            <div className="shareDiv" >
+                                <h4 >Share search on social media: </h4>
+                                <FacebookShareButton className="shareButton"  url={this.props.shareUrl} children={<FacebookIcon size={32} round={true} />} />
+                                <TwitterShareButton className="shareButton" url={this.props.shareUrl} children={<TwitterIcon size={32} round={true} />} />
+                            </div>
                             <div>From: {data.places[0].longName}</div>
                             <div>To: {data.places[1].longName}</div>
 
