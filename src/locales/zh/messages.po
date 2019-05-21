@@ -14,44 +14,68 @@ msgstr ""
 "Plural-Forms: \n"
 
 #: src/components/RouteList/RouteList.js:76
-msgid "<0><1><2>From: {0}</2><3>To: {1}</3></1>{2}<4><5>Sort by Duration</5><6>Sort by Price</6><7>Sort by distance</7><8>Sort by segments</8></4>{3}</0>"
-msgstr "<0><1><2>从: {0}</2><3>至: {1}</3></1>{2}<4><5>按持续时间排序</5><6>按价格排序</6><7>按距离排序</7><8>按细分排序</8></4>{3}</0>"
+#~ msgid "<0><1><2>From: {0}</2><3>To: {1}</3></1>{2}<4><5>Sort by Duration</5><6>Sort by Price</6><7>Sort by distance</7><8>Sort by segments</8></4>{3}</0>"
+#~ msgstr "<0><1><2>从: {0}</2><3>至: {1}</3></1>{2}<4><5>按持续时间排序</5><6>按价格排序</6><7>按距离排序</7><8>按细分排序</8></4>{3}</0>"
 
 #: src/App.js:164
-msgid "<0>Contact</0><1>About us</1>"
-msgstr "<0>联系</0><1>关于我们</1>"
+#~ msgid "<0>Contact</0><1>About us</1>"
+#~ msgstr "<0>联系</0><1>关于我们</1>"
 
-#: src/App.js:145
+#: src/components/RouteList/RouteList.js:77
+msgid "<0>From: {0}</0><1>To: {1}</1><2><3>Sort by Duration</3><4>Sort by Price</4><5>Sort by distance</5><6>Sort by segments</6></2>"
+msgstr ""
+
+#: src/App.js:148
+#~ msgid "<0>Sök resor</0><1>Läs om eventet</1><2>Läs om våra orter</2><3>Se rekommendationer</3>"
+#~ msgstr ""
+
+#: src/App.js:148
 msgid "<0>Travel</0><1>Read about the event</1><2>Read about the cities</2><3>See recommendations</3>"
 msgstr "<0>搜索旅行</0><1>了解活动</1><2>了解城市</2><3>见建议</3>"
+
+#: src/App.js:166
+msgid "About us"
+msgstr ""
+
+#: src/App.js:169
+msgid "Contact"
+msgstr ""
 
 #: src/components/Route.js:24
 msgid "Distance:"
 msgstr "距离:"
 
-#: src/components/Filters.js:48
+#: src/components/Filters.js:44
 msgid "Don't show bus"
 msgstr "不要显示公共汽车"
 
-#: src/components/Filters.js:61
+#: src/components/Filters.js:58
 msgid "Don't show car"
 msgstr "不要展示汽车"
 
-#: src/components/Filters.js:21
+#: src/components/Filters.js:16
 msgid "Don't show flights"
 msgstr "不要显示航班"
 
-#: src/components/Filters.js:34
+#: src/components/Filters.js:30
 msgid "Don't show trains"
 msgstr "不要显示火车"
 
-#: src/components/Form/Form.js:123
+#: src/components/Form/Form.js:111
+msgid "Go!"
+msgstr ""
+
+#: src/components/Form/Form.js:120
 msgid "New search"
 msgstr "新搜索"
 
 #: src/components/Route.js:26
 msgid "Price:"
 msgstr "价钱:"
+
+#: src/components/RouteList/RouteList.js:95
+msgid "Sorry, there are no transports for that journey."
+msgstr ""
 
 #: src/components/Route.js:25
 msgid "Total Duration:"

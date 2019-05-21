@@ -3,15 +3,23 @@
     "origin": [
       [
         "src/App.js",
-        145
+        148
       ]
     ]
   },
-  "<0>Contact</0><1>About us</1>": {
+  "About us": {
     "origin": [
       [
         "src/App.js",
-        164
+        166
+      ]
+    ]
+  },
+  "Contact": {
+    "origin": [
+      [
+        "src/App.js",
+        169
       ]
     ]
   }
