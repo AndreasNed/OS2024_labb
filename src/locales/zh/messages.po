@@ -25,9 +25,6 @@ msgstr ""
 msgid "<0>From: {0}</0><1>To: {1}</1><2><3>Sort by Duration</3><4>Sort by Price</4><5>Sort by distance</5><6>Sort by segments</6></2>"
 msgstr "<0>从: {0}</0><1>Zhì: {1}</1><2><3>按持续时间排序</3><4>Sort by Price</4><5>按价格排序</5><6>按细分排序</6></2>"
 
-
-
-
 #: src/App.js:148
 #~ msgid "<0>Travel</0><1>Read about the event</1><2>Read about the cities</2><3>See recommendations</3>"
 #~ msgstr "<0>搜索旅行</0><1>了解活动</1><2>了解城市</2><3>见建议</3>"

@@ -148,7 +148,7 @@ class App extends Component {
             <Trans>
               <a className="navbar1" href="/">Travel</a>
               <a className="navbar2" href="/">Read about the event</a>
-              <a className="navbar3" href="/">Read about the ciities</a>
+              <a className="navbar3" href="/">Read about the cities</a>
               <a className="navbar4" href="/">See recommendations</a>
             </Trans>
           </nav>

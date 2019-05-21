@@ -13,37 +13,22 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/RouteList/RouteList.js:76
-#~ msgid "<0><1><2>From: {0}</2><3>To: {1}</3></1>{2}<4><5>Sort by Duration</5><6>Sort by Price</6><7>Sort by distance</7><8>Sort by segments</8></4>{3}</0>"
-#~ msgstr "<0><1><2>De: {0}</2><3>Á: {1}</3></1>{2}<4><5>Trier par durée</5><6>Trier par prix</6><7>Trier par distance</7><8>Trier par segments</8></4>{3}</0>"
-
-#: src/App.js:164
-#~ msgid "<0>Contact</0><1>About us</1>"
-#~ msgstr "<0>Contact</0><1>À propos de nous</1>"
 
 #: src/components/RouteList/RouteList.js:77
 msgid "<0>From: {0}</0><1>To: {1}</1><2><3>Sort by Duration</3><4>Sort by Price</4><5>Sort by distance</5><6>Sort by segments</6></2>"
-msgstr ""
+msgstr "<0>De: {0}</0><1>Á: {1}</1><2><3>Trier par durée</3><4>Trier par prix</4><5>Trier par distance</5><6>Trier par segments</6></2>"
 
 #: src/App.js:148
-#~ msgid "<0>Sök resor</0><1>Läs om eventet</1><2>Läs om våra orter</2><3>Se rekommendationer</3>"
-#~ msgstr ""
-
-#: src/App.js:148
-msgid "<0>Travel</0><1>Read about the event</1><2>Read about the ciities</2><3>See recommendations</3>"
-msgstr ""
-
-#: src/App.js:145
-#~ msgid "<0>Travel</0><1>Read about the event</1><2>Read about the cities</2><3>See recommendations</3>"
-#~ msgstr "<0>Rechercher un voyage</0><1>Lire à propos de l'événement</1><2>Lire sur les villes</2><3>Voir les recommandations</3>"
+msgid "<0>Travel</0><1>Read about the event</1><2>Read about the cities</2><3>See recommendations</3>"
+msgstr "<0>Rechercher un voyage</0><1>Lire à propos de l'événement</1><2>Lire sur les villes</2><3>Voir les recommandations</3>"
 
 #: src/App.js:166
 msgid "About us"
-msgstr ""
+msgstr "À propos de nous"
 
 #: src/App.js:169
 msgid "Contact"
-msgstr ""
+msgstr "Contact"
 
 #: src/components/Route.js:24
 msgid "Distance:"
@@ -67,7 +52,7 @@ msgstr "Ne montre pas les trains"
 
 #: src/components/Form/Form.js:111
 msgid "Go!"
-msgstr ""
+msgstr "Aller!"
 
 #: src/components/Form/Form.js:120
 msgid "New search"
@@ -79,7 +64,7 @@ msgstr "Prix:"
 
 #: src/components/RouteList/RouteList.js:95
 msgid "Sorry, there are no transports for that journey."
-msgstr ""
+msgstr "Désolé, il n'y a pas de transport pour ce voyage"
 
 #: src/components/Route.js:25
 msgid "Total Duration:"
