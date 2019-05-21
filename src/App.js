@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
-import './App.css';
+import './style/App.css';
 import Form from "./components/Form/Form"
-import logga from "./pics/projektlogga.png"
 import rome2rio from "./utils/rome2rio"
 import RouteList from "./components/RouteList/RouteList"
 import Filters from "./components/Filters"
 import { I18nProvider } from "@lingui/react"
 import { Trans } from "@lingui/macro"
+import headerLogo from "./pics/headerLogo.png"
+import "./components/tablet.css"
+import "./components/mobile.css"
 
 const languages = {
   en: "English",
@@ -17,6 +19,7 @@ const languages = {
   ru: "Pусский",
   zh: "中國"
 }
+
 
 class App extends Component {
   state = {
@@ -53,7 +56,7 @@ class App extends Component {
 
   handleOnClick = (event) => {
     const language = event.target.value;
-    this.setState ({
+    this.setState({
       language
     })
   }
@@ -125,10 +128,10 @@ class App extends Component {
 
     return (
       <I18nProvider language={language} catalogs={catalogs}>
-        <div className="App">
+        <div className="grid-container">
 
           <header>
-            <a href="/" className="navLogo"><img src={logga} alt="2sweden logo" /></a>
+            <a href="/" className="headerLogo"><img src={headerLogo} alt="2sweden logo" /></a>
           </header>
 
           <nav>
@@ -136,17 +139,17 @@ class App extends Component {
               {Object.keys(languages).map(lang => (
                 <li key={lang}>
                   <button onClick={this.handleOnClick}
-                  value={lang}>
+                    value={lang}>
                     {languages[lang]}
                   </button>
                 </li>
               ))}
             </ul>
             <Trans>
-              <a href="/" className="nav1">Travel</a>
-              <a href="/" className="nav2">Read about the event</a>
-              <a href="/" className="nav3">Read about the cities</a>
-              <a href="/" className="nav4">See recommendations</a>
+              <a className="navbar1" href="/">Sök resor</a>
+              <a className="navbar2" href="/">Läs om eventet</a>
+              <a className="navbar3" href="/">Läs om våra orter</a>
+              <a className="navbar4" href="/">Se rekommendationer</a>
             </Trans>
           </nav>
 
@@ -155,21 +158,20 @@ class App extends Component {
               filterButtons={filterButtons}
               resetList={this.resetList}
               className="onSubmit" />
+            {showResults}
           </main>
 
-          {showResults}
-
-          <footer className="footerContent">
-            <ul className="foot1">
-              <Trans>
-                <a href="/">Contact</a>
-                <a href="/">About us</a>
-              </Trans>
-            </ul>
-            <ul className="foot2">
-              <a href="https://bit.ly/2vOZHyk">Årstavägen 19</a>
-              <a href="/">+46 (0)8-557 683 53</a>
-            </ul>
+          <footer>
+            <div className="footerInfo1">
+              <a href="/"><Trans>About us</Trans></a>
+            </div>
+            <div className="footerInfo3">
+              <a href="/"><Trans>Contact</Trans></a>
+            </div>
+            <div className="footerInfo2">
+              <a href="https://bit.ly/2vOZHyk"> Årstavägen 19</a>
+              <a href="/">08-557 683 53</a>
+            </div>
           </footer>
 
         </div>
