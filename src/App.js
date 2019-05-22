@@ -66,7 +66,7 @@ class App extends Component {
     })
   }
 
-  };
+  
 
   searchNewRoute = async (from, to) => {
     const routeData = await rome2rio.searchRoute(from, to)
