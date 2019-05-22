@@ -1,5 +1,11 @@
 import React from 'react';
 import Route from '../Route'
+import {
+    FacebookShareButton,
+    FacebookIcon,
+    TwitterShareButton,
+    TwitterIcon,
+  } from 'react-share';
 
 
 export default class RouteList extends React.Component {
@@ -48,56 +54,65 @@ export default class RouteList extends React.Component {
     }
 
     render(props) {
-        const data = this.props.routeData;
 
-        let activeSort = null;
-        const sortState = this.state.sortFunction;
-        console.log("Sort state", sortState);
-        switch (sortState) {
-            case 'Duration':
-                activeSort = this.durationSort;
-                break;
-            case "Price":
-                activeSort = this.priceSort;
-                break;
-            case "Distance":
-                activeSort = this.distanceSort;
-                break;
-            case "Segments":
-                activeSort = this.segmentsSort;
-                break;
-            default:
-        }
+        if (this.props.routeData){
+            const data = this.props.routeData;
 
-        const sortedRoutes = [...data.routes].sort(activeSort);
+            let activeSort = null;
+            const sortState = this.state.sortFunction;
+            console.log("Sort state", sortState);
+            switch (sortState) {
+                case 'Duration':
+                    activeSort = this.durationSort;
+                    break;
+                case "Price":
+                    activeSort = this.priceSort;
+                    break;
+                case "Distance":
+                    activeSort = this.distanceSort;
+                    break;
+                case "Segments":
+                    activeSort = this.segmentsSort;
+                    break;
+                default:
+            }
 
-        return (
-                <div className="mainDivInfo">
-                    <div className="routeProperties">
-                        <div>From: {data.places[0].longName}</div>
-                        <div>To: {data.places[1].longName}</div>
+            const sortedRoutes = [...data.routes].sort(activeSort);
 
-                        <select className="sortBy" onChange={event => this.setState({ sortFunction: event.target.value })}>
-                        <option value="Duration">Sort by Duration</option>
-                        <option value="Price">Sort by Price</option>
-                        <option value="Distance">Sort by distance</option>
-                        <option value="Segments">Sort by segments</option>
-                    </select>
+            return (
+                    <div className="mainDivInfo">
+                        <div className="routeProperties">
+                            <div className="shareDiv" >
+                                <h4 >Share search on social media: </h4>
+                                <FacebookShareButton className="shareButton"  url={this.props.shareUrl} children={<FacebookIcon size={32} round={true} />} />
+                                <TwitterShareButton className="shareButton" url={this.props.shareUrl} children={<TwitterIcon size={32} round={true} />} />
+                            </div>
+                            <div>From: {data.places[0].longName}</div>
+                            <div>To: {data.places[1].longName}</div>
+
+                            <select className="sortBy" onChange={event => this.setState({ sortFunction: event.target.value })}>
+                            <option value="Duration">Sort by Duration</option>
+                            <option value="Price">Sort by Price</option>
+                            <option value="Distance">Sort by distance</option>
+                            <option value="Segments">Sort by segments</option>
+                        </select>
+                        </div>
+
+
+
+
+                        {data.routes.length ?
+                            (<div className="routeDiv">
+                                {sortedRoutes.map(element =>
+                                <Route {...element} />
+                            )}</div>)
+                            : <div>Sorry, there are no transports for that journey.</div>}
+
                     </div>
 
-
-
-                        
-                    {data.routes.length ?
-                        (
-                        <div className="routeDiv">
-                            {sortedRoutes.map(element =>
-                            <Route {...element} />
-                        )}</div>)
-                        : <div>Sorry, there are no transports for that journey.</div>}
-
-                </div>
-            
-        )
+                
+            )
+        }
+        return null;
     }
 }

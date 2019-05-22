@@ -5,10 +5,13 @@
   "dependencies": {
     "axios": "^0.18.0",
     "dotenv": "^8.0.0",
+    "query-string": "^5.1.1",
     "react": "^16.8.6",
     "react-datepicker": "^2.5.0",
     "react-dom": "^16.8.6",
+    "react-router-dom": "^5.0.0",
     "react-scripts": "3.0.0",
+    "react-share": "^3.0.0",
     "react-test-renderer": "^16.8.6"
   },
   "scripts": {
