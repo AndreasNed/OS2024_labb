@@ -34,6 +34,46 @@ header {
     .headerLogo {
       grid-area: 1/2/2/3;
     }
+    .flag{
+      border: none;
+      width: 24px;
+      height: 24px; 
+      margin: 8px; 
+
+        }
+        .flag:hover{
+          cursor: pointer;
+          opacity: 0.5;
+        }
+
+        .en{
+          background:url(../pics/united-states.png);
+          
+        }
+        .sv{
+          background:url(../pics/sweden.png);
+          
+        }
+        .es{
+          background:url(../pics/spain.png);
+        }
+        .fr{
+          background:url(../pics/france.png);
+        }
+        .de{
+          background:url(../pics/germany.png);
+        }
+        .ru{
+          background:url(../pics/russia.png)
+        }
+        header .zh{
+          background:url(../pics/china.png)
+        }
+
+  header .languages {
+    grid-area: 1/5/1/6;
+    list-style-type: none;
+  }
 
 nav {
   display: grid;
@@ -47,6 +87,8 @@ nav {
       justify-self: center;
       align-self: center;
     }
+
+
 
 main {
   
@@ -154,7 +196,6 @@ footer {
     border-radius: 50%;
   }
 
-
   .checkboxFilterPlane{
    padding: 1%;
    text-align: center;
@@ -180,12 +221,16 @@ footer {
  
   }
 
+  .shareDiv{
+    display: flex;
+  }
+  
+  .shareButton {
+    padding: 20px 5px;
+    cursor: pointer;
+  }
 
-.shareDiv{
-  display: flex;
-}
 
-.shareButton {
-  padding: 20px 5px;
-  cursor: pointer;
-}
+
+ 
+
