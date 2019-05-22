@@ -39,6 +39,11 @@ class App extends Component {
 
   componentDidMount() {
     this.loadLanguage(this.state.language)
+
+    if (!localStorage.getItem("userId")){
+      localStorage.setItem("userId",(+new Date).toString(36));
+      console.log("userId", localStorage.getItem("userId"));
+    }
   }
 
   loadLanguage = async language => {
@@ -66,10 +71,11 @@ class App extends Component {
     })
   }
 
-  
-
   searchNewRoute = async (from, to) => {
     const routeData = await rome2rio.searchRoute(from, to)
+    fetch(`http://localhost:8080/os2024back/webresources/entity.travelentity/${from}/${to}/${localStorage.getItem("userId")}`);
+
+
     console.log("routeData", routeData)
     
     this.setState(({
