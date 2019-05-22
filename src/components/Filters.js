@@ -1,5 +1,5 @@
-import React from 'react'
-
+import React from 'react';
+import '../style/App.css';
 
 export default class Filters extends React.Component {
 
@@ -10,44 +10,63 @@ export default class Filters extends React.Component {
     render() {
         return (
             <div className="mainDivFilter">
-
                 <div className="checkboxFilterPlane">
-                    
-                    <label>Don't allow plane</label>
-                    <input type="checkbox" 
-                        name="filterAir" 
-                        onChange={this.handleOnChange}
-                        checked={this.props.filterAir}
-                    />
+                <div className="FilterText">
+                Don't allow plane
+                </div >
+                    <label class="switch">
+                            <input type="checkbox"
+                            name="filterAir"
+                            onChange={this.handleOnChange}
+                            checked={this.props.filterAir}
+                        />
+                        <span class="slider round"></span>
+                    </label>
                 </div>
 
                 <div className="checkboxFilterTrain">
-                    <label>Don't allow train</label>
-                    <input type="checkbox"
+                <div className="FilterText">
+                Don't allow train
+                </div >
+                    <label class="switch">
+                            <input type="checkbox"
                             name="filterRail"
                             onChange={this.handleOnChange}
                             checked={this.props.filterRail}
-                    />
+                        />
+                        <span class="slider round"></span>
+                    </label>
                 </div>
 
                 <div className="checkboxFilterBus">
-                    <label>Don't allow bus</label>
-                    <input type="checkbox"
+                <div className="FilterText">
+                Don't allow bis
+                </div >
+                    <label class="switch">
+                            <input type="checkbox"
                             name="filterBus"
                             onChange={this.handleOnChange}
                             checked={this.props.filterBus}
-                    />
+                        />
+                        <span class="slider round"></span>
+                    </label>
                 </div>
 
                 <div className="checkboxFilterCar">
-                    <label>Don't allow car</label>
-                    <input type="checkbox"
+                <div className="FilterText">
+                Don't allow car
+                </div >
+                    <label class="switch">
+                            <input type="checkbox"
                             name="filterCar"
                             onChange={this.handleOnChange}
                             checked={this.props.filterCar}
-                    />
+                        />
+                        <span class="slider round"></span>
+                    </label>
                 </div>
-            </div>
-        )
+            </div >
+             
+        ) 
     }
 }
