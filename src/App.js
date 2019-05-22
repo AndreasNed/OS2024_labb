@@ -12,8 +12,6 @@ import "./components/mobile.css"
 import { BrowserRouter, Route } from 'react-router-dom'
 import queryString from 'query-string';
 
-import Flag from 'react-world-flags'
-
 
 const languages = {
   en: "English",
