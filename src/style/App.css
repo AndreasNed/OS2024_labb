@@ -180,5 +180,12 @@ footer {
  
   }
 
- 
 
+.shareDiv{
+  display: flex;
+}
+
+.shareButton {
+  padding: 20px 5px;
+  cursor: pointer;
+}

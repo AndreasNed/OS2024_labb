@@ -3,8 +3,9 @@ import '../../style/App.css';
 import './form.css'
 import DatePicker from "react-datepicker";
 import rome2rio from "../../utils/rome2rio";
-import Filters from "../Filters"
 import { Trans } from "@lingui/macro"
+import Filters from "../Filters"
+
 
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -58,11 +59,11 @@ export default class Form extends Component {
 
     handleSubmit = async (event) => {
         event.preventDefault();
-        const filters = { air: this.state.filterAir, rail: this.state.filterRail, bus: this.state.filterBus, car: this.state.filterCar }
-        this.props.onSubmit(this.state.from, this.state.to, filters);
+        this.props.onSubmit(this.state.from, this.state.to);
         console.log(this.state.from);
         console.log(this.state.to);
         this.toggler();
+    
     }
 
     handleDateChange = (date) => {
@@ -109,6 +110,7 @@ export default class Form extends Component {
                         />
 
                         <button className="submitButton"><Trans>Go!</Trans></button>
+
 
                         {this.props.filterButtons}
 

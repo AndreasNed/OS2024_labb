@@ -9,6 +9,9 @@ import { Trans } from "@lingui/macro"
 import headerLogo from "./pics/headerLogo.png"
 import "./components/tablet.css"
 import "./components/mobile.css"
+import {BrowserRouter, Route} from 'react-router-dom'
+import queryString from 'query-string';
+
 
 const languages = {
   en: "English",
@@ -28,6 +31,8 @@ class App extends Component {
     filterRail: false,
     filterBus: false,
     filterCar: false,
+      urlInit: false,
+
     language: "en",
     catalogs: {}
   };
@@ -61,10 +66,13 @@ class App extends Component {
     })
   }
 
-  searchNewRoute = async (from, to, filters) => {
-    const routeData = await rome2rio.searchRoute(from, to, filters)
+  };
+
+  searchNewRoute = async (from, to) => {
+    const routeData = await rome2rio.searchRoute(from, to)
+    console.log("routeData", routeData)
+    
     this.setState(({
-      filters,
       routeData
     }));
     console.log(routeData);
@@ -84,47 +92,67 @@ class App extends Component {
     console.log(name + ": " + checked);
   }
 
+
+  initialiseFromUrl = (obj) => {
+    if (!this.state.urlInit){
+      this.setState({urlInit: true});
+      const params = obj.match.params;
+      console.log("match.params", obj.match.params);
+      console.log("location.", obj.location);
+      let filters = queryString.parse(obj.location.search); // Ger tillbaka strängar istället för boolean, men eftersom det aldrig kommer behövas för false funkar det. Yippie typ-osäkerhet
+      console.log("filters", filters);
+      this.searchNewRoute(params.from, params.to);
+      this.setState(filters);
+    }
+
+    return null;
+
+  }
+
+  buildUrl = () => {
+
+    const processenvREACT_APP_URL = "localhost:3000"
+    if (!this.state.routeData){
+      return processenvREACT_APP_URL
+    }
+    const queries = `?${this.state.filterAir ? "filterAir=true":""}${this.state.filterRail ? "&filterRail=true":""}${this.state.filterBus? "&filterBus=true":""}${this.state.filterCar ? "&filterCar=true":""}`
+    return `http://${processenvREACT_APP_URL}/${this.state.routeData.places[0].longName}/${this.state.routeData.places[1].longName}${queries}`.replace(/ /gi, "%20").replace(/,/gi, "")//Extremt fult, men jag vill gå och äta nu
+
+  }
+
   render() {
 
     const { language, catalogs } = this.state;
     let data = this.state.routeData ? { ...this.state.routeData } : null;
-    console.log(data);
-    if (data) {
+    console.log("routeData", data);
+
+    if (data){
       data.routes = data.routes
-        .filter(element => {
-          return this.state.filterAir
-            ? !element.name.toUpperCase().includes("FLY")
-            : true;
-        })
-        .filter(element => {
-          return this.state.filterRail
-            ? !element.name.toUpperCase().includes("TRAIN")
-            : true;
-        })
-        .filter(element => {
-          return this.state.filterBus
-            ? !element.name.toUpperCase().includes("BUS")
-            : true;
-        })
-        .filter(element => {
-          return this.state.filterCar
-            ? !element.name.toUpperCase().includes("DRIVE")
-            : true;
-        })
+      .filter(element => {
+        return this.state.filterAir 
+        ? !element.name.toUpperCase().includes("FLY")
+        : true;
+      })
+      .filter(element => {
+        return this.state.filterRail 
+        ? !element.name.toUpperCase().includes("TRAIN")
+        : true;
+      })
+      .filter(element => {
+        return this.state.filterBus
+        ? !element.name.toUpperCase().includes("BUS")
+        : true;
+      })
+      .filter(element => {
+        return this.state.filterCar
+        ? !element.name.toUpperCase().includes("DRIVE")
+        : true;
+      })
     }
-    /*if(this.state.filterAir && this.state.filterBus && this.state.filterRail && this.state.filterCar){
-      return{
-        <div></div>
-
-      }
-
-    } */
 
 
     const filterButtons = <Filters filterFunc={this.updateFilters} {...this.state} />
-    const showResults = data
-      ? <RouteList routeData={data} filterButtons={filterButtons} className="routePlaces" />
-      : null
+
 
     return (
       <I18nProvider language={language} catalogs={catalogs}>
@@ -158,7 +186,10 @@ class App extends Component {
               filterButtons={filterButtons}
               resetList={this.resetList}
               className="onSubmit" />
-            {showResults}
+                 <BrowserRouter>
+              <Route path="/:from/:to" component={({match, location}) => this.initialiseFromUrl({match, location})}/>
+            </BrowserRouter>
+            <RouteList shareUrl={this.buildUrl()} routeData={data}/>
           </main>
 
           <footer>
@@ -176,6 +207,7 @@ class App extends Component {
 
         </div>
       </I18nProvider>
+
     );
   }
 }
