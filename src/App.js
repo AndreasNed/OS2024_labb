@@ -9,8 +9,10 @@ import { Trans } from "@lingui/macro"
 import headerLogo from "./pics/headerLogo.png"
 import "./components/tablet.css"
 import "./components/mobile.css"
-import {BrowserRouter, Route} from 'react-router-dom'
+import { BrowserRouter, Route } from 'react-router-dom'
 import queryString from 'query-string';
+
+import Flag from 'react-world-flags'
 
 
 const languages = {
@@ -22,6 +24,7 @@ const languages = {
   ru: "Pусский",
   zh: "中國"
 }
+console.log(languages)
 
 
 class App extends Component {
@@ -31,7 +34,7 @@ class App extends Component {
     filterRail: false,
     filterBus: false,
     filterCar: false,
-      urlInit: false,
+    urlInit: false,
 
     language: "en",
     catalogs: {}
@@ -60,18 +63,20 @@ class App extends Component {
   }
 
   handleOnClick = (event) => {
+    console.log("asd")
+    console.log(event)
     const language = event.target.value;
     this.setState({
       language
     })
   }
 
-  
+
 
   searchNewRoute = async (from, to) => {
     const routeData = await rome2rio.searchRoute(from, to)
     console.log("routeData", routeData)
-    
+
     this.setState(({
       routeData
     }));
@@ -94,8 +99,8 @@ class App extends Component {
 
 
   initialiseFromUrl = (obj) => {
-    if (!this.state.urlInit){
-      this.setState({urlInit: true});
+    if (!this.state.urlInit) {
+      this.setState({ urlInit: true });
       const params = obj.match.params;
       console.log("match.params", obj.match.params);
       console.log("location.", obj.location);
@@ -112,10 +117,10 @@ class App extends Component {
   buildUrl = () => {
 
     const processenvREACT_APP_URL = "localhost:3000"
-    if (!this.state.routeData){
+    if (!this.state.routeData) {
       return processenvREACT_APP_URL
     }
-    const queries = `?${this.state.filterAir ? "filterAir=true":""}${this.state.filterRail ? "&filterRail=true":""}${this.state.filterBus? "&filterBus=true":""}${this.state.filterCar ? "&filterCar=true":""}`
+    const queries = `?${this.state.filterAir ? "filterAir=true" : ""}${this.state.filterRail ? "&filterRail=true" : ""}${this.state.filterBus ? "&filterBus=true" : ""}${this.state.filterCar ? "&filterCar=true" : ""}`
     return `http://${processenvREACT_APP_URL}/${this.state.routeData.places[0].longName}/${this.state.routeData.places[1].longName}${queries}`.replace(/ /gi, "%20").replace(/,/gi, "")//Extremt fult, men jag vill gå och äta nu
 
   }
@@ -126,28 +131,28 @@ class App extends Component {
     let data = this.state.routeData ? { ...this.state.routeData } : null;
     console.log("routeData", data);
 
-    if (data){
+    if (data) {
       data.routes = data.routes
-      .filter(element => {
-        return this.state.filterAir 
-        ? !element.name.toUpperCase().includes("FLY")
-        : true;
-      })
-      .filter(element => {
-        return this.state.filterRail 
-        ? !element.name.toUpperCase().includes("TRAIN")
-        : true;
-      })
-      .filter(element => {
-        return this.state.filterBus
-        ? !element.name.toUpperCase().includes("BUS")
-        : true;
-      })
-      .filter(element => {
-        return this.state.filterCar
-        ? !element.name.toUpperCase().includes("DRIVE")
-        : true;
-      })
+        .filter(element => {
+          return this.state.filterAir
+            ? !element.name.toUpperCase().includes("FLY")
+            : true;
+        })
+        .filter(element => {
+          return this.state.filterRail
+            ? !element.name.toUpperCase().includes("TRAIN")
+            : true;
+        })
+        .filter(element => {
+          return this.state.filterBus
+            ? !element.name.toUpperCase().includes("BUS")
+            : true;
+        })
+        .filter(element => {
+          return this.state.filterCar
+            ? !element.name.toUpperCase().includes("DRIVE")
+            : true;
+        })
     }
 
 
@@ -160,19 +165,16 @@ class App extends Component {
 
           <header>
             <a href="/" className="headerLogo"><img src={headerLogo} alt="2sweden logo" /></a>
-          </header>
-
-          <nav>
             <ul className="languages">
               {Object.keys(languages).map(lang => (
-                <li key={lang}>
-                  <button onClick={this.handleOnClick}
+                  <button className={`flag ${lang}`} onClick={this.handleOnClick}                  
                     value={lang}>
-                    {languages[lang]}
                   </button>
-                </li>
               ))}
             </ul>
+          </header>
+          <nav>
+
             <Trans>
               <a className="navbar1" href="/">Travel</a>
               <a className="navbar2" href="/">Read about the event</a>
@@ -186,10 +188,10 @@ class App extends Component {
               filterButtons={filterButtons}
               resetList={this.resetList}
               className="onSubmit" />
-                 <BrowserRouter>
-              <Route path="/:from/:to" component={({match, location}) => this.initialiseFromUrl({match, location})}/>
+            <BrowserRouter>
+              <Route path="/:from/:to" component={({ match, location }) => this.initialiseFromUrl({ match, location })} />
             </BrowserRouter>
-            <RouteList shareUrl={this.buildUrl()} routeData={data}/>
+            <RouteList shareUrl={this.buildUrl()} routeData={data} />
           </main>
 
           <footer>
