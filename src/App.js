@@ -109,6 +109,7 @@ class App extends Component {
         <div className="background-modal">
           <div className="modal-content">
             <div className="close" onClick={this.closeTripDetals}>+</div>
+
           </div>
         </div>
 

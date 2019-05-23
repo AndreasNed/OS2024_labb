@@ -18,9 +18,13 @@
 .grid-container {
   width: 100vw;
   height: 100vh;
-  background-color: #ffcc00;
+  background-color: #006699;
   position: relative;
   overflow-x: hidden;
+  background-image: url(../pics/bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 0px 200px;
 }
 
 /******* HEADER *******/
@@ -47,7 +51,7 @@ nav {
   background-color: #006699;
 }
     nav a {
-      color: #ffcc00;
+      color: #ffe991;
       text-decoration: none;
       display: flex;
       justify-self: center;
@@ -57,7 +61,6 @@ nav {
 /******* MAIN *******/
 
 main {
-  background-color: #ffcc00;
   
 }
 
@@ -107,7 +110,7 @@ footer {
 }
 
     footer a {
-      color: #ffcc00;
+      color: #ffe991;
       text-decoration: none;
       font-size: 8pt;
     }
