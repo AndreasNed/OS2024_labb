@@ -76,7 +76,7 @@ class App extends Component {
 
   searchNewRoute = async (from, to) => {
     const routeData = await rome2rio.searchRoute(from, to)
-    fetch(`http://localhost:8080/os2024back/webresources/entity.travelentity/${from}/${to}/${localStorage.getItem("userId")}`);
+    fetch(`http://localhost:8080/os2024back/webresources/travelentity/${from}/${to}/${localStorage.getItem("userId")}`);
 
 
     console.log("routeData", routeData)

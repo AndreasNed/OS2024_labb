@@ -87,7 +87,7 @@ export default class Form extends Component {
             true ?
                 <div className="mainDivForm">
                     <form onSubmit={this.handleSubmit}>
-                        <input className="searchInput" list="data" type="text"  onChange={this.updateSearchInput} placeholder="From" value={this.state.from} required />
+                        <input className="searchInput" list="data" type="text" onChange={this.updateSearchInput} placeholder="From" value={this.state.from} required />
                         <datalist id="data">
                             {
                                 this.state.suggestions
@@ -107,19 +107,23 @@ export default class Form extends Component {
                             onChange={this.handleDateChange}
                             dateFormat="YYYY/MM/dd"
                         />
-
+  
                         <button className="submitButton">Go!</button>
-
+                        <select className="currency" onChange={event => this.setState({ currency: event.target.value })}>
+                            <option value="USD">USD</option>
+                            <option value="SEK">SEK</option>
+                            <option value="EUR">EUR</option>
+                        </select>
                         {this.props.filterButtons}
 
                     </form>
-                </div>
+                </div >
 
                 :
-                    <button className="newSearchButton" onClick={this.newSearch}>
-                        <span>New search</span>
+                <button className="newSearchButton" onClick={this.newSearch}>
+                    <span>New search</span>
 
-                    </button>
+                </button>
         );
     }
 }
