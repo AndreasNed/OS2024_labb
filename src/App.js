@@ -101,10 +101,11 @@ class App extends Component {
     console.log(name + ": " + checked);
   }
 
+  closeTripDetals = () => {
     document.querySelector('.close').addEventListener('click', function() {
       document.querySelector('.background-modal').style.display = 'none';
     })
-
+  }
   initialiseFromUrl = (obj) => {
     if (!this.state.urlInit) {
       this.setState({ urlInit: true });

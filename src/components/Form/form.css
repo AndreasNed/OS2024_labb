@@ -39,18 +39,17 @@ form {
     border-style: none;
     text-align: center;
 }
-
 .submitButton {
-    background-color: #6afca8;
+    background-color: #0088bb;
     grid-area: 2/15/3/16;
 
     border-radius: 30px;
     border-style: none;
-    color: #ffdb4b;
+    
 }
 .submitButton:hover{
     cursor: pointer;
-    background-color: #0088bb;
+    background-color: #ffdb4b;
 }
 
 .newSearchButton {}
@@ -59,7 +58,7 @@ form {
 /******* FILTER.JS *******/
 
 .mainDivFilter {
-    grid-area: 3/3/4/19;
+    grid-area: 4/3/5/19;
 
     display: flex;
     justify-content: space-around;
@@ -175,12 +174,11 @@ form {
 .currency{
 text-align: center;
  border-style: none;
- width: 100%;
- height: 45%;
- 
+ height: 50px;
+ border-radius: 30px;
 
 }
 .currencyDiv{
-    grid-area: 2/9/2/9; 
+    grid-area: 2/5/2/5; 
     
 }
