@@ -109,13 +109,14 @@ export default class Form extends Component {
                         />
   
                         <button className="submitButton">Go!</button>
+                        <div className="currencyDiv">
                         <select className="currency" onChange={event => this.setState({ currency: event.target.value })}>
                             <option value="USD">USD</option>
                             <option value="SEK">SEK</option>
                             <option value="EUR">EUR</option>
                         </select>
+                        </div>
                         {this.props.filterButtons}
-
                     </form>
                 </div >
 
