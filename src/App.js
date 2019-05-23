@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './style/App.css';
+import './components/Form/form.css';
 import Form from "./components/Form/Form"
 import rome2rio from "./utils/rome2rio"
 import RouteList from "./components/RouteList/RouteList"
@@ -43,6 +44,12 @@ class App extends Component {
     console.log(name + ": " + checked);
   }
 
+  closeTripDetals = () => {
+    document.querySelector('.close').addEventListener('click', function() {
+      document.querySelector('.background-modal').style.display = 'none';
+    })
+  }
+
   render() {
 
     let data = this.state.routeData ? { ...this.state.routeData } : null;
@@ -78,7 +85,6 @@ class App extends Component {
 
     } */
 
-
     const filterButtons = <Filters filterFunc={this.updateFilters} {...this.state} />
     const showResults = data
       ? <RouteList routeData={data} filterButtons={filterButtons} className="routePlaces" />
@@ -99,6 +105,13 @@ class App extends Component {
         </nav>
 
         <main>
+
+        <div className="background-modal">
+          <div className="modal-content">
+            <div className="close" onClick={this.closeTripDetals}>+</div>
+          </div>
+        </div>
+
           <Form onSubmit={this.searchNewRoute}
             filterButtons={filterButtons}
             resetList={this.resetList}

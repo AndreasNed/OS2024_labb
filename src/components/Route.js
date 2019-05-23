@@ -15,26 +15,19 @@ export default class Route extends React.Component{
         return Math.trunc(distance) + "km";
     }
 
-    render(){
+
+    openTripDetails = () => {
+        document.getElementById('tripDetails').addEventListener('click', function() {
+          document.querySelector('.background-modal').style.display = 'flex';
+        })
+    }
+
+    render(){        
         const props = this.props;
         return (
-        <div className="mainContainer">
-            <div className="theCard">
-
-                <div className="frontCard">front of card
-                    <div>Transport type: {props.name}</div>
-                    <div>Distance: {this.getKm(props.distance)}</div>
-                    <div>Price: {props.indicativePrices ? 
-                        props.indicativePrices.map(x => (
-                            <span>{x.priceLow ? x.priceLow + " - " + x.priceHigh
-                            : x.name ? x.name + " " + x.price : x.price} {x.currency} </span>
-                    )) : "Not available"}
-                    </div>
-                    <br/>
-                </div>
-
-                <div className="backCard">back of card
-                    <div>Transport type: {props.name}</div>
+            
+        <div className="cardContainer">
+                    <div>Transport: {props.name}</div>
                     <div>Distance: {this.getKm(props.distance)}</div>
                     <div>Total Duration: {this.getHours(props.totalDuration)} {this.getMin(props.totalDuration)}</div>
                     <div>Price: {props.indicativePrices ? 
@@ -42,12 +35,11 @@ export default class Route extends React.Component{
                             <span>{x.priceLow ? x.priceLow + " - " + x.priceHigh
                             : x.name ? x.name + " " + x.price : x.price} {x.currency} </span>
                     )) : "Not available"}
-                    </div>
-                    <br/>
-                </div>
-
             </div>
+            <button id="tripDetails" onClick={this.openTripDetails}>Details</button>            
+
         </div>
+        
 
     )}
 }

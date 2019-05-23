@@ -113,58 +113,21 @@ form {
     display: flex;
     flex-flow: wrap;
     justify-content: center;
+    margin-bottom: 50px;
 }
 
-.mainContainer {
-    position: relative;
+.cardContainer {
+    background-color: #fcdd60;
     width: 90%;
-    height: 200px;
-}
-
-.theCard {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    transform-style: preserve-3d;
-    transition: all 3s ease;
-}
-
-.theCard:hover {
-    transform: rotateX(180deg);
-}
-
-.frontCard {
-    position: absolute;
-    backface-visibility: hidden;
-    color: #bd2dff;
-    width: 90%;
-    height: 100px;
-    background-color: #ffdb4b;
-    border-style: solid;
-    border-radius: 15px 50px;
+    height: 70px;
     margin: 5px;
+    border-radius: 30px 10px;
+    border-style: ridge;
     display: flex;
-    justify-content: space-evenly;
     align-items: center;
+    justify-content: space-between;
+    padding: 10px;
 }
-
-.backCard {
-    position: absolute;
-    backface-visibility: hidden;
-    
-    color: #2196fc;
-    width: 90%;
-    height: 180px;
-    background-color: #ffdb4b;
-    border-style: solid;
-    border-radius: 15px 50px;
-    margin: 5px;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    transform: rotateX(180deg);
-}
-
 
 /******* ROUTELIST.JS *******/
 
