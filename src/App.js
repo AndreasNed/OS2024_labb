@@ -74,11 +74,10 @@ class App extends Component {
     })
   }
 
-  searchNewRoute = async (from, to) => {
-    const routeData = await rome2rio.searchRoute(from, to)
+
+  searchNewRoute = async (from, to, currencyCode) => {
+    const routeData = await rome2rio.searchRoute(from, to, currencyCode)
     fetch(`http://localhost:8080/os2024back/webresources/travelentity/${from}/${to}/${localStorage.getItem("userId")}`);
-
-
     console.log("routeData", routeData)
 
     this.setState(({
@@ -192,10 +191,8 @@ class App extends Component {
               filterButtons={filterButtons}
               resetList={this.resetList}
               className="onSubmit" />
-            <BrowserRouter>
-              <Route path="/:from/:to" component={({ match, location }) => this.initialiseFromUrl({ match, location })} />
-            </BrowserRouter>
-            <RouteList shareUrl={this.buildUrl()} routeData={data} />
+              <Route path="/:from/:to" component={({match, location}) => this.initialiseFromUrl({match, location})}/>
+            <RouteList shareUrl={this.buildUrl()} routeData={data}/>
           </main>
 
           <footer>
