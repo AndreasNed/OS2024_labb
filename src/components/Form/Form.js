@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import '../../style/App.css';
 import './form.css'
+import '../mobile.css'
 import DatePicker from "react-datepicker";
 import rome2rio from "../../utils/rome2rio";
 import Filters from "../Filters"
@@ -11,6 +12,7 @@ export default class Form extends Component {
     state = {
         from: "",
         to: "Stockholm",
+        currency: "USD",
         date: new Date(),
         showMe: true,
         suggestions: [],
@@ -58,7 +60,7 @@ export default class Form extends Component {
     handleSubmit = async (event) => {
         event.preventDefault();
         const filters = { air: this.state.filterAir, rail: this.state.filterRail, bus: this.state.filterBus, car: this.state.filterCar }
-        this.props.onSubmit(this.state.from, this.state.to, filters);
+        this.props.onSubmit(this.state.from, this.state.to, this.state.currency);
         console.log(this.state.from);
         console.log(this.state.to);
         this.toggler();
@@ -86,7 +88,7 @@ export default class Form extends Component {
             true ?
                 <div className="mainDivForm">
                     <form onSubmit={this.handleSubmit}>
-                        <input className="searchInput" list="data" type="text"  onChange={this.updateSearchInput} placeholder="From" value={this.state.from} required />
+                        <input className="searchInput" list="data" type="text" onChange={this.updateSearchInput} placeholder="From" value={this.state.from} required />
                         <datalist id="data">
                             {
                                 this.state.suggestions
@@ -106,19 +108,24 @@ export default class Form extends Component {
                             onChange={this.handleDateChange}
                             dateFormat="YYYY/MM/dd"
                         />
-
+  
                         <button className="submitButton">Go!</button>
-
+                        <div className="currencyDiv">
+                        <select className="currency" onChange={event => this.setState({ currency: event.target.value })}>
+                            <option value="USD">USD</option>
+                            <option value="SEK">SEK</option>
+                            <option value="EUR">EUR</option>
+                        </select>
+                        </div>
                         {this.props.filterButtons}
-
                     </form>
-                </div>
+                </div >
 
                 :
-                    <button className="newSearchButton" onClick={this.newSearch}>
-                        <span>New search</span>
+                <button className="newSearchButton" onClick={this.newSearch}>
+                    <span>New search</span>
 
-                    </button>
+                </button>
         );
     }
 }

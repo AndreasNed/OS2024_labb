@@ -1,0 +1,34 @@
+{
+  "Transport type:": {
+    "origin": [
+      [
+        "src/components/Route.js",
+        23
+      ]
+    ]
+  },
+  "Distance:": {
+    "origin": [
+      [
+        "src/components/Route.js",
+        24
+      ]
+    ]
+  },
+  "Total Duration:": {
+    "origin": [
+      [
+        "src/components/Route.js",
+        25
+      ]
+    ]
+  },
+  "Price:": {
+    "origin": [
+      [
+        "src/components/Route.js",
+        26
+      ]
+    ]
+  }
+}

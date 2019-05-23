@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Trans } from "@lingui/macro"
 
 export default class Route extends React.Component{
 
@@ -35,6 +35,7 @@ export default class Route extends React.Component{
                             <span>{x.priceLow ? x.priceLow + " - " + x.priceHigh
                             : x.name ? x.name + " " + x.price : x.price} {x.currency} </span>
                     )) : "Not available"}
+
             </div>
             <button id="tripDetails" onClick={this.openTripDetails}>Details</button>            
 

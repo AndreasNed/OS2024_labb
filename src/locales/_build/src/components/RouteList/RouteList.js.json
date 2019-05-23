@@ -1,0 +1,18 @@
+{
+  "<0>From: {0}</0><1>To: {1}</1><2><3>Sort by Duration</3><4>Sort by Price</4><5>Sort by distance</5><6>Sort by segments</6></2>": {
+    "origin": [
+      [
+        "src/components/RouteList/RouteList.js",
+        77
+      ]
+    ]
+  },
+  "Sorry, there are no transports for that journey.": {
+    "origin": [
+      [
+        "src/components/RouteList/RouteList.js",
+        95
+      ]
+    ]
+  }
+}

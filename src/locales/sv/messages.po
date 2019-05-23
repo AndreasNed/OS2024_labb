@@ -1,0 +1,81 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2019-05-14 14:17+0200\n"
+"Mime-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: sv\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
+
+
+#: src/App.js:164
+#~ msgid "<0>Contact</0><1>About us</1>"
+#~ msgstr "<0>Kontakt</0><1>Om oss</1>"
+
+#: src/components/RouteList/RouteList.js:77
+msgid "<0>From: {0}</0><1>To: {1}</1><2><3>Sort by Duration</3><4>Sort by Price</4><5>Sort by distance</5><6>Sort by segments</6></2>"
+msgstr "<0>Från: {0}</0><1>Till: {1}</1><2><3>Sortera efter tid</3><4>Sortera efter pris</4><5>Sortera efter distans</5><6>Sortera efter segment</6></2>""
+
+#: src/App.js:148
+#~ msgid "<0>Travel</0><1>Read about the event</1><2>Read about the cities</2><3>See recommendations</3>"
+#~ msgstr "<0>Sök resa</0><1>Läs mer om eventet</1><2>Läs mer om orterna</2><3>Se rekomendationer</3>"
+
+#: src/App.js:166
+msgid "About us"
+msgstr "Om oss"
+
+#: src/App.js:169
+msgid "Contact"
+msgstr "Kontakt"
+
+#: src/components/Route.js:24
+msgid "Distance:"
+msgstr "Distans:"
+
+#: src/components/Filters.js:44
+msgid "Don't show bus"
+msgstr "Visa inte bussar"
+
+#: src/components/Filters.js:58
+msgid "Don't show car"
+msgstr "Visa inte bilfärd"
+
+#: src/components/Filters.js:16
+msgid "Don't show flights"
+msgstr "Visa inte flyg"
+
+#: src/components/Filters.js:30
+msgid "Don't show trains"
+msgstr "Visa inte tåg"
+
+#: src/components/Form/Form.js:111
+msgid "Go!"
+msgstr "Sök!"
+
+
+#: src/components/Form/Form.js:120
+msgid "New search"
+msgstr "Ny sökning"
+
+#: src/components/Route.js:26
+msgid "Price:"
+msgstr "Pris:"
+
+#: src/components/RouteList/RouteList.js:95
+msgid "Sorry, there are no transports for that journey."
+msgstr "Tyvärr hittades inga resor med dom sökkriterierna."
+
+
+#: src/components/Route.js:25
+msgid "Total Duration:"
+msgstr "Total restid:"
+
+#: src/components/Route.js:23
+msgid "Transport type:"
+msgstr "Färdsätt:"

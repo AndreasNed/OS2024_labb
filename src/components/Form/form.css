@@ -43,8 +43,14 @@ form {
 .submitButton {
     background-color: #6afca8;
     grid-area: 2/15/3/16;
+
     border-radius: 30px;
     border-style: none;
+    color: #ffdb4b;
+}
+.submitButton:hover{
+    cursor: pointer;
+    background-color: #0088bb;
 }
 
 .newSearchButton {}
@@ -54,6 +60,7 @@ form {
 
 .mainDivFilter {
     grid-area: 3/3/4/19;
+
     display: flex;
     justify-content: space-around;
     align-items: flex-end;
@@ -159,4 +166,21 @@ form {
     padding: 10px;
     border-style: none;
     border-radius: 30px;
+}
+
+
+.currency:hover{
+    opacity:0.5 ;
+}
+.currency{
+text-align: center;
+ border-style: none;
+ width: 100%;
+ height: 45%;
+ 
+
+}
+.currencyDiv{
+    grid-area: 2/9/2/9; 
+    
 }

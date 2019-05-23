@@ -1,5 +1,6 @@
 import React from 'react'
-
+import '../style/App.css';
+import { Trans } from "@lingui/macro"
 
 export default class Filters extends React.Component {
 
@@ -11,56 +12,63 @@ export default class Filters extends React.Component {
         return (
             <div className="mainDivFilter">
 
-                <label className="checkboxContainer">
-                    <div className="containerLabel">
-                    No planes
-                    </div>
-                    <input 
-                        type="checkbox" 
-                        name="filterAir" 
-                        onChange={this.handleOnChange}
-                        checked={this.props.filterAir}
-                    />
-                    <span className="checkmark"></span>
-                </label>
+                <div className="checkboxFilterPlane">
+                <div className="FilterText">
+                <Trans>Don't show flights</Trans>
+                </div >
+                    <label class="switch">
+                            <input type="checkbox"
+                            name="filterAir"
+                            onChange={this.handleOnChange}
+                            checked={this.props.filterAir}
+                        />
+                        <span class="slider round"></span>
+                    </label>
+                </div>
 
-                <label className="checkboxContainer">
-                <div className="containerLabel">
-                    No trains
-                    </div>
-                    <input type="checkbox"
+                <div className="checkboxFilterTrain">
+                <div className="FilterText">
+                <Trans>Don't show trains</Trans>
+                </div >
+                    <label class="switch">
+                            <input type="checkbox"
                             name="filterRail"
                             onChange={this.handleOnChange}
                             checked={this.props.filterRail}
-                    />
-                    <span className="checkmark"></span>
-                </label>
+                        />
+                        <span class="slider round"></span>
+                    </label>
+                </div>
 
-                <label className="checkboxContainer">
-                    <div className="containerLabel">
-                    No buses
-                    </div>
-                    <input type="checkbox"
+                <div className="checkboxFilterBus">
+                <div className="FilterText">
+                <Trans>Don't show bus</Trans>
+                </div >
+                    <label class="switch">
+                            <input type="checkbox"
                             name="filterBus"
                             onChange={this.handleOnChange}
                             checked={this.props.filterBus}
-                    />
-                    <span className="checkmark"></span>
-                </label>
+                        />
+                        <span class="slider round"></span>
+                    </label>
+                </div>
 
-                <label className="checkboxContainer">
-                    <div className="containerLabel">
-                    No cars
-                    </div>
-                    <input type="checkbox"
+                <div className="checkboxFilterCar">
+                <div className="FilterText">
+                <Trans>Don't show car</Trans>
+                </div >
+                    <label class="switch">
+                            <input type="checkbox"
                             name="filterCar"
                             onChange={this.handleOnChange}
                             checked={this.props.filterCar}
-                    />
-                    <span className="checkmark"></span>
-                </label>
-
-            </div>
-        )
+                        />
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+            </div >
+             
+        ) 
     }
 }
