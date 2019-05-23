@@ -16,7 +16,9 @@ export default class Stats extends React.Component {
     getData = async () => {
         const response = await fetch("os2024back/webresources/travelentity/getall");
         console.log("response", response);
-        if (!response.ok){ return null}
+        if (!response.ok){
+            return null
+        }
         const travelStats = await response.json();
         console.log("travelStats", travelStats);
         return travelStats;
