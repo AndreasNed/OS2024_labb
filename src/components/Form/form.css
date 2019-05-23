@@ -37,11 +37,16 @@ form {
 }
 
 .submitButton {
-    background-color: blueviolet;
+    background-color: #006699;
     width: 100px;
     grid-area: 2/8/3/9;
     border-radius: 30px;
     border-style: none;
+    color: #ffdb4b;
+}
+.submitButton:hover{
+    cursor: pointer;
+    background-color: #0088bb;
 }
 
 .newSearchButton {}
