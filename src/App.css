@@ -135,7 +135,7 @@ color: #ffcc00;
 
 .submitBtn {
   position: relative;
-  bottom: 50px;
+  top: 22px;
   width: 45%;
   height: 30px;
   border-radius: 4px;
@@ -206,9 +206,8 @@ input:checked + .slider:before {
 
 .flexiboi{
   display:  flex;
+  justify-content: space-evenly;
   position: relative;
-  justify-content: center;
-
 }
 
 .checkboxes {
@@ -292,10 +291,7 @@ p {
 
 .infoDiv{
   margin-left: 300px;
-    text-align: center;
+  text-align: center;
   margin: 5px;
   }
 
-  .languages {
-    z-index: 999;
-  }

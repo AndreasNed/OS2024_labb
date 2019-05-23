@@ -1,17 +1,25 @@
 {
-  "<0>Travel</0><1>Read about the event</1><2>Read about the cities</2><3>See recommendations</3>": {
+  "<0>Travel</0><1>Read about the event</1><2>Read about the ciities</2><3>See recommendations</3>": {
     "origin": [
       [
         "src/App.js",
-        145
+        148
       ]
     ]
   },
-  "<0>Contact</0><1>About us</1>": {
+  "About us": {
     "origin": [
       [
         "src/App.js",
-        164
+        166
+      ]
+    ]
+  },
+  "Contact": {
+    "origin": [
+      [
+        "src/App.js",
+        169
       ]
     ]
   }

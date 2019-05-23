@@ -9,6 +9,9 @@ import { Trans } from "@lingui/macro"
 import headerLogo from "./pics/headerLogo.png"
 import "./components/tablet.css"
 import "./components/mobile.css"
+import { BrowserRouter, Route } from 'react-router-dom'
+import queryString from 'query-string';
+
 
 const languages = {
   en: "English",
@@ -19,6 +22,7 @@ const languages = {
   ru: "Pусский",
   zh: "中國"
 }
+console.log(languages)
 
 
 class App extends Component {
@@ -28,12 +32,19 @@ class App extends Component {
     filterRail: false,
     filterBus: false,
     filterCar: false,
+    urlInit: false,
+
     language: "en",
     catalogs: {}
   };
 
   componentDidMount() {
     this.loadLanguage(this.state.language)
+
+    if (!localStorage.getItem("userId")){
+      localStorage.setItem("userId",(+new Date).toString(36));
+      console.log("userId", localStorage.getItem("userId"));
+    }
   }
 
   loadLanguage = async language => {
@@ -55,16 +66,21 @@ class App extends Component {
   }
 
   handleOnClick = (event) => {
+    console.log("asd")
+    console.log(event)
     const language = event.target.value;
     this.setState({
       language
     })
   }
 
-  searchNewRoute = async (from, to, filters) => {
-    const routeData = await rome2rio.searchRoute(from, to, filters)
+
+  searchNewRoute = async (from, to, currencyCode) => {
+    const routeData = await rome2rio.searchRoute(from, to, currencyCode)
+    fetch(`http://localhost:8080/os2024back/webresources/travelentity/${from}/${to}/${localStorage.getItem("userId")}`);
+    console.log("routeData", routeData)
+
     this.setState(({
-      filters,
       routeData
     }));
     console.log(routeData);
@@ -84,11 +100,40 @@ class App extends Component {
     console.log(name + ": " + checked);
   }
 
+
+  initialiseFromUrl = (obj) => {
+    if (!this.state.urlInit) {
+      this.setState({ urlInit: true });
+      const params = obj.match.params;
+      console.log("match.params", obj.match.params);
+      console.log("location.", obj.location);
+      let filters = queryString.parse(obj.location.search); // Ger tillbaka strängar istället för boolean, men eftersom det aldrig kommer behövas för false funkar det. Yippie typ-osäkerhet
+      console.log("filters", filters);
+      this.searchNewRoute(params.from, params.to);
+      this.setState(filters);
+    }
+
+    return null;
+
+  }
+
+  buildUrl = () => {
+
+    const processenvREACT_APP_URL = "localhost:3000"
+    if (!this.state.routeData) {
+      return processenvREACT_APP_URL
+    }
+    const queries = `?${this.state.filterAir ? "filterAir=true" : ""}${this.state.filterRail ? "&filterRail=true" : ""}${this.state.filterBus ? "&filterBus=true" : ""}${this.state.filterCar ? "&filterCar=true" : ""}`
+    return `http://${processenvREACT_APP_URL}/${this.state.routeData.places[0].longName}/${this.state.routeData.places[1].longName}${queries}`.replace(/ /gi, "%20").replace(/,/gi, "")//Extremt fult, men jag vill gå och äta nu
+
+  }
+
   render() {
 
     const { language, catalogs } = this.state;
     let data = this.state.routeData ? { ...this.state.routeData } : null;
-    console.log(data);
+    console.log("routeData", data);
+
     if (data) {
       data.routes = data.routes
         .filter(element => {
@@ -112,19 +157,10 @@ class App extends Component {
             : true;
         })
     }
-    /*if(this.state.filterAir && this.state.filterBus && this.state.filterRail && this.state.filterCar){
-      return{
-        <div></div>
-
-      }
-
-    } */
 
 
     const filterButtons = <Filters filterFunc={this.updateFilters} {...this.state} />
-    const showResults = data
-      ? <RouteList routeData={data} filterButtons={filterButtons} className="routePlaces" />
-      : null
+
 
     return (
       <I18nProvider language={language} catalogs={catalogs}>
@@ -132,24 +168,21 @@ class App extends Component {
 
           <header>
             <a href="/" className="headerLogo"><img src={headerLogo} alt="2sweden logo" /></a>
-          </header>
-
-          <nav>
             <ul className="languages">
               {Object.keys(languages).map(lang => (
-                <li key={lang}>
-                  <button onClick={this.handleOnClick}
+                  <button className={`flag ${lang}`} onClick={this.handleOnClick}                  
                     value={lang}>
-                    {languages[lang]}
                   </button>
-                </li>
               ))}
             </ul>
+          </header>
+          <nav>
+
             <Trans>
-              <a className="navbar1" href="/">Sök resor</a>
-              <a className="navbar2" href="/">Läs om eventet</a>
-              <a className="navbar3" href="/">Läs om våra orter</a>
-              <a className="navbar4" href="/">Se rekommendationer</a>
+              <a className="navbar1" href="/">Travel</a>
+              <a className="navbar2" href="/">Read about the event</a>
+              <a className="navbar3" href="/">Read about the cities</a>
+              <a className="navbar4" href="/">See recommendations</a>
             </Trans>
           </nav>
 
@@ -158,7 +191,8 @@ class App extends Component {
               filterButtons={filterButtons}
               resetList={this.resetList}
               className="onSubmit" />
-            {showResults}
+              <Route path="/:from/:to" component={({match, location}) => this.initialiseFromUrl({match, location})}/>
+            <RouteList shareUrl={this.buildUrl()} routeData={data}/>
           </main>
 
           <footer>
@@ -176,6 +210,7 @@ class App extends Component {
 
         </div>
       </I18nProvider>
+
     );
   }
 }
