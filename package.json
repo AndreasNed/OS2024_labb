@@ -50,5 +50,6 @@
     "enzyme-adapter-react-16": "^1.12.1",
     "jest-enzyme": "^7.0.2",
     "react-app-env": "^1.2.3"
-  }
+  },
+  "proxy": "http://127.0.0.1:8080"
 }

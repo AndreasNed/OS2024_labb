@@ -2,43 +2,50 @@
 import React from 'react'
 import './style/App.css';
 import headerLogo from "./pics/headerLogo.png"
+import { isFlowType } from '@babel/types';
 const axios = require('axios');
 
 export default class Stats extends React.Component {
 
     state = {travelStats: null};
     
-    componentDidMount = async () => {
+    componentDidMount = () => {
+        this.getData().then(travelStats => this.setState({travelStats}));
+    }
 
-        const response = await fetch("http://localhost:8080/os2024back/webresources/travelentity/getall", { mode: 'no-cors', });
+    getData = async () => {
+        const response = await fetch("os2024back/webresources/travelentity/getall");
         console.log("response", response);
-        const travelStats = response.json();
+        if (!response.ok){ return null}
+        const travelStats = await response.json();
         console.log("travelStats", travelStats);
-        this.setState({travelStats});
-
+        return travelStats;
+        
     }
     
-    findPopularOrigin = () => {
+    findPopularStat = (statKey) => {
         if (!this.state.travelStats){
             return "n/a";
         }
         const stats = this.state.travelStats;
         console.log("travelStats", stats);        
         let list = [];
+        let found = false;
         stats.forEach(statElement => {
-            for (let i = 0; i < list.length; i++){
-                if (list[i].key === statElement.origin){
+            for (let i = 0; i < list.length && !found; i++){
+                if (list[i].key === statElement[statKey]){
                     list[i].value++;
-                    i = list.length;
-                }
-                else if (i+1 === list.length){
-                    list.append({key: statElement.origin, value: 0});
+                    found = true;
                 }
             }
-            console.log("originTable", list);
-
-        })
-
+            if (!found){
+                list.push({key: statElement[statKey], value: 1});
+            }
+            found = false;
+        });
+        const sortedList = list.sort((a,b) => b.value-a.value);
+        console.log("sortedOriginList", sortedList);
+        return `${sortedList[0].key} (${sortedList[0].value})`;
     }
 
     render() {
@@ -48,8 +55,10 @@ export default class Stats extends React.Component {
                     <a href="/" className="headerLogo"><img src={headerLogo} alt="2sweden logo" /></a>
                 </header>
 
-                <main>
-                    <h2>The most popular point of origin is: {this.findPopularOrigin()}</h2>
+                <main className="statMain">
+                    <h2>Total number of searches: {this.state.travelStats ? this.state.travelStats.length : "n/a"}</h2>
+                    <h2>The most popular point of origin is: {this.findPopularStat("origin")}</h2>
+                    <h2>The most popular destination is: {this.findPopularStat("destination")}</h2>
                 </main>
             </div>
 

@@ -242,3 +242,13 @@ footer {
 .shareButton:hover{
   opacity: 0.5;
 }
+
+.statMain {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+
+.statMain>h2 {
+  margin: 20px;
+}
