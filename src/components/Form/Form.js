@@ -12,6 +12,7 @@ export default class Form extends Component {
     state = {
         from: "",
         to: "Stockholm",
+        currency: "USD",
         date: new Date(),
         showMe: true,
         suggestions: [],
@@ -59,7 +60,7 @@ export default class Form extends Component {
     handleSubmit = async (event) => {
         event.preventDefault();
         const filters = { air: this.state.filterAir, rail: this.state.filterRail, bus: this.state.filterBus, car: this.state.filterCar }
-        this.props.onSubmit(this.state.from, this.state.to, filters);
+        this.props.onSubmit(this.state.from, this.state.to, this.state.currency);
         console.log(this.state.from);
         console.log(this.state.to);
         this.toggler();
