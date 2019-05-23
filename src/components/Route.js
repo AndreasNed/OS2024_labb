@@ -15,21 +15,32 @@ export default class Route extends React.Component{
         return Math.trunc(distance) + "km";
     }
 
-    render(){
-        
+
+    openTripDetails = () => {
+        document.getElementById('tripDetails').addEventListener('click', function() {
+          document.querySelector('.background-modal').style.display = 'flex';
+        })
+    }
+
+    render(){        
         const props = this.props;
         return (
-        <div className="routeSegment">
-            <div><Trans>Transport type: </Trans> {props.name}</div>
-            <div><Trans>Distance: </Trans> {this.getKm(props.distance)}</div>
-            <div><Trans>Total Duration: </Trans> {this.getHours(props.totalDuration)} {this.getMin(props.totalDuration)}</div>
-            <div><Trans>Price: </Trans> {props.indicativePrices ? 
-                props.indicativePrices.map(x => (
-                    <span>{x.priceLow ? x.priceLow + " - " + x.priceHigh
-                    : x.name ? x.name + " " + x.price : x.price} {x.currency} </span>
-            )) : "Not available"}
+            
+        <div className="cardContainer">
+                    <div>Transport: {props.name}</div>
+                    <div>Distance: {this.getKm(props.distance)}</div>
+                    <div>Total Duration: {this.getHours(props.totalDuration)} {this.getMin(props.totalDuration)}</div>
+                    <div>Price: {props.indicativePrices ? 
+                        props.indicativePrices.map(x => (
+                            <span>{x.priceLow ? x.priceLow + " - " + x.priceHigh
+                            : x.name ? x.name + " " + x.price : x.price} {x.currency} </span>
+                    )) : "Not available"}
+
             </div>
-            <br/>
+            <button id="tripDetails" onClick={this.openTripDetails}>Details</button>            
+
         </div>
+        
+
     )}
 }
