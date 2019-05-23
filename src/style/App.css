@@ -189,3 +189,7 @@ footer {
   padding: 20px 5px;
   cursor: pointer;
 }
+
+.shareButton:hover{
+  opacity: 0.5;
+}

@@ -4,9 +4,9 @@ const key = process.env.REACT_APP_ROME_2_RIO_API_KEY;
 
 export default class rome2rio{
 
-    static searchRoute = (from, to) => {
+    static searchRoute = (from, to, currencyCode) => {
 
-        return axios.get(`http://free.rome2rio.com/api/1.4/json/Search?key=${key}&oName=${from}&dName=${to}`).then(response => response.data);
+        return axios.get(`http://free.rome2rio.com/api/1.4/json/Search?key=${key}&oName=${from}&dName=${to}&currencyCode=${currencyCode}`).then(response => response.data);
  
     }
 
