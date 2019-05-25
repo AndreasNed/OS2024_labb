@@ -13,11 +13,6 @@ import "./components/mobile.css"
 import { BrowserRouter, Route } from 'react-router-dom';
 import queryString from 'query-string';
 
-
-
-
-
-
 const languages = {
   en: "English",
   sv: "Svenska",
@@ -28,12 +23,6 @@ const languages = {
   zh: "中國"
 }
 console.log(languages)
-
-
-
-
-
-
 
 class App extends Component {
   state = {
@@ -207,18 +196,7 @@ class App extends Component {
 
           </div>
         </div>
-                  
-
-
-
-
-
-
-
-
-
-
-
+         
             <Form onSubmit={this.searchNewRoute}
               filterButtons={filterButtons}
               resetList={this.resetList}
