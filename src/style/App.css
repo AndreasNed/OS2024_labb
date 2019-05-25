@@ -213,7 +213,8 @@ footer {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #ccc;
+    background-color: #2196F3;
+   
     -webkit-transition: .4s;
     transition: .4s;
   }
@@ -225,13 +226,14 @@ footer {
     width: 26px;
     left: 4px;
     bottom: 4px;
+  
     background-color: white;
     -webkit-transition: .4s;
     transition: .4s;
   }
   
   input:checked + .slider {
-    background-color: #2196F3;
+    background-color: #ccc;
   }
   
   input:focus + .slider {
@@ -309,3 +311,11 @@ footer {
 .statMain>h2 {
   margin: 20px;
 }
+
+#filterLogo{
+ font-size: 35px;
+  margin-bottom: 4px;
+color: white;
+
+}
+

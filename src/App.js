@@ -10,8 +10,12 @@ import { I18nProvider } from "@lingui/react"
 import { Trans } from "@lingui/macro"
 import "./components/tablet.css"
 import "./components/mobile.css"
-import { BrowserRouter, Route } from 'react-router-dom'
+import { BrowserRouter, Route } from 'react-router-dom';
 import queryString from 'query-string';
+
+
+
+
 
 
 const languages = {
@@ -24,6 +28,11 @@ const languages = {
   zh: "中國"
 }
 console.log(languages)
+
+
+
+
+
 
 
 class App extends Component {
@@ -198,6 +207,18 @@ class App extends Component {
 
           </div>
         </div>
+                  
+
+
+
+
+
+
+
+
+
+
+
             <Form onSubmit={this.searchNewRoute}
               filterButtons={filterButtons}
               resetList={this.resetList}
