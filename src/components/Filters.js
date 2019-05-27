@@ -11,6 +11,7 @@ export default class Filters extends React.Component {
     render() {
         return (
             <div className="mainDivFilter">
+
                 <div className="checkboxFilterPlane">
                 <div className="FilterText">
                 <Trans>Don't show flights</Trans>

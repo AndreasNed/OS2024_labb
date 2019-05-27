@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import './style/App.css';
+import './components/Form/form.css';
 import Form from "./components/Form/Form"
 import rome2rio from "./utils/rome2rio"
 import RouteList from "./components/RouteList/RouteList"
 import Filters from "./components/Filters"
+import headerLogo from "./pics/headerLogo.jpg"
 import { I18nProvider } from "@lingui/react"
 import { Trans } from "@lingui/macro"
-import headerLogo from "./pics/headerLogo.png"
 import "./components/tablet.css"
 import "./components/mobile.css"
 import { BrowserRouter, Route } from 'react-router-dom'
@@ -100,7 +101,11 @@ class App extends Component {
     console.log(name + ": " + checked);
   }
 
-
+  closeTripDetals = () => {
+    document.querySelector('.close').addEventListener('click', function() {
+      document.querySelector('.background-modal').style.display = 'none';
+    })
+  }
   initialiseFromUrl = (obj) => {
     if (!this.state.urlInit) {
       this.setState({ urlInit: true });
@@ -158,11 +163,11 @@ class App extends Component {
         })
     }
 
-
     const filterButtons = <Filters filterFunc={this.updateFilters} {...this.state} />
 
 
     return (
+
       <I18nProvider language={language} catalogs={catalogs}>
         <div className="grid-container">
 
@@ -177,7 +182,7 @@ class App extends Component {
             </ul>
           </header>
           <nav>
-
+            
             <Trans>
               <a className="navbar1" href="/">Travel</a>
               <a className="navbar2" href="/">Read about the event</a>
@@ -187,6 +192,12 @@ class App extends Component {
           </nav>
 
           <main>
+    <div className="background-modal">
+          <div className="modal-content">
+            <div className="close" onClick={this.closeTripDetals}>+</div>
+
+          </div>
+        </div>
             <Form onSubmit={this.searchNewRoute}
               filterButtons={filterButtons}
               resetList={this.resetList}
@@ -210,6 +221,10 @@ class App extends Component {
 
         </div>
       </I18nProvider>
+
+
+
+
 
     );
   }

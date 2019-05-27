@@ -1,7 +1,7 @@
 
 import React from 'react'
 import './style/App.css';
-import headerLogo from "./pics/headerLogo.png"
+import headerLogo from "./pics/headerLogo.jpg"
 import { isFlowType } from '@babel/types';
 const axios = require('axios');
 
