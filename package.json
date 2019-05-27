@@ -3,9 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.18",
+    "@fortawesome/free-brands-svg-icons": "^5.8.2",
+    "@fortawesome/free-regular-svg-icons": "^5.8.2",
+    "@fortawesome/free-solid-svg-icons": "^5.8.2",
+    "@fortawesome/react-fontawesome": "^0.1.4",
     "@lingui/react": "^2.8.1",
     "axios": "^0.18.0",
     "dotenv": "^8.0.0",
+    "font-awesome": "^4.7.0",
     "query-string": "^5.1.1",
     "react": "^16.8.6",
     "react-datepicker": "^2.5.0",
@@ -42,6 +48,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.4.4",
+    "@fortawesome/fontawesome-free": "^5.8.2",
     "@lingui/cli": "^2.8.1",
     "@lingui/macro": "^2.8.1",
     "babel-core": "^7.0.0-bridge.0",

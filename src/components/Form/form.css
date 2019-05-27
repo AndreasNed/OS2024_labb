@@ -1,30 +1,34 @@
 /******* FORM.JS *******/
 
-.mainDivForm {}
+.mainDivForm {
+    
+}
 
 form {
     display: grid;
-    grid-template-columns: repeat(10, 10%);
+    grid-template-columns: repeat(20, 5%);
     grid-template-rows: repeat(4, 52.4px);
+    
 }
 
 .searchInput {
-    grid-area: 2/3/3/6;
+    border-radius: 4px;
+    border-style: none;
+    grid-area: 2/6/3/11;
     border-radius: 30px;
-    text-align: center;
+    padding: 10px;
 }
 
 .selectDestination {   
     /******* OBS padding left behöver fixas inför responsivitet *******/
-    grid-area: 2/6/3/7;
+    grid-area: 2/11/3/13;
     border-radius: 30px;
     border-style: none;
-    padding-left: 23%;      
-    
+    padding: 10px;
 }
 
 .react-datepicker-wrapper {
-    grid-area: 2/7/4/8;
+    grid-area: 2/13/4/15;
     border-radius: 30px;
 }
 
@@ -35,18 +39,17 @@ form {
     border-style: none;
     text-align: center;
 }
-
 .submitButton {
-    background-color: #006699;
-    width: 100px;
-    grid-area: 2/8/3/9;
+    background-color: #0088bb;
+    grid-area: 2/15/3/16;
+
     border-radius: 30px;
     border-style: none;
-    color: #ffdb4b;
+    
 }
 .submitButton:hover{
     cursor: pointer;
-    background-color: #0088bb;
+    background-color: #ffdb4b;
 }
 
 .newSearchButton {}
@@ -55,20 +58,64 @@ form {
 /******* FILTER.JS *******/
 
 .mainDivFilter {
-    grid-area: 4/2/4/10;
+    grid-area: 4/3/5/19;
+
     display: flex;
     justify-content: space-around;
     align-items: flex-end;
+    color: #ffe991;
 }
 
-.checkboxFilterPlane {}
+.checkboxContainer input{
+    display: none;
+}
 
-.checkboxFilterTrain {}
+.checkboxContainer {
+    display: inline-block;
+    padding-left: 30px;
+    position: relative;
+    cursor: pointer;
+    font-family: sans-serif;
+    user-select: none;
+    
+}
 
-.checkboxFilterBus {}
+.checkboxContainer .checkmark {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background-color: #eee;
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-radius: 3px;
+}
 
-.checkboxFilterCar {}
+.checkboxContainer input:checked + .checkmark {
+    background-color: #2196fc;
+}
 
+.checkboxContainer:hover .checkmark {
+    background-color: #ccc;
+}
+
+.checkboxContainer input:checked + .checkmark:after {
+    content: "";
+    position: absolute;
+    height: 4px;
+    width: 9px;
+    border-left: 2px solid white;
+    border-bottom: 2px solid white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.containerLabel {
+    position: relative;
+    top:5px;
+    left: 3px;
+}
 
 /******* ROUTE.JS *******/
 
@@ -76,29 +123,28 @@ form {
     display: flex;
     flex-flow: wrap;
     justify-content: center;
-    margin-bottom: 10%;
+    margin-bottom: 50px;
 }
 
-.routeSegment {
-    color: #006699;
+.cardContainer {
+    background-color: #ffe991;
     width: 90%;
-    height: 100px;
-    background-color: #ffdb4b;
-    border-style: solid;
-    border-radius: 15px 50px;
+    height: 70px;
     margin: 5px;
+    border-radius: 30px 10px;
+    border-style: ridge;
     display: flex;
-    justify-content: space-evenly;
     align-items: center;
+    justify-content: space-between;
+    padding: 10px;
 }
-
 
 /******* ROUTELIST.JS *******/
 
 .mainDivInfo {}
 
 .routeProperties {
-    color: #006699;
+    color: #ffe991;
     /*
     background-color: #ffdb4b;
     */
@@ -114,8 +160,9 @@ form {
 }
 
 .sortBy {
-    width: 120px;
+    width: 140px;
     height: 35px;
+    padding: 10px;
     border-style: none;
     border-radius: 30px;
 }
@@ -127,12 +174,11 @@ form {
 .currency{
 text-align: center;
  border-style: none;
- width: 100%;
- height: 45%;
- 
+ height: 50px;
+ border-radius: 30px;
 
 }
 .currencyDiv{
-    grid-area: 2/9/2/9; 
+    grid-area: 2/5/2/5; 
     
 }
