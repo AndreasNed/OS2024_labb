@@ -12,6 +12,7 @@ import "./components/tablet.css"
 import "./components/mobile.css"
 import { BrowserRouter, Route } from 'react-router-dom';
 import queryString from 'query-string';
+import MySavedRoutes from './components/MySavedRoutes';
 
 const languages = {
   en: "English",
@@ -40,8 +41,8 @@ class App extends Component {
   componentDidMount() {
     this.loadLanguage(this.state.language)
 
-    if (!localStorage.getItem("userId")){
-      localStorage.setItem("userId",(+new Date).toString(36));
+    if (!localStorage.getItem("userId")) {
+      localStorage.setItem("userId", (+new Date).toString(36));
       console.log("userId", localStorage.getItem("userId"));
     }
   }
@@ -100,7 +101,7 @@ class App extends Component {
   }
 
   closeTripDetals = () => {
-    document.querySelector('.close').addEventListener('click', function() {
+    document.querySelector('.close').addEventListener('click', function () {
       document.querySelector('.background-modal').style.display = 'none';
     })
   }
@@ -171,16 +172,18 @@ class App extends Component {
 
           <header>
             <a href="/" className="headerLogo"><img src={headerLogo} alt="2sweden logo" /></a>
+            <MySavedRoutes />
             <ul className="languages">
               {Object.keys(languages).map(lang => (
-                  <button className={`flag ${lang}`} onClick={this.handleOnClick}                  
-                    value={lang}>
-                  </button>
+                <button className={`flag ${lang}`} onClick={this.handleOnClick}
+                  value={lang}>
+                </button>
               ))}
             </ul>
           </header>
+
           <nav>
-            
+
             <Trans>
               <a className="navbar1" href="/">Travel</a>
               <a className="navbar2" href="/">Read about the event</a>
@@ -190,19 +193,19 @@ class App extends Component {
           </nav>
 
           <main>
-    <div className="background-modal">
-          <div className="modal-content">
-            <div className="close" onClick={this.closeTripDetals}>+</div>
+            <div className="background-modal">
+              <div className="modal-content">
+                <div className="close" onClick={this.closeTripDetals}>+</div>
 
-          </div>
-        </div>
-         
+              </div>
+            </div>
+
             <Form onSubmit={this.searchNewRoute}
               filterButtons={filterButtons}
               resetList={this.resetList}
               className="onSubmit" />
-              <Route path="/:from/:to" component={({match, location}) => this.initialiseFromUrl({match, location})}/>
-            <RouteList shareUrl={this.buildUrl()} routeData={data}/>
+            <Route path="/:from/:to" component={({ match, location }) => this.initialiseFromUrl({ match, location })} />
+            <RouteList shareUrl={this.buildUrl()} routeData={data} />
           </main>
 
           <footer>
