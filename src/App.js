@@ -13,6 +13,7 @@ import "./components/mobile.css"
 import { BrowserRouter, Route } from 'react-router-dom';
 import queryString from 'query-string';
 import MySavedRoutes from './components/MySavedRoutes';
+import MySavedModal from './components/MySavedModal';
 
 const languages = {
   en: "English",
@@ -196,9 +197,12 @@ class App extends Component {
             <div className="background-modal">
               <div className="modal-content">
                 <div className="close" onClick={this.closeTripDetals}>+</div>
-
+                <p>asdasd</p>
               </div>
             </div>
+
+            <MySavedModal />
+
 
             <Form onSubmit={this.searchNewRoute}
               filterButtons={filterButtons}

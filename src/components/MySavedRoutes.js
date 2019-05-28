@@ -5,16 +5,15 @@ export default class MySavedRoutes extends React.Component {
 
 
     openMyRoutes = () => {
-        document.getElementById('tripDetails').addEventListener('click', function() {
+        document.getElementById('mySavedRoutes').addEventListener('click', function() {
           document.querySelector('.background-modal').style.display = 'flex';
         })
     }
 
     render() {
-
         return (
             <div>
-                <button id="tripDetails" onClick={this.openMyRoutes}>My Routes</button>
+                <button id="mySavedRoutes" onClick={this.openMyRoutes}>My Routes</button>
             </div>
         )
     }
