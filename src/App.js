@@ -173,7 +173,7 @@ class App extends Component {
 
           <header>
             <a href="/" className="headerLogo"><img src={headerLogo} alt="2sweden logo" /></a>
-            <MySavedRoutes />
+            <MySavedModal/>
             <ul className="languages">
               {Object.keys(languages).map(lang => (
                 <button className={`flag ${lang}`} onClick={this.handleOnClick}
@@ -181,6 +181,7 @@ class App extends Component {
                 </button>
               ))}
             </ul>
+
           </header>
 
           <nav>
@@ -201,7 +202,6 @@ class App extends Component {
               </div>
             </div>
 
-            <MySavedModal />
 
 
             <Form onSubmit={this.searchNewRoute}
