@@ -1,7 +1,7 @@
 import React from 'react'
 import '../style/App.css';
 import Modal from 'react-modal';
-
+import Form from './Form/Form'
 const customStyles = {
   content : {
     top                   : '50%',
@@ -45,7 +45,7 @@ export default class DetalisModal extends React.Component {
 
 
     render() {
-
+      const data1 = this.props.routeData;
         return (
 
             <div>
@@ -56,13 +56,22 @@ export default class DetalisModal extends React.Component {
           onRequestClose={this.closeModal}
           style={customStyles}
           contentLabel="Example Modal"
-        >
+        >   
+        
           <button onClick={this.closeModal}>close</button>
+          <div>id: {this.props.id}</div>
+          <div>From: {this.props.from}</div>
+          <div>To: {this.props.to}</div>
           <div>Transport: {this.props.transport}</div>
           <div>Distance: {this.props.distance}</div>
           <div>Duration: {this.props.durationH}{this.props.durationM}</div>
           <div>Price: {this.props.pricing}</div>
-          <button onClick = {this.props}> Add Route to saved list </button>
+          <button onClick={
+               fetch(`http://localhost:8080/os2024back/webresources/savedtravelentity/${this.props.from}/${this.props.to}/${localStorage.getItem("userId")}
+               /${this.props.distance}/${this.props.durationH + this.props.durationM}/${this.props.pricing}/${this.props.transport}`)
+
+                  
+          } > Add Route to saved list </button>
         </Modal>
       </div>
 
