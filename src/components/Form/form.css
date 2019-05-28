@@ -167,10 +167,10 @@ form {
     border-radius: 30px;
 }
 
-
 .currency:hover{
     opacity:0.5 ;
 }
+
 .currency{
 text-align: center;
  border-style: none;
@@ -180,5 +180,4 @@ text-align: center;
 }
 .currencyDiv{
     grid-area: 2/5/2/5; 
-    
 }

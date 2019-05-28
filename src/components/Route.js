@@ -1,5 +1,6 @@
 import React from 'react';
 import { Trans } from "@lingui/macro"
+import Modal from "../components/Modal"
 
 export default class Route extends React.Component{
 
@@ -26,6 +27,7 @@ export default class Route extends React.Component{
         const props = this.props;
         return (
             
+
         <div className="cardContainer">
                     <div>Transport: {props.name}</div>
                     <div>Distance: {this.getKm(props.distance)}</div>
@@ -36,8 +38,19 @@ export default class Route extends React.Component{
                             : x.name ? x.name + " " + x.price : x.price} {x.currency} </span>
                     )) : "Not available"}
 
-            </div>
-            <button id="tripDetails" onClick={this.openTripDetails}>Details</button>            
+            </div> 
+
+            <Modal transport = {props.name} 
+                    distance = {this.getKm(props.distance)} 
+                    durationH = {this.getHours(props.totalDuration)} 
+                    durationM = {this.getMin(props.totalDuration)}
+                    pricing = {this.props.indicativePrices ? 
+                        props.indicativePrices.map(x => (
+                            <span>{x.priceLow ? x.priceLow + " - " + x.priceHigh
+                            : x.name ? x.name + " " + x.price : x.price} {x.currency} </span>
+                    )) : "Not available"}
+
+            />   
 
         </div>
         
