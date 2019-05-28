@@ -28,7 +28,6 @@ export default class Route extends React.Component {
 
     render() {
         const props = this.props;
-        const shortid = require('shortid');
 
         return (
 
