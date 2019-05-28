@@ -3,14 +3,15 @@ import React from 'react'
 import './style/App.css';
 import headerLogo from "./pics/headerLogo.jpg"
 import { isFlowType } from '@babel/types';
+import { async } from 'q';
 const axios = require('axios');
 
 export default class Stats extends React.Component {
 
-    state = {travelStats: null};
-    
+    state = { travelStats: null };
+
     componentDidMount = () => {
-        this.getData().then(travelStats => this.setState({travelStats}));
+        this.getData().then(travelStats => this.setState({ travelStats }));
     }
 
     getData = async () => {
@@ -22,28 +23,27 @@ export default class Stats extends React.Component {
         return travelStats;
         
     }
-    
     findPopularStat = (statKey) => {
-        if (!this.state.travelStats){
+        if (!this.state.travelStats) {
             return "n/a";
         }
         const stats = this.state.travelStats;
-        console.log("travelStats", stats);        
+        console.log("travelStats", stats);
         let list = [];
         let found = false;
         stats.forEach(statElement => {
-            for (let i = 0; i < list.length && !found; i++){
-                if (list[i].key === statElement[statKey]){
+            for (let i = 0; i < list.length && !found; i++) {
+                if (list[i].key === statElement[statKey]) {
                     list[i].value++;
                     found = true;
                 }
             }
-            if (!found){
-                list.push({key: statElement[statKey], value: 1});
+            if (!found) {
+                list.push({ key: statElement[statKey], value: 1 });
             }
             found = false;
         });
-        const sortedList = list.sort((a,b) => b.value-a.value);
+        const sortedList = list.sort((a, b) => b.value - a.value);
         console.log("sortedOriginList", sortedList);
         return `${sortedList[0].key} (${sortedList[0].value})`;
     }
