@@ -42,13 +42,13 @@ export default class DetalisModal extends React.Component {
           isOpen={this.state.modalIsOpen}
           onAfterOpen={this.afterOpenModal}
           onRequestClose={this.closeModal}
-          
           contentLabel="Example Modal"
         >
           <button onClick={this.closeModal}>close</button>
           <div>Transport: {this.props.transport}</div>
           <div>Distance: {this.props.distance}</div>
           <div>Duration: {this.props.durationH}{this.props.durationM}</div>
+          <div>Price: {this.props.pricing}</div>
           <button onClick = {this.props}> Add Route to saved list </button>
         </Modal>
       </div>

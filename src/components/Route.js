@@ -40,7 +40,17 @@ export default class Route extends React.Component{
 
             </div> 
 
-            <Modal transport = {props.name} distance = {this.getKm(props.distance)} durationH = {this.getHours(props.totalDuration)} durationM = {this.getMin(props.totalDuration)}/>   
+            <Modal transport = {props.name} 
+                    distance = {this.getKm(props.distance)} 
+                    durationH = {this.getHours(props.totalDuration)} 
+                    durationM = {this.getMin(props.totalDuration)}
+                    pricing = {this.props.indicativePrices ? 
+                        props.indicativePrices.map(x => (
+                            <span>{x.priceLow ? x.priceLow + " - " + x.priceHigh
+                            : x.name ? x.name + " " + x.price : x.price} {x.currency} </span>
+                    )) : "Not available"}
+
+            />   
 
         </div>
         
