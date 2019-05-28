@@ -1,7 +1,6 @@
 import React from 'react';
 import { Trans } from "@lingui/macro"
 import Modal from "../components/Modal"
-import shortId from 'shortid'
 
 
 export default class Route extends React.Component {
@@ -60,7 +59,6 @@ export default class Route extends React.Component {
                 </div>
 
                 <Modal
-                    id={shortid.generate()}
                     to={props.to}
                     from={props.from}
                     transport={props.name}
