@@ -138,6 +138,12 @@ form {
     padding: 10px;
 }
 
+#notis {
+    background-color: pink;
+    position: right;
+    
+}
+
 /******* ROUTELIST.JS *******/
 
 .mainDivInfo {}

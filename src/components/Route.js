@@ -1,10 +1,9 @@
 import React from 'react';
 import { Trans } from "@lingui/macro"
+import Notifications, { notify } from 'react-notify-toast';
 import Modal from "../components/Modal";
 import SimpleMap from './SimpleMap';
 import Collapsible from 'react-collapsible';
-
-
 
 export default class Route extends React.Component {
 
@@ -20,13 +19,11 @@ export default class Route extends React.Component {
         return Math.trunc(distance) + "km";
     }
 
-
     openTripDetails = () => {
         document.getElementById('tripDetails').addEventListener('click', function () {
             document.querySelector('.background-modal').style.display = 'flex';
         })
     }
-
 
     render() {
         const props = this.props;
@@ -38,6 +35,7 @@ export default class Route extends React.Component {
         const transport = props.name;
 
         function putRouteToSavedList() {
+            console.log("We are here!")
             let price;
             const priceList = props.indicativePrices;
             if (priceList) {
@@ -48,55 +46,30 @@ export default class Route extends React.Component {
             fetch(`http://localhost:8080/os2024back/webresources/savedtravelentity/${origin}/${destination}
         /${userId}/${distance}/${duration}/${price}/${transport}`)
             // "{origin}/{destination}/{userId}/{distance}/{duration}/{price}/{transport}")
+            let myColor = { background: '#ffe991', text: " #0088bb" };
+            notify.show(<Trans>Route is saved!</Trans>, "success", 5000) // make custom instead of success and add a forth parameter for color option
         }
 
         return (
-
             <div className="cardContainer">
-                <div>Transport: {props.name}</div>
-                <div>Distance: {this.getKm(props.distance)}</div>
-                <div>Total Duration: {this.getHours(props.totalDuration)} {this.getMin(props.totalDuration)}</div>
-                <div>Price: {props.indicativePrices ?
+                <Notifications options={{ top: '120px' }}/>
+                <div><Trans>Transport</Trans>: {props.name}</div>
+                <div><Trans>Distance</Trans>: {this.getKm(props.distance)}</div>
+                <div><Trans>Total Duration</Trans>: {this.getHours(props.totalDuration)} {this.getMin(props.totalDuration)}</div>
+                <div><Trans>Price</Trans>: {props.indicativePrices ?
                     props.indicativePrices.map(x => (
                         <span>{x.priceLow ? x.priceLow + " - " + x.priceHigh
                             : x.name ? x.name + " " + x.price : x.price} {x.currency} </span>
                     )) : "Not available"}
-
+                </div>
                     <Collapsible trigger="Start here">
-                        <button onClick={putRouteToSavedList}> Add Route to saved list </button>
+                        <button onClick={putRouteToSavedList}><Trans>Add Route to saved list</Trans></button>
                         <p>This is the collapsible content. It can be any element or React component you like.</p>
                         <p>It can even be another Collapsible component. Check out the next section!</p>
-                                    
                   <SimpleMap />
                     </Collapsible>
-
-
-
-
-
                 </div>
-                
-
-                {/*                 <Modal
-                    to={props.to}
-                    from={props.from}
-                    transport={props.name}
-                    distance={this.getKm(props.distance)}
-                    durationH={this.getHours(props.totalDuration)}
-                    durationM={this.getMin(props.totalDuration)}
-                    pricing={
-                        this.props.indicativePrices ?
-                            props.indicativePrices.map(x => (
-                                <span>{x.priceLow ? x.priceLow + " - " + x.priceHigh
-                                    : x.name ? x.name + " " + x.price : x.price} {x.currency} </span>
-                            )) : "Not available"
-                    }
-                /> */}
-
-
             </div>
-
-
         )
     }
 }

@@ -1,6 +1,5 @@
 import React from 'react'
 import '../style/App.css';
-import { Trans } from "@lingui/macro";
 
 export default class Filters extends React.Component {
 
