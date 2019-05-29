@@ -55,8 +55,7 @@ export default class RouteList extends React.Component {
     }
 
     render(props) {
-      
-
+    
         if (this.props.routeData){
             const data = this.props.routeData;
 
@@ -104,10 +103,6 @@ export default class RouteList extends React.Component {
   
          </Trans>
                         </div>
-
-
-            
-
                         {data.routes.length ?
                             (<div className="routeDiv">
                                 {sortedRoutes.map(element =>

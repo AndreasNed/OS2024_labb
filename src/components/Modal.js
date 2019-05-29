@@ -66,12 +66,12 @@ export default class DetalisModal extends React.Component {
           <div>Distance: {this.props.distance}</div>
           <div>Duration: {this.props.durationH}{this.props.durationM}</div>
           <div>Price: {this.props.pricing}</div>
-          <button onClick={
+{/*           <button onClick={
                fetch(`http://localhost:8080/os2024back/webresources/savedtravelentity/${this.props.from}/${this.props.to}/${localStorage.getItem("userId")}
                /${this.props.distance}/${this.props.durationH + this.props.durationM}/${this.props.pricing}/${this.props.transport}`)
 
                   
-          } > Add Route to saved list </button>
+          } > Add Route to saved list </button> */}
         </Modal>
       </div>
 
