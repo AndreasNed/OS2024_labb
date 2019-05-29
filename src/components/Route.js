@@ -1,10 +1,6 @@
 import React from 'react';
 import { Trans } from "@lingui/macro"
-import Modal from "../components/Modal"
 import Notifications, { notify } from 'react-notify-toast';
-import Popup from "reactjs-popup"
-
-
 
 export default class Route extends React.Component {
 
@@ -19,7 +15,6 @@ export default class Route extends React.Component {
     getKm(distance) {
         return Math.trunc(distance) + "km";
     }
-
 
     openTripDetails = () => {
         document.getElementById('tripDetails').addEventListener('click', function () {
@@ -49,22 +44,21 @@ export default class Route extends React.Component {
         /${userId}/${distance}/${duration}/${price}/${transport}`)
             // "{origin}/{destination}/{userId}/{distance}/{duration}/{price}/{transport}")
             let myColor = { background: '#ffe991', text: " #0088bb" };
-            notify.show("Route is saved!", "success", 5000) // make custom instead of success and add a forth parameter for color option
+            notify.show(<Trans>Route is saved!</Trans>, "success", 5000) // make custom instead of success and add a forth parameter for color option
         }
 
         return (
-
             <div className="cardContainer">
                 <Notifications options={{ top: '120px' }}/>
-                <div>Transport: {props.name}</div>
-                <div>Distance: {this.getKm(props.distance)}</div>
-                <div>Total Duration: {this.getHours(props.totalDuration)} {this.getMin(props.totalDuration)}</div>
-                <div>Price: {props.indicativePrices ?
+                <div><Trans>Transport</Trans>: {props.name}</div>
+                <div><Trans>Distance</Trans>: {this.getKm(props.distance)}</div>
+                <div><Trans>Total Duration</Trans>: {this.getHours(props.totalDuration)} {this.getMin(props.totalDuration)}</div>
+                <div><Trans>Price</Trans>: {props.indicativePrices ?
                     props.indicativePrices.map(x => (
                         <span>{x.priceLow ? x.priceLow + " - " + x.priceHigh
                             : x.name ? x.name + " " + x.price : x.price} {x.currency} </span>
                     )) : "Not available"}
-                    <button onClick={putRouteToSavedList}>Add Route to saved list</button>
+                    <button onClick={putRouteToSavedList}><Trans>Add Route to saved list</Trans></button>
                 </div>
             </div>
         )

@@ -75,12 +75,10 @@ class App extends Component {
     })
   }
 
-
   searchNewRoute = async (from, to, currencyCode) => {
     const routeData = await rome2rio.searchRoute(from, to, currencyCode)
     fetch(`http://localhost:8080/os2024back/webresources/travelentity/${from}/${to}/${localStorage.getItem("userId")}`);
     console.log("routeData", routeData)
-
     this.setState(({
       routeData
     }));
@@ -106,6 +104,7 @@ class App extends Component {
       document.querySelector('.background-modal').style.display = 'none';
     })
   }
+
   initialiseFromUrl = (obj) => {
     if (!this.state.urlInit) {
       this.setState({ urlInit: true });
@@ -117,13 +116,10 @@ class App extends Component {
       this.searchNewRoute(params.from, params.to);
       this.setState(filters);
     }
-
     return null;
-
   }
 
   buildUrl = () => {
-
     const processenvREACT_APP_URL = "localhost:3000"
     if (!this.state.routeData) {
       return processenvREACT_APP_URL
@@ -134,11 +130,9 @@ class App extends Component {
   }
 
   render() {
-
     const { language, catalogs } = this.state;
     let data = this.state.routeData ? { ...this.state.routeData } : null;
     console.log("routeData", data);
-
     if (data) {
       data.routes = data.routes
         .filter(element => {

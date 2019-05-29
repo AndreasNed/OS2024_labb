@@ -4,8 +4,7 @@ import './form.css'
 import '../mobile.css'
 import DatePicker from "react-datepicker";
 import rome2rio from "../../utils/rome2rio";
-import Filters from "../Filters"
-
+import {Trans} from "@lingui/macro"
 import "react-datepicker/dist/react-datepicker.css";
 
 export default class Form extends Component {
@@ -85,7 +84,6 @@ export default class Form extends Component {
 
     render() {
         return (
-            true ?
                 <div className="mainDivForm">
                     <form onSubmit={this.handleSubmit}>
                         <input className="searchInput" list="data" type="text" onChange={this.updateSearchInput} placeholder="From" value={this.state.from} required />
@@ -109,7 +107,7 @@ export default class Form extends Component {
                             dateFormat="YYYY/MM/dd"
                         />
   
-                        <button className="submitButton">Go!</button>
+                        <button className="submitButton"><Trans>Go!</Trans></button>
                         <div className="currencyDiv">
                         <select className="currency" onChange={event => this.setState({ currency: event.target.value })}>
                             <option value="USD">USD</option>
@@ -120,12 +118,6 @@ export default class Form extends Component {
                         {this.props.filterButtons}
                     </form>
                 </div >
-
-                :
-                <button className="newSearchButton" onClick={this.newSearch}>
-                    <span>New search</span>
-
-                </button>
         );
     }
 }
