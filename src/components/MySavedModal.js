@@ -19,7 +19,8 @@ export default class MySavedModal extends React.Component {
         super();
     
         this.state = {
-          modalIsOpen: false
+          modalIsOpen: false,
+          savedRoutes: []
         };
     
         this.openModal = this.openModal.bind(this);
@@ -27,8 +28,13 @@ export default class MySavedModal extends React.Component {
         this.closeModal = this.closeModal.bind(this);
       }
     
-      openModal() {
+      async openModal() {
         this.setState({modalIsOpen: true});
+        const response = await fetch(`os2024back/webresources/savedtravelentity/getall/${localStorage.getItem("userId")}`);
+        if (!response.ok){ return null}
+        const savedRoutes = await response.json();
+        console.log(savedRoutes)
+        this.setState({savedRoutes})
       }
     
       afterOpenModal() {
@@ -44,6 +50,15 @@ export default class MySavedModal extends React.Component {
 
     render() {
 
+      const savedRoutes = this.state.savedRoutes;
+      const showSavedRoutes = savedRoutes.map((route, index) => <div>{index+1}: Origin: {route.origin} 
+      <span> Destination: {route.destination}</span>  
+      <span> Distance: {route.distance}</span>   
+      <span> Total Duration: {route.duration}</span>
+      <span> Price: {route.price}</span>
+      <span> Transport: {route.transport}</span>
+       </div>)
+
         return (
 
         <div>
@@ -56,7 +71,7 @@ export default class MySavedModal extends React.Component {
             contentLabel="Example Modal"
           >
           <button onClick={this.closeModal}>close</button>
-          <div>MY SAVED ROUTES MODAL</div>
+          {showSavedRoutes}
         </Modal>
       </div>
 
