@@ -61,7 +61,7 @@ export default class RouteList extends React.Component {
 
             let activeSort = null;
             const sortState = this.state.sortFunction;
-            console.log("Sort state", sortState);
+            console.log("Routelist.js props", this.props);
             switch (sortState) {
                 case 'Duration':
                     activeSort = this.durationSort;
@@ -81,7 +81,9 @@ export default class RouteList extends React.Component {
             const sortedRoutes = [...data.routes].sort(activeSort);
 
             return (
+                
                     <div className="mainDivInfo">
+                    
                         <div className="routeProperties">
                           <Trans>
                             <div className="shareDiv" >

@@ -1,6 +1,8 @@
 import React from 'react';
 import { Trans } from "@lingui/macro"
-import Modal from "../components/Modal"
+import Modal from "../components/Modal";
+import SimpleMap from './SimpleMap';
+
 
 
 export default class Route extends React.Component {
@@ -24,6 +26,7 @@ export default class Route extends React.Component {
         })
     }
 
+
     render() {
         const props = this.props;
         const origin = props.from;
@@ -32,7 +35,7 @@ export default class Route extends React.Component {
         const distance = this.getKm(props.distance);
         const duration = this.getHours(props.totalDuration) + " " + this.getMin(props.totalDuration);
         const transport = props.name;
-        
+
         function putRouteToSavedList() {
             let price;
             const priceList = props.indicativePrices;
@@ -60,7 +63,12 @@ export default class Route extends React.Component {
 
                     <button onClick={putRouteToSavedList}> Add Route to saved list </button>
 
+
+
+                    <SimpleMap />
+
                 </div>
+
 
                 {/*                 <Modal
                     to={props.to}
@@ -77,7 +85,11 @@ export default class Route extends React.Component {
                             )) : "Not available"
                     }
                 /> */}
+
+
             </div>
+
+
         )
     }
 }
