@@ -2,6 +2,7 @@ import React from 'react';
 import { Trans } from "@lingui/macro"
 import Modal from "../components/Modal";
 import SimpleMap from './SimpleMap';
+import Collapsible from 'react-collapsible';
 
 
 
@@ -61,14 +62,20 @@ export default class Route extends React.Component {
                             : x.name ? x.name + " " + x.price : x.price} {x.currency} </span>
                     )) : "Not available"}
 
-                    <button onClick={putRouteToSavedList}> Add Route to saved list </button>
+                    <Collapsible trigger="Start here">
+                        <button onClick={putRouteToSavedList}> Add Route to saved list </button>
+                        <p>This is the collapsible content. It can be any element or React component you like.</p>
+                        <p>It can even be another Collapsible component. Check out the next section!</p>
+                                    
+                  <SimpleMap />
+                    </Collapsible>
 
 
 
-                    <SimpleMap />
+
 
                 </div>
-
+                
 
                 {/*                 <Modal
                     to={props.to}
