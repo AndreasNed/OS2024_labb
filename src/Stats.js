@@ -21,8 +21,8 @@ export default class Stats extends React.Component {
         const travelStats = await response.json();
         console.log("travelStats", travelStats);
         return travelStats;
-        
     }
+    
     findPopularStat = (statKey) => {
         if (!this.state.travelStats) {
             return "n/a";
