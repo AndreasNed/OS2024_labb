@@ -1,6 +1,9 @@
 import React from 'react';
 import { Trans } from "@lingui/macro"
 import Notifications, { notify } from 'react-notify-toast';
+import Modal from "../components/Modal";
+import SimpleMap from './SimpleMap';
+import Collapsible from 'react-collapsible';
 
 export default class Route extends React.Component {
 
@@ -58,7 +61,13 @@ export default class Route extends React.Component {
                         <span>{x.priceLow ? x.priceLow + " - " + x.priceHigh
                             : x.name ? x.name + " " + x.price : x.price} {x.currency} </span>
                     )) : "Not available"}
-                    <button onClick={putRouteToSavedList}><Trans>Add Route to saved list</Trans></button>
+                </div>
+                    <Collapsible trigger="Start here">
+                        <button onClick={putRouteToSavedList}><Trans>Add Route to saved list</Trans></button>
+                        <p>This is the collapsible content. It can be any element or React component you like.</p>
+                        <p>It can even be another Collapsible component. Check out the next section!</p>
+                  <SimpleMap />
+                    </Collapsible>
                 </div>
             </div>
         )
