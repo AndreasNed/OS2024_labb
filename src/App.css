@@ -284,6 +284,7 @@ p {
 
 .foot2{
   grid-area: 1/10/2/11;
+  
   display: flex;
   flex-direction: column;
   align-self: center;

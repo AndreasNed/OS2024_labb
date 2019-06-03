@@ -12,6 +12,8 @@ import "./components/tablet.css"
 import "./components/mobile.css"
 import { BrowserRouter, Route } from 'react-router-dom';
 import queryString from 'query-string';
+import MySavedRoutes from './components/MySavedRoutes';
+import MySavedModal from './components/MySavedModal';
 
 const languages = {
   en: "English",
@@ -40,8 +42,8 @@ class App extends Component {
   componentDidMount() {
     this.loadLanguage(this.state.language)
 
-    if (!localStorage.getItem("userId")){
-      localStorage.setItem("userId",(+new Date).toString(36));
+    if (!localStorage.getItem("userId")) {
+      localStorage.setItem("userId", (+new Date).toString(36));
       console.log("userId", localStorage.getItem("userId"));
     }
   }
@@ -73,12 +75,10 @@ class App extends Component {
     })
   }
 
-
   searchNewRoute = async (from, to, currencyCode) => {
     const routeData = await rome2rio.searchRoute(from, to, currencyCode)
     fetch(`http://localhost:8080/os2024back/webresources/travelentity/${from}/${to}/${localStorage.getItem("userId")}`);
     console.log("routeData", routeData)
-
     this.setState(({
       routeData
     }));
@@ -100,10 +100,11 @@ class App extends Component {
   }
 
   closeTripDetals = () => {
-    document.querySelector('.close').addEventListener('click', function() {
+    document.querySelector('.close').addEventListener('click', function () {
       document.querySelector('.background-modal').style.display = 'none';
     })
   }
+
   initialiseFromUrl = (obj) => {
     if (!this.state.urlInit) {
       this.setState({ urlInit: true });
@@ -115,13 +116,10 @@ class App extends Component {
       this.searchNewRoute(params.from, params.to);
       this.setState(filters);
     }
-
     return null;
-
   }
 
   buildUrl = () => {
-
     const processenvREACT_APP_URL = "localhost:3000"
     if (!this.state.routeData) {
       return processenvREACT_APP_URL
@@ -132,11 +130,9 @@ class App extends Component {
   }
 
   render() {
-
     const { language, catalogs } = this.state;
     let data = this.state.routeData ? { ...this.state.routeData } : null;
     console.log("routeData", data);
-
     if (data) {
       data.routes = data.routes
         .filter(element => {
@@ -171,16 +167,19 @@ class App extends Component {
 
           <header>
             <a href="/" className="headerLogo"><img src={headerLogo} alt="2sweden logo" /></a>
+            <MySavedModal/>
             <ul className="languages">
               {Object.keys(languages).map(lang => (
-                  <button className={`flag ${lang}`} onClick={this.handleOnClick}                  
-                    value={lang}>
-                  </button>
+                <button className={`flag ${lang}`} onClick={this.handleOnClick}
+                  value={lang}>
+                </button>
               ))}
             </ul>
+
           </header>
+
           <nav>
-            
+
             <Trans>
               <a className="navbar1" href="/">Travel</a>
               <a className="navbar2" href="/">Read about the event</a>
@@ -190,19 +189,21 @@ class App extends Component {
           </nav>
 
           <main>
-    <div className="background-modal">
-          <div className="modal-content">
-            <div className="close" onClick={this.closeTripDetals}>+</div>
+            <div className="background-modal">
+              <div className="modal-content">
+                <div className="close" onClick={this.closeTripDetals}>+</div>
+                <p>asdasd</p>
+              </div>
+            </div>
 
-          </div>
-        </div>
-         
+
+
             <Form onSubmit={this.searchNewRoute}
               filterButtons={filterButtons}
               resetList={this.resetList}
               className="onSubmit" />
-              <Route path="/:from/:to" component={({match, location}) => this.initialiseFromUrl({match, location})}/>
-            <RouteList shareUrl={this.buildUrl()} routeData={data}/>
+            <Route path="/:from/:to" component={({ match, location }) => this.initialiseFromUrl({ match, location })} />
+            <RouteList shareUrl={this.buildUrl()} routeData={data} />
           </main>
 
           <footer>

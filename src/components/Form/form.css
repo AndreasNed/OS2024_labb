@@ -129,7 +129,6 @@ form {
 .cardContainer {
     background-color: #ffe991;
     width: 90%;
-    height: 70px;
     margin: 5px;
     border-radius: 30px 10px;
     border-style: ridge;
@@ -137,6 +136,12 @@ form {
     align-items: center;
     justify-content: space-between;
     padding: 10px;
+}
+
+#notis {
+    background-color: pink;
+    position: right;
+    
 }
 
 /******* ROUTELIST.JS *******/
@@ -167,10 +172,10 @@ form {
     border-radius: 30px;
 }
 
-
 .currency:hover{
     opacity:0.5 ;
 }
+
 .currency{
 text-align: center;
  border-style: none;
@@ -180,5 +185,4 @@ text-align: center;
 }
 .currencyDiv{
     grid-area: 2/5/2/5; 
-    
 }
