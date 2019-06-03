@@ -76,17 +76,15 @@ export default class Route extends React.Component {
                     )) : "Not available"}
                 </div>
 
-                <div className="spanner">
-                <Collapsible trigger={arrowDown} className="colapseTrigger" triggerWhenOpen={arrowUp} onMouseEnter={hover}>
+{/*                 <div className="spanner"> */}
+                    <Collapsible trigger={arrowDown} className="colapseTrigger" triggerWhenOpen={arrowUp} onMouseEnter={hover}>
+
+                        <div className="mapDiv">  <SimpleMap /> </div>
                         <button className="saveButton" onClick={putRouteToSavedList}><Trans>Add Route to saved list</Trans></button>
 
-                     
-                            
-                         <div className="mapDiv">  <SimpleMap/> </div>
-
                     </Collapsible>
-              
-                </div>
+
+{/*                 </div> */}
             </div>
         )
     }

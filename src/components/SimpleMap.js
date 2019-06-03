@@ -7,7 +7,7 @@ const myKey = process.env.REACT_APP_GOOGLE_API_KEY;
 
 const myStyle = {
  
-  height: '30vh', // fel 
+  height: '80vh', // fel 
   width: '100%'
 
   
@@ -20,8 +20,8 @@ const myStyle = {
 class SimpleMap extends Component {
   static defaultProps = {
     center: {
-      lat: 59.95,
-      lng: 30.33
+      lat: 59.33,
+      lng: 17.95
     },
     zoom: 11
   };
@@ -38,8 +38,8 @@ class SimpleMap extends Component {
           defaultZoom={this.props.zoom}
         >
           <AnyReactComponent
-            lat={30.955413}
-            lng={30.337844}
+            lat={59.330617}
+            lng={17.956425}
             text="My Marker"
           />
         </GoogleMapReact>
