@@ -1,9 +1,9 @@
 import React from 'react';
 import { Trans } from "@lingui/macro"
-import Notifications, { notify } from 'react-notify-toast';
 import Modal from "../components/Modal";
 import SimpleMap from './SimpleMap';
 import Collapsible from 'react-collapsible';
+import Notifications, { notify } from 'react-notify-toast';
 
 export default class Route extends React.Component {
 
@@ -25,6 +25,11 @@ export default class Route extends React.Component {
         })
     }
 
+    toggleCollapsible = () => {
+        this.setState({ isOpen: !this.state.isOpen })
+    }
+
+
     render() {
         const props = this.props;
         const origin = props.from;
@@ -33,7 +38,12 @@ export default class Route extends React.Component {
         const distance = this.getKm(props.distance);
         const duration = this.getHours(props.totalDuration) + " " + this.getMin(props.totalDuration);
         const transport = props.name;
-
+        const hover = { color: '#2196fc' };
+        const styleBlue = {
+            color: '#0088bb'
+        };
+        let arrowDown = <i class="fas fa-arrow-down fa-5x" style={styleBlue}></i>
+        let arrowUp = <i className="arrowUp" class="fas fa-arrow-up fa-5x" style={styleBlue}></i>
         function putRouteToSavedList() {
             console.log("We are here!")
             let price;
@@ -51,25 +61,38 @@ export default class Route extends React.Component {
         }
 
         return (
+
             <div className="cardContainer">
-                <Notifications options={{ top: '120px' }}/>
-                <div><Trans>Transport</Trans>: {props.name}</div>
-                <div><Trans>Distance</Trans>: {this.getKm(props.distance)}</div>
-                <div><Trans>Total Duration</Trans>: {this.getHours(props.totalDuration)} {this.getMin(props.totalDuration)}</div>
-                <div><Trans>Price</Trans>: {props.indicativePrices ?
+
+                <Notifications options={{ top: '120px' }} />
+
+                <div className="transport"><Trans>Transport</Trans>: {props.name}</div>
+                <div className="distance"><Trans>Distance</Trans>: {this.getKm(props.distance)}</div>
+                <div className="duration"><Trans>Total Duration</Trans>: {this.getHours(props.totalDuration)} {this.getMin(props.totalDuration)}</div>
+                <div className="price"><Trans>Price</Trans>: {props.indicativePrices ?
                     props.indicativePrices.map(x => (
                         <span>{x.priceLow ? x.priceLow + " - " + x.priceHigh
                             : x.name ? x.name + " " + x.price : x.price} {x.currency} </span>
                     )) : "Not available"}
                 </div>
-                    <Collapsible trigger="Start here">
-                        <button onClick={putRouteToSavedList}><Trans>Add Route to saved list</Trans></button>
-                        <p>This is the collapsible content. It can be any element or React component you like.</p>
-                        <p>It can even be another Collapsible component. Check out the next section!</p>
-                  <SimpleMap />
+
+                <div className="spanner">
+                <Collapsible trigger={arrowDown} className="colapseTrigger" triggerWhenOpen={arrowUp} onMouseEnter={hover}>
+                        <button className="saveButton" onClick={putRouteToSavedList}><Trans>Add Route to saved list</Trans></button>
+
+                     
+                            
+                         <div className="mapDiv">  <SimpleMap/> </div>
+
                     </Collapsible>
+              
                 </div>
             </div>
         )
     }
 }
+
+
+//<Collapsible trigger={arrowDown} className="colapseTrigger" triggerWhenOpen={arrowUp} onMouseEnter={hover}
+
+//</Collapsible>
