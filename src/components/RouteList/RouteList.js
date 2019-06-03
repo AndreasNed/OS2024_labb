@@ -17,8 +17,6 @@ export default class RouteList extends React.Component {
 
         let aPrice;
         let bPrice;
-        console.log("a", a);
-        console.log("b", b);
         if (a.indicativePrices) {
             aPrice = a.indicativePrices[0].priceLow;
             aPrice = aPrice ? aPrice : a.indicativePrices[0].price;
@@ -55,13 +53,13 @@ export default class RouteList extends React.Component {
     }
 
     render(props) {
-    
+        
         if (this.props.routeData){
             const data = this.props.routeData;
 
             let activeSort = null;
             const sortState = this.state.sortFunction;
-            console.log("Routelist.js props", this.props);
+            console.log("Routelist.js props", this.props.routeData.places);
             switch (sortState) {
                 case 'Duration':
                     activeSort = this.durationSort;
@@ -108,9 +106,11 @@ export default class RouteList extends React.Component {
                         {data.routes.length ?
                             (<div className="routeDiv">
                                 {sortedRoutes.map(element =>
-                                <Route from = {data.places[0].longName} to = {data.places[1].longName} {...element} />
+                                <Route hideMap = {true} from = {data.places[0].longName} to = {data.places[1].longName} places = {this.props.routeData.places} {...element} />
                             )}</div>)
                             : <div>Sorry, there are no transports for that journey.</div>}
+
+                                    
 
                     </div>
 
