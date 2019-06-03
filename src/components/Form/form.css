@@ -217,26 +217,18 @@ text-align: center;
 }
 
 .mapDiv{
- 
-}
-
-.colapseTrigger{
-    grid-area: 2/3/3/4;
-   
+    background: black;
+    padding: 5%;
+    grid-area: 1/2/1/2;
     
 }
-.colapseTrigger:hover{
-    color: #2196fc;
 
-}
 .arrowUp{
   
 }
 
 .collpaseDiv{
    background-color: #006699;
-    width: 100%;
-    grid-area: 1/5/1/5;
 
 }
 .transport{
@@ -253,6 +245,5 @@ text-align: center;
  }
  .spanner{
     grid-area: 2/1/5/4;
-    width: 100%;
 
  }
