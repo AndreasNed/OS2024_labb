@@ -12,7 +12,6 @@ import "./components/tablet.css"
 import "./components/mobile.css"
 import { BrowserRouter, Route } from 'react-router-dom';
 import queryString from 'query-string';
-import MySavedRoutes from './components/MySavedRoutes';
 import MySavedModal from './components/MySavedModal';
 
 const languages = {

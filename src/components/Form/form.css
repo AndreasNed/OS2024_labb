@@ -239,3 +239,58 @@ text-align: center;
     grid-area: 2/1/5/4;
 
  }
+
+ /**** MYSAVEDMODAL.JS ****/
+
+ .savedModalButton{
+    grid-area: 1/1/1/1;
+    background-color: #006699;
+    color: #ffcc00;
+    border-style: solid;
+    border-color: #ffcc00;
+    border: 1px;
+    width: 90px;
+    height: 20px;
+    font-size: 15px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+  }
+
+  .deleteRoute{
+    background-color: red;
+    color: #ffcc00;
+    border-style: solid;
+    border-color: #ffcc00;
+    border: 1px;
+    width: 20%;
+    height: 100%;
+    font-size: 15px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+  }
+
+  .glow-button:hover {
+    color: rgba(255, 255, 255, 1);
+    box-shadow: 0 5px 15px rgba(145, 92, 182, .4);
+  }
+
+  .savedRoutesList{
+    background-color: #2196fc;
+    width: 90%;
+    margin: 5px;
+    border-radius: 30px 10px;
+    border-color: #006699;
+    justify-content: space-between;
+    padding: 10px;
+  }
+
+  .savedRoutesModal{
+    background-color: #ffcc00;
+    height: 100%;
+  }
+
+  .ReactModalPortal{
+      padding: 0px;
+  }

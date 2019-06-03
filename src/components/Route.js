@@ -79,11 +79,7 @@ export default class Route extends React.Component {
                 <div className="spanner">
                 <Collapsible trigger={arrowDown} className="colapseTrigger" triggerWhenOpen={arrowUp} onMouseEnter={hover}>
                         <button className="saveButton" onClick={putRouteToSavedList}><Trans>Add Route to saved list</Trans></button>
-
-                     
-                            
                          <div className="mapDiv">  <SimpleMap/> </div>
-
                     </Collapsible>
               
                 </div>
