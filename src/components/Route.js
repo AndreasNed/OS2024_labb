@@ -44,7 +44,6 @@ export default class Route extends React.Component {
         };
         let arrowDown = <i class="fas fa-arrow-down fa-5x" style={styleBlue}></i>
         let arrowUp = <i className="arrowUp" class="fas fa-arrow-up fa-5x" style={styleBlue}></i>
-        let map = <SimpleMap/>
         function putRouteToSavedList() {
             console.log("We are here!")
             let price;
@@ -82,7 +81,7 @@ export default class Route extends React.Component {
                         <button className="saveButton" onClick={putRouteToSavedList}><Trans>Add Route to saved list</Trans></button>
 
                      
-              
+                            
                          <div className="mapDiv">  <SimpleMap/> </div>
 
                     </Collapsible>

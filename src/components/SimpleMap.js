@@ -7,8 +7,9 @@ const myKey = process.env.REACT_APP_GOOGLE_API_KEY;
 
 const myStyle = {
  
-  height: '50vh', // fel 
+  height: '30vh', // fel 
   width: '100%'
+
   
 }
 
