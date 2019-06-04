@@ -6,41 +6,57 @@ const myKey = process.env.REACT_APP_GOOGLE_API_KEY;
 
 
 const myStyle = {
- 
-  height: '30vh', // fel 
+
+  height: '80vh', // fel 
   width: '100%'
 
-  
 }
 
 
 
-
-
 class SimpleMap extends Component {
-  static defaultProps = {
+/*   state = {
     center: {
-      lat: 59.95,
-      lng: 30.33
+      lat: this.props.startCords.lat,
+      lng: this.props.startCords.lng
     },
-    zoom: 11
-  };
+    zoom: 3
+  }; */
 
 
+/*   componentDidMount = () => {
+    this.setState({
+      center: {
+        lat: this.props.startCords.lat,
+        lng: this.props.startCords.lng,
+      }
+    })
+  } */
 
-  render() {
+  render(props) {
+
+    const center ={
+      lat: this.props.startCords.lat,
+      lng: this.props.startCords.lng,
+    }
 
     return (
-    <div style ={myStyle}>
+      <div style={myStyle}>
         <GoogleMapReact
           bootstrapURLKeys={{ key: myKey }}
-          defaultCenter={this.props.center}
-          defaultZoom={this.props.zoom}
+          defaultCenter={center}
+          defaultZoom={6}
+
         >
           <AnyReactComponent
-            lat={30.955413}
-            lng={30.337844}
-            text="My Marker"
+            lat={this.props.startCords.lat}
+            lng={this.props.startCords.lng}
+            text="START"
+          />
+          <AnyReactComponent
+            lat={this.props.destinationCords.lat}
+            lng={this.props.destinationCords.lng}
+            text="FINISH"
           />
         </GoogleMapReact>
       </div>
