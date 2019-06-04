@@ -2,16 +2,17 @@ import React from 'react'
 import '../style/App.css';
 import Modal from 'react-modal';
 import { Trans } from "@lingui/macro"
+import Notifications, { notify } from 'react-notify-toast';
 
 const customStyles = {
   content: {
-    
     top: '50%',
     left: '50%',
     right: 'auto',
     bottom: 'auto',
     marginRight: '-50%',
-    transform: 'translate(-50%, -50%)'
+    transform: 'translate(-50%, -50%)',
+    padding: '0px'
   }
 };
 
@@ -48,25 +49,32 @@ export default class MySavedModal extends React.Component {
   }
 
    async handleDeleteRoute (event) {
+    console.log("VALUE ÄR ", event.target)
     const id = event.target.value;
     await fetch("os2024back/webresources/savedtravelentity/delete/"+id);
+    notify.show("Route has been deleted from your list!", "error", 3000)
     this.openModal();
   }
 
   render() {
     const savedRoutes = this.state.savedRoutes;
     const showSavedRoutes = savedRoutes.map((route, index) =>
-      <div className="savedRoutesList">{index + 1}: <Trans>Origin</Trans>: {route.origin}
-        <span> <Trans>Destination</Trans>: {route.destination}</span>
-        <span> <Trans>Distance</Trans>: {route.distance}</span>
-        <span> <Trans>Total Duration</Trans>: {route.duration}</span>
-        <span> <Trans>Price</Trans>: {route.price}</span>
-        <span> <Trans>Transport</Trans>: {route.transport}</span>
-        <button className="deleteRoute glow-button" value={route.id} onClick={this.handleDeleteRoute}><Trans>Remove from list</Trans></button>
+      <div className="savedRoutesListContainer">
+        <div className="savedRouteCard">
+          <span> {index + 1}: <Trans>Origin</Trans>: {route.origin}</span>
+          <span> <Trans>Destination</Trans>: {route.destination}</span>
+          <span> <Trans>Distance</Trans>: {route.distance}</span>
+          <span> <Trans>Total Duration</Trans>: {route.duration}</span>
+          <span> <Trans>Price</Trans>: {route.price}</span>
+          <span> <Trans>Transport</Trans>: {route.transport}</span>
+        </div>
+        <button className="deleteRouteButton delete-glow" value={route.id} onClick={this.handleDeleteRoute}>
+        </button>
       </div>)
 
     return (
       <div>
+        <Notifications options={{ top: '120px' }} />
         <button className="savedModalButton glow-button" onClick={this.openModal}><Trans>My Saved Routes</Trans></button>
         <Modal
           isOpen={this.state.modalIsOpen}

@@ -223,8 +223,6 @@ text-align: center;
     margin-bottom: 3%;
 }
 
-
-
 .transport{
     grid-area: 1/2/1/2;
 }
@@ -257,20 +255,30 @@ text-align: center;
     transition: all 0.5s;
     cursor: pointer;
     margin: 5px;
+    border-radius: 15px;
   }
 
-  .deleteRoute{
-    background-color: red;
-    color: #ffcc00;
+  .deleteRouteButton{
+    grid-area: 3/5/6/5;
+    background-image: url(../../pics/trash-alt-regular.svg);
+    background-color: #ffe991;
+    background-repeat: no-repeat;
+    background-size: auto;
+    color: darkgray;
     border-style: solid;
     border-color: #ffcc00;
     border: 1px;
-    width: 20%;
-    height: 100%;
-    font-size: 15px;
+    width: 2vw;
+    height: 5vh;
     transition: all 0.5s;
     cursor: pointer;
-    margin: 5px;
+    margin-left: 80%;
+    border-radius: 10px;
+  }
+
+  .delete-glow:hover{
+      background-color: red;
+      box-shadow: 0 5px 15px red;
   }
 
   .glow-button:hover {
@@ -278,8 +286,11 @@ text-align: center;
     box-shadow: 0 5px 15px rgba(145, 92, 182, .4);
   }
 
-  .savedRoutesList{
-    background-color: #2196fc;
+  .savedRoutesListContainer{
+    display: grid;
+    grid-template-columns: repeat(5, 20%);
+    grid-template-rows: repeat(5, 20%);
+    background-color: #ffe991;
     width: 90%;
     margin: 5px;
     border-radius: 30px 10px;
@@ -288,8 +299,12 @@ text-align: center;
     padding: 10px;
   }
 
+  .savedRouteCard{
+      grid-area: 1/1/1/6
+  }
+
   .savedRoutesModal{
-    background-color: #ffcc00;
+    background-color: #0088bb;
     height: 100%;
   }
 
