@@ -8,10 +8,8 @@ export default class Filters extends React.Component {
     }
 
     render() {
-
         return (
             <div className="mainDivFilter">
-
                 <div className="checkboxFilterPlane">
                     <div className="FilterText">
                     <i id ="filterLogo"  class="fas fa-plane"></i>
@@ -68,7 +66,6 @@ export default class Filters extends React.Component {
                     </label>
                 </div>
             </div >
-
         )
     }
 }

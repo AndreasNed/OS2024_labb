@@ -4,15 +4,10 @@ import GoogleMapReact from 'google-map-react';
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
 const myKey = process.env.REACT_APP_GOOGLE_API_KEY;
 
-
 const myStyle = {
-
   height: '80vh', // fel 
   width: '100%'
-
 }
-
-
 
 class SimpleMap extends Component {
 /*   state = {

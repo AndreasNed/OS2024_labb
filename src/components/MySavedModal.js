@@ -18,12 +18,10 @@ export default class MySavedModal extends React.Component {
 
   constructor(props) {
     super();
-
     this.state = {
       modalIsOpen: false,
       savedRoutes: []
     };
-
     this.openModal = this.openModal.bind(this);
     this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
@@ -53,8 +51,6 @@ export default class MySavedModal extends React.Component {
     await fetch("os2024back/webresources/savedtravelentity/delete/"+id);
     this.openModal();
   }
-
-
 
   render() {
     const savedRoutes = this.state.savedRoutes;

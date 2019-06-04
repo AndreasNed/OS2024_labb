@@ -1,8 +1,6 @@
 import React from 'react';
 import { Trans } from "@lingui/macro"
-import Modal from "../components/Modal";
 import SimpleMap from './SimpleMap';
-import Collapsible from 'react-collapsible';
 import Notifications, { notify } from 'react-notify-toast';
 
 export default class Route extends React.Component {
@@ -28,11 +26,6 @@ export default class Route extends React.Component {
             document.querySelector('.background-modal').style.display = 'flex';
         })
     }
-
-
-    /*     toggleCollapsible = () => {
-            this.setState({ isOpen: !this.state.isOpen })
-        } */
 
     componentDidMount = () => {
         this.setState({
@@ -61,7 +54,6 @@ export default class Route extends React.Component {
         let simpleMap = this.state.collapseArrow ? null : <SimpleMap startCords={this.props.places[0]} destinationCords={this.props.places[1]} />
         let arrow = this.state.collapseArrow ? arrowDown : arrowUp
 
-
         function putRouteToSavedList() {
             console.log("We are here!")
             let price;
@@ -81,9 +73,7 @@ export default class Route extends React.Component {
         return (
 
             <div className="cardContainer">
-
                 <Notifications options={{ top: '120px' }} />
-
                 <div className="transport"><Trans>Transport</Trans>: {props.name}</div>
                 <div className="distance"><Trans>Distance</Trans>: {this.getKm(props.distance)}</div>
                 <div className="duration"><Trans>Total Duration</Trans>: {this.getHours(props.totalDuration)} {this.getMin(props.totalDuration)}</div>
@@ -93,25 +83,13 @@ export default class Route extends React.Component {
                             : x.name ? x.name + " " + x.price : x.price} {x.currency} </span>
                     )) : "Not available"}
                 </div>
-                {/* 
-                <Collapsible handleTriggerClick={this.setState({collapseArrow: !this.state.collapseArrow})}
-                    trigger={arrowDown} className="colapseTrigger"
-                    triggerWhenOpen={arrowUp} onMouseEnter={hover}> */}
 
                 <button onClick={this.handleOnClick}>show map</button>
                 <div className="mapDiv">
                     {simpleMap}
                 </div>
                 <button className="saveButton" onClick={putRouteToSavedList}><Trans>Add Route to saved list</Trans></button>
-
-                {/*                 </Collapsible> */}
-
             </div>
         )
     }
 }
-
-
-//<Collapsible trigger={arrowDown} className="colapseTrigger" triggerWhenOpen={arrowUp} onMouseEnter={hover}
-
-//</Collapsible>
