@@ -45,14 +45,7 @@ export default class Route extends React.Component {
         const distance = this.getKm(props.distance);
         const duration = this.getHours(props.totalDuration) + " " + this.getMin(props.totalDuration);
         const transport = props.name;
-        const hover = { color: '#2196fc' };
-        const styleBlue = {
-            color: '#0088bb'
-        };
-        let arrowDown = <i class="fas fa-arrow-down fa-5x" style={styleBlue}></i>
-        let arrowUp = <i className="arrowUp" class="fas fa-arrow-up fa-5x" style={styleBlue}></i>
         let simpleMap = this.state.collapseArrow ? null : <SimpleMap startCords={this.props.places[0]} destinationCords={this.props.places[1]} />
-        let arrow = this.state.collapseArrow ? arrowDown : arrowUp
 
         function putRouteToSavedList() {
             console.log("We are here!")
@@ -65,8 +58,6 @@ export default class Route extends React.Component {
 
             fetch(`http://localhost:8080/os2024back/webresources/savedtravelentity/${origin}/${destination}
         /${userId}/${distance}/${duration}/${price}/${transport}`)
-            // "{origin}/{destination}/{userId}/{distance}/{duration}/{price}/{transport}")
-            let myColor = { background: '#ffe991', text: " #0088bb" };
             notify.show(<Trans>Route is saved!</Trans>, "success", 5000) // make custom instead of success and add a forth parameter for color option
         }
 
@@ -78,8 +69,8 @@ export default class Route extends React.Component {
                 <div className="distance"><Trans>Distance</Trans>: {this.getKm(props.distance)}</div>
                 <div className="duration"><Trans>Total Duration</Trans>: {this.getHours(props.totalDuration)} {this.getMin(props.totalDuration)}</div>
                 <div className="price"><Trans>Price</Trans>: {props.indicativePrices ?
-                    props.indicativePrices.map(x => (
-                        <span>{x.priceLow ? x.priceLow + " - " + x.priceHigh
+                    props.indicativePrices.map((x, index) => (
+                        <span key={index}>{x.priceLow ? x.priceLow + " - " + x.priceHigh
                             : x.name ? x.name + " " + x.price : x.price} {x.currency} </span>
                     )) : "Not available"}
                 </div>

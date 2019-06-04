@@ -10,7 +10,7 @@ import { I18nProvider } from "@lingui/react"
 import { Trans } from "@lingui/macro"
 import "./components/tablet.css"
 import "./components/mobile.css"
-import { BrowserRouter, Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import queryString from 'query-string';
 import MySavedModal from './components/MySavedModal';
 
@@ -163,7 +163,7 @@ class App extends Component {
           <MySavedModal/>
           <ul className="languages">
             {Object.keys(languages).map(lang => (
-              <button className={`flag ${lang}`} onClick={this.handleOnClick}
+              <button key={lang} className={`flag ${lang}`} onClick={this.handleOnClick}
                 value={lang}>
               </button>
             ))}

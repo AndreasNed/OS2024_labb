@@ -1,5 +1,4 @@
 import React from 'react';
-import { Trans } from "@lingui/macro"
 import {BrowserRouter, Route} from 'react-router-dom'
 import App from './App'
 import Stats from './Stats';

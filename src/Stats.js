@@ -2,7 +2,6 @@
 import React from 'react'
 import './style/App.css';
 import headerLogo from "./pics/headerLogo.jpg"
-const axios = require('axios');
 
 export default class Stats extends React.Component {
 
