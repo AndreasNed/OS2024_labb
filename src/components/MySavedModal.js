@@ -5,6 +5,7 @@ import { Trans } from "@lingui/macro"
 
 const customStyles = {
   content: {
+    
     top: '50%',
     left: '50%',
     right: 'auto',

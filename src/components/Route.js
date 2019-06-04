@@ -2,7 +2,6 @@ import React from 'react';
 import { Trans } from "@lingui/macro"
 import SimpleMap from './SimpleMap';
 import Notifications, { notify } from 'react-notify-toast';
-
 export default class Route extends React.Component {
 
     state = {
@@ -62,8 +61,8 @@ export default class Route extends React.Component {
         }
 
         return (
-
             <div className="cardContainer">
+                        
                 <Notifications options={{ top: '120px' }} />
                 <div className="transport"><Trans>Transport</Trans>: {props.name}</div>
                 <div className="distance"><Trans>Distance</Trans>: {this.getKm(props.distance)}</div>
@@ -75,12 +74,13 @@ export default class Route extends React.Component {
                     )) : "Not available"}
                 </div>
 
-                <button onClick={this.handleOnClick}>show map</button>
-                <div className="mapDiv">
-                    {simpleMap}
-                </div>
                 <button className="saveButton" onClick={putRouteToSavedList}><Trans>Add Route to saved list</Trans></button>
+                <button className="mapButton" onClick={this.handleOnClick}>show map</button>
+                {simpleMap}
+      
             </div>
         )
     }
 }
+
+

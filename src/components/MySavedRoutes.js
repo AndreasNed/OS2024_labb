@@ -7,7 +7,7 @@ export default class MySavedRoutes extends React.Component {
           document.querySelector('.background-modal').style.display = 'flex';
         })
     }
-
+  
     render() {
         return (
             <div>
