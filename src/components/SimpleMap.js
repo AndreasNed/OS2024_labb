@@ -6,8 +6,7 @@ const myKey = process.env.REACT_APP_GOOGLE_API_KEY;
 
 
 const myStyle = {
-
-  height: '80vh', // fel 
+  height: '60vh',
   width: '100%'
 
 }
@@ -15,23 +14,9 @@ const myStyle = {
 
 
 class SimpleMap extends Component {
-/*   state = {
-    center: {
-      lat: this.props.startCords.lat,
-      lng: this.props.startCords.lng
-    },
-    zoom: 3
-  }; */
 
 
-/*   componentDidMount = () => {
-    this.setState({
-      center: {
-        lat: this.props.startCords.lat,
-        lng: this.props.startCords.lng,
-      }
-    })
-  } */
+
 
   render(props) {
 
@@ -41,7 +26,7 @@ class SimpleMap extends Component {
     }
 
     return (
-      <div style={myStyle}>
+      <div style={myStyle} className="mapDiv">
         <GoogleMapReact
           bootstrapURLKeys={{ key: myKey }}
           defaultCenter={center}

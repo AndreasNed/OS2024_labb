@@ -4,7 +4,6 @@ import Modal from "../components/Modal";
 import SimpleMap from './SimpleMap';
 import Collapsible from 'react-collapsible';
 import Notifications, { notify } from 'react-notify-toast';
-
 export default class Route extends React.Component {
 
     state = {
@@ -30,11 +29,6 @@ export default class Route extends React.Component {
         })
     }
 
-
-    /*     toggleCollapsible = () => {
-            this.setState({ isOpen: !this.state.isOpen })
-        } */
-
     componentDidMount = () => {
         this.setState({
             collapseArrow: true,
@@ -53,14 +47,8 @@ export default class Route extends React.Component {
         const distance = this.getKm(props.distance);
         const duration = this.getHours(props.totalDuration) + " " + this.getMin(props.totalDuration);
         const transport = props.name;
-        const hover = { color: '#2196fc' };
-        const styleBlue = {
-            color: '#0088bb'
-        };
-        let arrowDown = <i class="fas fa-arrow-down fa-5x" style={styleBlue}></i>
-        let arrowUp = <i className="arrowUp" class="fas fa-arrow-up fa-5x" style={styleBlue}></i>
+
         let simpleMap = this.state.collapseArrow ? null : <SimpleMap startCords={this.props.places[0]} destinationCords={this.props.places[1]} />
-        let arrow = this.state.collapseArrow ? arrowDown : arrowUp
 
 
         function putRouteToSavedList() {
@@ -75,7 +63,6 @@ export default class Route extends React.Component {
             fetch(`http://localhost:8080/os2024back/webresources/savedtravelentity/${origin}/${destination}
         /${userId}/${distance}/${duration}/${price}/${transport}`)
             // "{origin}/{destination}/{userId}/{distance}/{duration}/{price}/{transport}")
-            let myColor = { background: '#ffe991', text: " #0088bb" };
             notify.show(<Trans>Route is saved!</Trans>, "success", 5000) // make custom instead of success and add a forth parameter for color option
         }
 
@@ -94,18 +81,11 @@ export default class Route extends React.Component {
                             : x.name ? x.name + " " + x.price : x.price} {x.currency} </span>
                     )) : "Not available"}
                 </div>
-                {/* 
-                <Collapsible handleTriggerClick={this.setState({collapseArrow: !this.state.collapseArrow})}
-                    trigger={arrowDown} className="colapseTrigger"
-                    triggerWhenOpen={arrowUp} onMouseEnter={hover}> */}
 
-                <button onClick={this.handleOnClick}>show map</button>
-                <div className="mapDiv">
-                    {simpleMap}
-                </div>
                 <button className="saveButton" onClick={putRouteToSavedList}><Trans>Add Route to saved list</Trans></button>
-
-                {/*                 </Collapsible> */}
+                <button className="mapButton" onClick={this.handleOnClick}>show map</button>
+                            {simpleMap}
+               
 
             </div>
         )
@@ -113,6 +93,3 @@ export default class Route extends React.Component {
 }
 
 
-//<Collapsible trigger={arrowDown} className="colapseTrigger" triggerWhenOpen={arrowUp} onMouseEnter={hover}
-
-//</Collapsible>
