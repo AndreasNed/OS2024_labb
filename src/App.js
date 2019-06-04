@@ -10,9 +10,8 @@ import { I18nProvider } from "@lingui/react"
 import { Trans } from "@lingui/macro"
 import "./components/tablet.css"
 import "./components/mobile.css"
-import { BrowserRouter, Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import queryString from 'query-string';
-import MySavedRoutes from './components/MySavedRoutes';
 import MySavedModal from './components/MySavedModal';
 
 const languages = {
@@ -34,14 +33,12 @@ class App extends Component {
     filterBus: false,
     filterCar: false,
     urlInit: false,
-
     language: "en",
     catalogs: {}
   };
 
   componentDidMount() {
     this.loadLanguage(this.state.language)
-
     if (!localStorage.getItem("userId")) {
       localStorage.setItem("userId", (+new Date).toString(36));
       console.log("userId", localStorage.getItem("userId"));
@@ -126,7 +123,6 @@ class App extends Component {
     }
     const queries = `?${this.state.filterAir ? "filterAir=true" : ""}${this.state.filterRail ? "&filterRail=true" : ""}${this.state.filterBus ? "&filterBus=true" : ""}${this.state.filterCar ? "&filterCar=true" : ""}`
     return `http://${processenvREACT_APP_URL}/${this.state.routeData.places[0].longName}/${this.state.routeData.places[1].longName}${queries}`.replace(/ /gi, "%20").replace(/,/gi, "")//Extremt fult, men jag vill gå och äta nu
-
   }
 
   render() {
@@ -157,75 +153,63 @@ class App extends Component {
         })
     }
 
-    const filterButtons = <Filters filterFunc={this.updateFilters} {...this.state} />
+  const filterButtons = <Filters filterFunc={this.updateFilters} {...this.state} />
+  return (
+    <I18nProvider language={language} catalogs={catalogs}>
+      <div className="grid-container">
+        
+        <header>
+          <a href="/" className="headerLogo"><img src={headerLogo} alt="2sweden logo" /></a>
+          <MySavedModal/>
+          <ul className="languages">
+            {Object.keys(languages).map(lang => (
+              <button key={lang} className={`flag ${lang}`} onClick={this.handleOnClick}
+                value={lang}>
+              </button>
+            ))}
+          </ul>
+        </header>
 
+        <nav>
+          <Trans>
+            <a className="navbar1" href="/">Travel</a>
+            <a className="navbar2" href="/">Read about the event</a>
+            <a className="navbar3" href="/">Read about the cities</a>
+            <a className="navbar4" href="/">See recommendations</a>
+          </Trans>
+        </nav>
 
-    return (
-
-      <I18nProvider language={language} catalogs={catalogs}>
-        <div className="grid-container">
-
-          <header>
-            <a href="/" className="headerLogo"><img src={headerLogo} alt="2sweden logo" /></a>
-            <MySavedModal/>
-            <ul className="languages">
-              {Object.keys(languages).map(lang => (
-                <button className={`flag ${lang}`} onClick={this.handleOnClick}
-                  value={lang}>
-                </button>
-              ))}
-            </ul>
-
-          </header>
-
-          <nav>
-
-            <Trans>
-              <a className="navbar1" href="/">Travel</a>
-              <a className="navbar2" href="/">Read about the event</a>
-              <a className="navbar3" href="/">Read about the cities</a>
-              <a className="navbar4" href="/">See recommendations</a>
-            </Trans>
-          </nav>
-
-          <main>
-            <div className="background-modal">
-              <div className="modal-content">
-                <div className="close" onClick={this.closeTripDetals}>+</div>
-                <p>asdasd</p>
-              </div>
+        <main>
+          <div className="background-modal">
+            <div className="modal-content">
+              <div className="close" onClick={this.closeTripDetals}>+</div>
+              <p>asdasd</p>
             </div>
+          </div>
 
+          <Form onSubmit={this.searchNewRoute}
+            filterButtons={filterButtons}
+            resetList={this.resetList}
+            className="onSubmit" />
+          <Route path="/:from/:to" component={({ match, location }) => this.initialiseFromUrl({ match, location })} />
+          <RouteList shareUrl={this.buildUrl()} routeData={data} />
+        </main>
 
+        <footer>
+          <div className="footerInfo1">
+            <a href="/"><Trans>About us</Trans></a>
+          </div>
+          <div className="footerInfo3">
+            <a href="/"><Trans>Contact</Trans></a>
+          </div>
+          <div className="footerInfo2">
+            <a href="https://bit.ly/2vOZHyk"> Årstavägen 19</a>
+            <a href="/">08-557 683 53</a>
+          </div>
+        </footer>
 
-            <Form onSubmit={this.searchNewRoute}
-              filterButtons={filterButtons}
-              resetList={this.resetList}
-              className="onSubmit" />
-            <Route path="/:from/:to" component={({ match, location }) => this.initialiseFromUrl({ match, location })} />
-            <RouteList shareUrl={this.buildUrl()} routeData={data} />
-          </main>
-
-          <footer>
-            <div className="footerInfo1">
-              <a href="/"><Trans>About us</Trans></a>
-            </div>
-            <div className="footerInfo3">
-              <a href="/"><Trans>Contact</Trans></a>
-            </div>
-            <div className="footerInfo2">
-              <a href="https://bit.ly/2vOZHyk"> Årstavägen 19</a>
-              <a href="/">08-557 683 53</a>
-            </div>
-          </footer>
-
-        </div>
-      </I18nProvider>
-
-
-
-
-
+      </div>
+    </I18nProvider>
     );
   }
 }

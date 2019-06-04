@@ -19,12 +19,10 @@ export default class MySavedModal extends React.Component {
 
   constructor(props) {
     super();
-
     this.state = {
       modalIsOpen: false,
       savedRoutes: []
     };
-
     this.openModal = this.openModal.bind(this);
     this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
@@ -58,18 +56,18 @@ export default class MySavedModal extends React.Component {
   render() {
     const savedRoutes = this.state.savedRoutes;
     const showSavedRoutes = savedRoutes.map((route, index) =>
-      <div>{index + 1}: <Trans>Origin</Trans>: {route.origin}
+      <div className="savedRoutesList">{index + 1}: <Trans>Origin</Trans>: {route.origin}
         <span> <Trans>Destination</Trans>: {route.destination}</span>
         <span> <Trans>Distance</Trans>: {route.distance}</span>
         <span> <Trans>Total Duration</Trans>: {route.duration}</span>
         <span> <Trans>Price</Trans>: {route.price}</span>
         <span> <Trans>Transport</Trans>: {route.transport}</span>
-        <button value={route.id} onClick={this.handleDeleteRoute}><Trans>Remove from list</Trans></button>
+        <button className="deleteRoute glow-button" value={route.id} onClick={this.handleDeleteRoute}><Trans>Remove from list</Trans></button>
       </div>)
 
     return (
       <div>
-        <button onClick={this.openModal}><Trans>My Saved Routes</Trans></button>
+        <button className="savedModalButton glow-button" onClick={this.openModal}><Trans>My Saved Routes</Trans></button>
         <Modal
           isOpen={this.state.modalIsOpen}
           onAfterOpen={this.afterOpenModal}
@@ -77,8 +75,10 @@ export default class MySavedModal extends React.Component {
           style={customStyles}
           contentLabel="Example Modal"
         >
-          <button onClick={this.closeModal}><Trans>Close</Trans></button>
+          <div className="savedRoutesModal">
+          <button className="savedModalButton glow-button" onClick={this.closeModal}><Trans>Close</Trans></button>
           {showSavedRoutes}
+          </div>
         </Modal>
       </div>
     )

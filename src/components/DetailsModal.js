@@ -5,43 +5,37 @@ import Modal from 'react-modal';
 
 export default class DetailsModal extends React.Component {
 
-    constructor(props) {
-        super();
-    
-        this.state = {
-          modalIsOpen: false
-        };
-    
-        this.openModal = this.openModal.bind(this);
-        this.afterOpenModal = this.afterOpenModal.bind(this);
-        this.closeModal = this.closeModal.bind(this);
-      }
-    
-      openModal() {
-        this.setState({modalIsOpen: true});
-      }
-    
-      afterOpenModal() {
-        // references are now sync'd and can be accessed.
-        // this.subtitle.style.color = '#f00';
-      }
-    
-      closeModal() {
-        this.setState({modalIsOpen: false});
-      }
+  constructor(props) {
+    super();    
+      this.state = {
+        modalIsOpen: false
+      };
+      this.openModal = this.openModal.bind(this);
+      this.afterOpenModal = this.afterOpenModal.bind(this);
+      this.closeModal = this.closeModal.bind(this);
+  }
 
-    render() {
-        return (
+  openModal() {
+    this.setState({modalIsOpen: true});
+  }
+    
+  afterOpenModal() {
+    // references are now sync'd and can be accessed.
+    // this.subtitle.style.color = '#f00';
+  }
+    
+  closeModal() {
+    this.setState({modalIsOpen: false});
+  }
 
-        
-
-            <div>
+  render() {
+    return (
+      <div>
         <button onClick={this.openModal}>Open Modal</button>
         <Modal
           isOpen={this.state.modalIsOpen}
           onAfterOpen={this.afterOpenModal}
           onRequestClose={this.closeModal}
-          
           contentLabel="Example Modal"
         >
           <button onClick={this.closeModal}>close</button>
@@ -53,8 +47,6 @@ export default class DetailsModal extends React.Component {
           <button onClick = {this.props}> Add Route to saved list </button>
         </Modal>
       </div>
-
-
-        )
-    }
+    )
+  }
 }

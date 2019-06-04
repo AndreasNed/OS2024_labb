@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import Pages from './Pages';
 import * as serviceWorker from './serviceWorker';
-import {BrowserRouter, Route} from 'react-router-dom'
 
 import "./components/tablet.css"
 
