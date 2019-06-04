@@ -1,6 +1,15 @@
 @media (max-width: 1000px) {
 
+    .deleteRouteButton{
+        grid-area: 4/5/6/5;
+        width: 3.5vw;
+        height: 2.8vh;
+        margin-left: 60%;
+    }
 
+    .savedRoutesListContainer{
+        width: 96%;
+    }
 
 }
 
