@@ -1,10 +1,29 @@
 @media (max-width: 700px) {
-        .routeDiv{
-                margin-bottom: 10%;
-        }
+
+    .routeDiv{
+        margin-bottom: 10%;
+     }
+
     nav {
         display: flex;
         text-align: center;
+    }
+        .cardContainer{
+            display: grid;
+            grid-template-columns: repeat(4, 25%);
+            grid-template-rows: repeat(5, 20%);
+
+        }
+  .saveButton{
+      margin:0%;
+    
+       grid-area: 4/2/4/4; 
+    }
+    .mapButton{
+        margin:0%;
+        grid-area: 4/1/4/2;  
+    }
+    .mapDiv{
     }
 
     form {

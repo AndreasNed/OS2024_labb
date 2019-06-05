@@ -5,10 +5,11 @@ const AnyReactComponent = ({ text }) => <div>{text}</div>;
 const myKey = process.env.REACT_APP_GOOGLE_API_KEY;
 
 const myStyle = {
-  height: '60vh',
-  width: '100%'
-}
+color : 'red',
 
+}
+ 
+let marker = <i class="fas fa-map-marker-alt fa-4x" style={myStyle}></i>
 class SimpleMap extends Component {
   render(props) {
     const center ={
@@ -17,7 +18,7 @@ class SimpleMap extends Component {
     }
 
     return (
-      <div style={myStyle} className="mapDiv">
+      <div className="mapDiv">
         <GoogleMapReact
           bootstrapURLKeys={{ key: myKey }}
           defaultCenter={center}
@@ -27,12 +28,12 @@ class SimpleMap extends Component {
           <AnyReactComponent
             lat={this.props.startCords.lat}
             lng={this.props.startCords.lng}
-            text="START"
+            text= {marker}
           />
           <AnyReactComponent
             lat={this.props.destinationCords.lat}
             lng={this.props.destinationCords.lng}
-            text="FINISH"
+            text={marker}
           />
         </GoogleMapReact>
       </div>

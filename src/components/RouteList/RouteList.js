@@ -96,7 +96,7 @@ export default class RouteList extends React.Component {
             {data.routes.length ?
             (<div className="routeDiv">
             {sortedRoutes.map((element, index) =>
-                <Route key={index} from = {data.places[0].longName} to = {data.places[1].longName} places = {this.props.routeData.places} {...element} />
+                <Route key={index} from = {data.places[0].longName} to = {data.places[1].longName} places = {this.props.routeData.places} {...element} vehicles = {this.props.routeData.vehicles} />
                 )}</div>)
                 : <div><Trans>Sorry, there are no transports for that journey.</Trans></div>}
         </div>

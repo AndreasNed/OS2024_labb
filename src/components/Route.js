@@ -45,6 +45,7 @@ export default class Route extends React.Component {
         const duration = this.getHours(props.totalDuration) + " " + this.getMin(props.totalDuration);
         const transport = props.name;
         let simpleMap = this.state.collapseArrow ? null : <SimpleMap startCords={this.props.places[0]} destinationCords={this.props.places[1]} />
+        let myStyle = <i class="fas fa-abacus"></i>
 
         function putRouteToSavedList() {
             console.log("We are here!")
@@ -59,25 +60,55 @@ export default class Route extends React.Component {
         /${userId}/${distance}/${duration}/${price}/${transport}`)
             notify.show(<Trans>Route is saved!</Trans>, "success", 5000) // make custom instead of success and add a forth parameter for color option
         }
-
+     
         return (
+
             <div className="cardContainer">
-                        
+
                 <Notifications options={{ top: '120px' }} />
-                <div className="transport"><Trans>Transport</Trans>: {props.name}</div>
-                <div className="distance"><Trans>Distance</Trans>: {this.getKm(props.distance)}</div>
-                <div className="duration"><Trans>Total Duration</Trans>: {this.getHours(props.totalDuration)} {this.getMin(props.totalDuration)}</div>
-                <div className="price"><Trans>Price</Trans>: {props.indicativePrices ?
+                <div className="transport">
+                    {props.segments.map(element => {
+                        const vehicle = props.vehicles[element.vehicle].name;
+                        switch(vehicle){
+                            case "Car":
+                            case "Taxi":
+                            case "Towncar":
+                            case "Uber":
+                                return <i class="fas fa-car"></i>;
+                            case "Plane":
+                                return <i class="fas fa-plane"></i>;
+                            case "Bus":
+                                return <i class="fas fa-bus"></i>;
+                            case "Tram":
+                                return <i class="fas fa-tram"></i>;
+                            case "Metro":
+                            case "Subway":
+                            case "Train":
+                                return <i class="fas fa-train"></i>;
+                            case "Walk":
+                                return <i class="fab fa-accessible-icon"></i>;
+                            default:
+                                return <p>{vehicle}</p>
+                        }
+
+                    })}
+                </div>
+                <div className="distance"><i class="fas fa-road fa-2x" ></i>: {this.getKm(props.distance)}</div>
+                <div className="duration"><i class="far fa-clock fa-2x"></i>: {this.getHours(props.totalDuration)} {this.getMin(props.totalDuration)}</div>
+                <div className="price"><i class="far fa-money-bill-alt fa-2x"></i>: {props.indicativePrices ?
                     props.indicativePrices.map((x, index) => (
                         <span key={index}>{x.priceLow ? x.priceLow + " - " + x.priceHigh
                             : x.name ? x.name + " " + x.price : x.price} {x.currency} </span>
                     )) : "Not available"}
                 </div>
 
-                <button className="saveButton" onClick={putRouteToSavedList}><Trans>Add Route to saved list</Trans></button>
-                <button className="mapButton" onClick={this.handleOnClick}>show map</button>
+                <button className="saveButton glow-button" onClick={putRouteToSavedList}><Trans>Add Route to saved list</Trans></button>
+                <button className="mapButton glow-button" onClick={this.handleOnClick}>show map</button>
                 {simpleMap}
-      
+
+
+
+
             </div>
         )
     }
