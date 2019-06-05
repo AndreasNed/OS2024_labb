@@ -31,7 +31,6 @@ export default class MySavedModal extends React.Component {
       savedRoutes: []
     };
     this.openModal = this.openModal.bind(this);
-    this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.handleDeleteRoute = this.handleDeleteRoute.bind(this);
   }
@@ -42,15 +41,10 @@ export default class MySavedModal extends React.Component {
 
   async openModal() {
     this.setState({ modalIsOpen: true });
-    const response = await fetch(`os2024back/webresources/savedtravelentity/getall/${localStorage.getItem("userId")}`);
+    const response = await fetch(`http://localhost:3000/os2024back/webresources/savedtravelentity/getall/${localStorage.getItem("userId")}`);
     if (!response.ok) { return null }
     const savedRoutes = await response.json();
     this.setState({ savedRoutes })
-  }
-
-  afterOpenModal() {
-    // references are now sync'd and can be accessed.
-    // this.subtitle.style.color = '#f00';
   }
 
   closeModal() {
@@ -59,35 +53,30 @@ export default class MySavedModal extends React.Component {
 
    async handleDeleteRoute (event) {
     const id = event.target.value;
-    await fetch("os2024back/webresources/savedtravelentity/delete/"+id);
+    await fetch("http://localhost:3000/os2024back/webresources/savedtravelentity/delete/"+id);
     notify.show("Route has been deleted from your list!", "error", 3000)
     this.openModal();
-  }
-
-  async shareUrl(event) {
-    const processenvREACT_APP_URL = "localhost:3000"
-    const id = event.target.value;
-    const route = await fetch("os2024back/webresources/savedtravelentity/" + id);
-    console.log("HÄR ÄR VI!", id)
-    return `http://${processenvREACT_APP_URL}/${route.origin}/${route.destination}`.replace(/ /gi, "%20").replace(/,/gi, "")
   }
 
   render() {
     const savedRoutes = this.state.savedRoutes;
     const showSavedRoutes = savedRoutes.map((route, index) =>
       <div key={index} className="savedRoutesListContainer">
-        <div className="savedRouteCard">
-          <span> {index + 1}: <Trans>Origin</Trans>: {route.origin}</span>
-          <span> <Trans>Destination</Trans>: {route.destination}</span>
-          <span> <Trans>Distance</Trans>: {route.distance}</span>
-          <span> <Trans>Total Duration</Trans>: {route.duration}</span>
-          <span> <Trans>Price</Trans>: {route.price}</span>
-          <span> <Trans>Transport</Trans>: {route.transport}</span>
-        </div>
+          <div className="savedListFrom"> <strong>{index + 1}: <Trans>From</Trans>:</strong> {route.origin}</div>
+          <div className="savedListTo"> <strong><Trans>To</Trans>:</strong> {route.destination}</div>
+          <div className="savedListDistance"><i className="fas fa-road fa-2x" ></i>: {route.distance}</div>
+          <div className="savedListDuration"><i className="far fa-clock fa-2x"></i>: {route.duration}</div>
+          <div className="savedListPrice"><i className="far fa-money-bill-alt fa-2x"></i>: {route.price}</div>
+          <div className="savedListTransport">
+              {route.transport.toUpperCase().includes("DRIVE") ? <i className="fas fa-car"></i> : null}
+              {route.transport.toUpperCase().includes("FLY") ? <i className="fas fa-plane"></i> : null}
+              {route.transport.toUpperCase().includes("BUS") ? <i className="fas fa-bus"></i> : null}
+              {route.transport.toUpperCase().includes("TRAIN") ? <i className="fas fa-train"></i> : null}
+            </div >
         <button className="deleteRouteButton delete-glow" value={route.id} onClick={this.handleDeleteRoute}></button>
         <div className="shareSavedRoute">
-          <FacebookShareButton className="shareButton shareBtn" value={route.id} url="URL" children={<FacebookIcon size={32} round={true} />} />
-          <TwitterShareButton className="shareButton shareBtn" value={route.id} url="URL" children={<TwitterIcon size={32} round={true} />} />
+          <FacebookShareButton className="shareButton shareBtn" value={route.id} url={`http://localhost:3000/${route.origin}/${route.destination}`.replace(/ /gi, "%20").replace(/,/gi, "")} children={<FacebookIcon size={32} round={true} />} />
+          <TwitterShareButton className="shareButton shareBtn" title={"Look at this awesome trip!\n"} url={`http://localhost:3000/${route.origin}/${route.destination}`.replace(/ /gi, "%20").replace(/,/gi, "")} children={<TwitterIcon size={32} round={true} />} />
         </div>
       </div>)
 

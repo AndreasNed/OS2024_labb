@@ -46,16 +46,14 @@ export default class Route extends React.Component {
         const transport = props.name;
         let simpleMap = this.state.collapseArrow ? null : <SimpleMap startCords={this.props.places[0]} destinationCords={this.props.places[1]} />
 
-        function putRouteToSavedList() {
-            console.log("We are here!")
+        async function putRouteToSavedList() {
             let price;
             const priceList = props.indicativePrices;
             if (priceList) {
-                if (priceList[0].priceLow) { price = priceList[0].priceLow }
-                else if (priceList[0].name) { price = priceList[0].price }
+                if (priceList[0].priceLow) { price = priceList[0].priceLow + " " + priceList[0].currency}
+                else if (priceList[0].name) { price = priceList[0].price + " " + priceList[0].currency}
             } else { price = "Not available" }
-
-            fetch(`http://localhost:8080/os2024back/webresources/savedtravelentity/${origin}/${destination}
+            await fetch(`http://localhost:3000/os2024back/webresources/savedtravelentity/${origin}/${destination}
         /${userId}/${distance}/${duration}/${price}/${transport}`)
             notify.show(<Trans>Route is saved!</Trans>, "success", 5000) // make custom instead of success and add a forth parameter for color option
         }
