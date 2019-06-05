@@ -64,10 +64,10 @@ export default class MySavedModal extends React.Component {
     this.openModal();
   }
 
-  shareUrl(event) {
+  async shareUrl(event) {
     const processenvREACT_APP_URL = "localhost:3000"
     const id = event.target.value;
-    const route = fetch("os2024back/webresources/savedtravelentity/" + id);
+    const route = await fetch("os2024back/webresources/savedtravelentity/" + id);
     console.log("HÄR ÄR VI!", id)
     return `http://${processenvREACT_APP_URL}/${route.origin}/${route.destination}`.replace(/ /gi, "%20").replace(/,/gi, "")
   }
