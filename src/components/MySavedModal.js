@@ -3,6 +3,12 @@ import '../style/App.css';
 import Modal from 'react-modal';
 import { Trans } from "@lingui/macro"
 import Notifications, { notify } from 'react-notify-toast';
+import {
+  FacebookShareButton,
+  FacebookIcon,
+  TwitterShareButton,
+  TwitterIcon,
+} from 'react-share';
 
 const customStyles = {
   content: {
@@ -68,14 +74,17 @@ export default class MySavedModal extends React.Component {
           <span> <Trans>Price</Trans>: {route.price}</span>
           <span> <Trans>Transport</Trans>: {route.transport}</span>
         </div>
-        <button className="deleteRouteButton delete-glow" value={route.id} onClick={this.handleDeleteRoute}>
-        </button>
+        <button className="deleteRouteButton delete-glow" value={route.id} onClick={this.handleDeleteRoute}></button>
+        <div className="shareSavedRoute">
+          <FacebookShareButton className="shareButton shareBtn"  url={this.props.shareUrl} children={<FacebookIcon size={32} round={true} />} />
+          <TwitterShareButton className="shareButton shareBtn" url={this.props.shareUrl} children={<TwitterIcon size={32} round={true} />} />
+        </div>
       </div>)
 
     return (
       <div>
         <Notifications options={{ top: '120px' }} />
-        <button className="savedModalButton glow-button" onClick={this.openModal}><Trans>My Saved Routes</Trans></button>
+        <button className="savedModalButton glow-button" onClick={this.openModal}><i class="fas fa-ticket-alt"></i></button>
         <Modal
           isOpen={this.state.modalIsOpen}
           onAfterOpen={this.afterOpenModal}
@@ -84,7 +93,7 @@ export default class MySavedModal extends React.Component {
           contentLabel="Example Modal"
         >
           <div className="savedRoutesModal">
-          <button className="savedModalButton glow-button" onClick={this.closeModal}><Trans>Close</Trans></button>
+          <button className="closeModalButton glow-button" onClick={this.closeModal}><Trans>Close</Trans></button>
           {showSavedRoutes}
           </div>
         </Modal>
