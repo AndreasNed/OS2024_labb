@@ -263,7 +263,7 @@ text-align: center;
   }
 
   .closeModalButton{
-    grid-area: 1/1/1/1;
+    float: right;
     background-color: #006699;
     color: #ffcc00;
     border-style: solid;
@@ -325,7 +325,8 @@ text-align: center;
 
   .savedRoutesModal{
     background-color: #0088bb;
-    height: 100%;
+    max-height: calc(100vh - 210px);
+    overflow-y: auto;
   }
 
   .ReactModalPortal{
