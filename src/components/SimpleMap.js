@@ -5,14 +5,14 @@ const AnyReactComponent = ({ text }) => <div>{text}</div>;
 const myKey = process.env.REACT_APP_GOOGLE_API_KEY;
 
 const myStyle = {
-color : 'red',
+  color: 'red',
 
 }
- 
+
 let marker = <i class="fas fa-map-marker-alt fa-4x" style={myStyle}></i>
 class SimpleMap extends Component {
   render(props) {
-    const center ={
+    const center = {
       lat: this.props.startCords.lat,
       lng: this.props.startCords.lng,
     }
@@ -28,13 +28,15 @@ class SimpleMap extends Component {
           <AnyReactComponent
             lat={this.props.startCords.lat}
             lng={this.props.startCords.lng}
-            text= {marker}
+            text={marker}
           />
           <AnyReactComponent
             lat={this.props.destinationCords.lat}
             lng={this.props.destinationCords.lng}
             text={marker}
           />
+        
+        
         </GoogleMapReact>
       </div>
     );

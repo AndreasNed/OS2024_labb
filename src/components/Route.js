@@ -1,6 +1,6 @@
 import React from 'react';
 import { Trans } from "@lingui/macro"
-import SimpleMap from './SimpleMap';
+import MapContainer from './MyMap';
 import Notifications, { notify } from 'react-notify-toast';
 export default class Route extends React.Component {
 
@@ -44,7 +44,7 @@ export default class Route extends React.Component {
         const distance = this.getKm(props.distance);
         const duration = this.getHours(props.totalDuration) + " " + this.getMin(props.totalDuration);
         const transport = props.name;
-        let simpleMap = this.state.collapseArrow ? null : <SimpleMap startCords={this.props.places[0]} destinationCords={this.props.places[1]} />
+       let Mappis = this.state.collapseArrow ? null : <MapContainer places ={this.props.places}segmentData ={this.props.segments}></MapContainer>
 
         function putRouteToSavedList() {
             console.log("We are here!")
@@ -102,7 +102,10 @@ export default class Route extends React.Component {
 
                 <button className="saveButton glow-button" onClick={putRouteToSavedList}><Trans>Add Route to saved list</Trans></button>
                 <button className="mapButton glow-button" onClick={this.handleOnClick}>show map</button>
-                {simpleMap}
+                                {Mappis}
+                                
+                                <MapContainer places ={this.props.places}segmentData ={this.props.segments}></MapContainer>
+                             
             </div>
         )
     }
