@@ -23,7 +23,6 @@ const languages = {
   ru: "Pусский",
   zh: "中國"
 }
-console.log(languages)
 
 class App extends Component {
   state = {
@@ -41,7 +40,6 @@ class App extends Component {
     this.loadLanguage(this.state.language)
     if (!localStorage.getItem("userId")) {
       localStorage.setItem("userId", (+new Date).toString(36));
-      console.log("userId", localStorage.getItem("userId"));
     }
   }
 
@@ -64,8 +62,6 @@ class App extends Component {
   }
 
   handleOnClick = (event) => {
-    console.log("asd")
-    console.log(event)
     const language = event.target.value;
     this.setState({
       language
@@ -75,11 +71,9 @@ class App extends Component {
   searchNewRoute = async (from, to, currencyCode) => {
     const routeData = await rome2rio.searchRoute(from, to, currencyCode)
     fetch(`http://localhost:8080/os2024back/webresources/travelentity/${from}/${to}/${localStorage.getItem("userId")}`);
-    console.log("routeData", routeData)
     this.setState(({
       routeData
     }));
-    console.log(routeData);
   }
 
   resetList = () => {
@@ -93,7 +87,6 @@ class App extends Component {
     this.setState({
       [name]: checked
     })
-    console.log(name + ": " + checked);
   }
 
   closeTripDetals = () => {
@@ -180,17 +173,11 @@ class App extends Component {
         </nav>
 
         <main>
-          <div className="background-modal">
-            <div className="modal-content">
-              <div className="close" onClick={this.closeTripDetals}>+</div>
-              <p>asdasd</p>
-            </div>
-          </div>
-
           <Form onSubmit={this.searchNewRoute}
             filterButtons={filterButtons}
             resetList={this.resetList}
-            className="onSubmit" />
+            className="onSubmit"
+            />
           <Route path="/:from/:to" component={({ match, location }) => this.initialiseFromUrl({ match, location })} />
           <RouteList shareUrl={this.buildUrl()} routeData={data} />
         </main>

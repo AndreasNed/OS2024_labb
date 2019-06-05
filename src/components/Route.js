@@ -45,7 +45,6 @@ export default class Route extends React.Component {
         const duration = this.getHours(props.totalDuration) + " " + this.getMin(props.totalDuration);
         const transport = props.name;
         let simpleMap = this.state.collapseArrow ? null : <SimpleMap startCords={this.props.places[0]} destinationCords={this.props.places[1]} />
-        let myStyle = <i class="fas fa-abacus"></i>
 
         function putRouteToSavedList() {
             console.log("We are here!")
@@ -74,28 +73,27 @@ export default class Route extends React.Component {
                             case "Taxi":
                             case "Towncar":
                             case "Uber":
-                                return <i class="fas fa-car"></i>;
+                                return <i className="fas fa-car"></i>;
                             case "Plane":
-                                return <i class="fas fa-plane"></i>;
+                                return <i className="fas fa-plane"></i>;
                             case "Bus":
-                                return <i class="fas fa-bus"></i>;
+                                return <i className="fas fa-bus"></i>;
                             case "Tram":
-                                return <i class="fas fa-tram"></i>;
+                                return <i className="fas fa-tram"></i>;
                             case "Metro":
                             case "Subway":
                             case "Train":
-                                return <i class="fas fa-train"></i>;
+                                return <i className="fas fa-train"></i>;
                             case "Walk":
-                                return <i class="fab fa-accessible-icon"></i>;
+                                return <i className="fab fa-accessible-icon"></i>;
                             default:
                                 return <p>{vehicle}</p>
                         }
-
                     })}
                 </div>
-                <div className="distance"><i class="fas fa-road fa-2x" ></i>: {this.getKm(props.distance)}</div>
-                <div className="duration"><i class="far fa-clock fa-2x"></i>: {this.getHours(props.totalDuration)} {this.getMin(props.totalDuration)}</div>
-                <div className="price"><i class="far fa-money-bill-alt fa-2x"></i>: {props.indicativePrices ?
+                <div className="distance"><i className="fas fa-road fa-2x" ></i>: {this.getKm(props.distance)}</div>
+                <div className="duration"><i className="far fa-clock fa-2x"></i>: {this.getHours(props.totalDuration)} {this.getMin(props.totalDuration)}</div>
+                <div className="price"><i className="far fa-money-bill-alt fa-2x"></i>: {props.indicativePrices ?
                     props.indicativePrices.map((x, index) => (
                         <span key={index}>{x.priceLow ? x.priceLow + " - " + x.priceHigh
                             : x.name ? x.name + " " + x.price : x.price} {x.currency} </span>
@@ -105,10 +103,6 @@ export default class Route extends React.Component {
                 <button className="saveButton glow-button" onClick={putRouteToSavedList}><Trans>Add Route to saved list</Trans></button>
                 <button className="mapButton glow-button" onClick={this.handleOnClick}>show map</button>
                 {simpleMap}
-
-
-
-
             </div>
         )
     }

@@ -36,12 +36,15 @@ export default class MySavedModal extends React.Component {
     this.handleDeleteRoute = this.handleDeleteRoute.bind(this);
   }
 
+  componentDidMount() {
+    Modal.setAppElement('body');
+ }
+
   async openModal() {
     this.setState({ modalIsOpen: true });
     const response = await fetch(`os2024back/webresources/savedtravelentity/getall/${localStorage.getItem("userId")}`);
     if (!response.ok) { return null }
     const savedRoutes = await response.json();
-    console.log(savedRoutes)
     this.setState({ savedRoutes })
   }
 
@@ -55,17 +58,24 @@ export default class MySavedModal extends React.Component {
   }
 
    async handleDeleteRoute (event) {
-    console.log("VALUE ÄR ", event.target)
     const id = event.target.value;
     await fetch("os2024back/webresources/savedtravelentity/delete/"+id);
     notify.show("Route has been deleted from your list!", "error", 3000)
     this.openModal();
   }
 
+  shareUrl(event) {
+    const processenvREACT_APP_URL = "localhost:3000"
+    const id = event.target.value;
+    const route = fetch("os2024back/webresources/savedtravelentity/" + id);
+    console.log("HÄR ÄR VI!", id)
+    return `http://${processenvREACT_APP_URL}/${route.origin}/${route.destination}`.replace(/ /gi, "%20").replace(/,/gi, "")
+  }
+
   render() {
     const savedRoutes = this.state.savedRoutes;
     const showSavedRoutes = savedRoutes.map((route, index) =>
-      <div className="savedRoutesListContainer">
+      <div key={index} className="savedRoutesListContainer">
         <div className="savedRouteCard">
           <span> {index + 1}: <Trans>Origin</Trans>: {route.origin}</span>
           <span> <Trans>Destination</Trans>: {route.destination}</span>
@@ -76,15 +86,15 @@ export default class MySavedModal extends React.Component {
         </div>
         <button className="deleteRouteButton delete-glow" value={route.id} onClick={this.handleDeleteRoute}></button>
         <div className="shareSavedRoute">
-          <FacebookShareButton className="shareButton shareBtn"  url={this.props.shareUrl} children={<FacebookIcon size={32} round={true} />} />
-          <TwitterShareButton className="shareButton shareBtn" url={this.props.shareUrl} children={<TwitterIcon size={32} round={true} />} />
+          <FacebookShareButton className="shareButton shareBtn" value={route.id} url="URL" children={<FacebookIcon size={32} round={true} />} />
+          <TwitterShareButton className="shareButton shareBtn" value={route.id} url="URL" children={<TwitterIcon size={32} round={true} />} />
         </div>
       </div>)
 
     return (
       <div>
         <Notifications options={{ top: '120px' }} />
-        <button className="savedModalButton glow-button" onClick={this.openModal}><i class="fas fa-ticket-alt"></i></button>
+        <button className="savedModalButton glow-button" onClick={this.openModal}><i className="fas fa-ticket-alt"></i></button>
         <Modal
           isOpen={this.state.modalIsOpen}
           onAfterOpen={this.afterOpenModal}

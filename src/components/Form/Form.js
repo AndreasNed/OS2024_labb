@@ -38,7 +38,6 @@ export default class Form extends Component {
 
     getSuggestions = async () => {
         const suggestions = (await rome2rio.autocomplete(this.state.from)).places;
-        console.log(suggestions);
         this.setState({
             suggestions: suggestions ? suggestions : [],
         });
@@ -56,8 +55,6 @@ export default class Form extends Component {
     handleSubmit = async (event) => {
         event.preventDefault();
         this.props.onSubmit(this.state.from, this.state.to, this.state.currency);
-        console.log(this.state.from);
-        console.log(this.state.to);
         this.toggler();
     }
 
@@ -80,7 +77,7 @@ export default class Form extends Component {
 
     render() {
         return (
-            <div className="mainDivForm">
+            <div className="mainDivForm" data-test='mainDiv'>
                 <form onSubmit={this.handleSubmit}>
                     <input className="searchInput" list="data" type="text" onChange={this.updateSearchInput} placeholder="From" value={this.state.from} required />
                     <datalist id="data">

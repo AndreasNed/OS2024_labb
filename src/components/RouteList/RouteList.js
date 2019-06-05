@@ -56,7 +56,6 @@ export default class RouteList extends React.Component {
             const data = this.props.routeData;
             let activeSort = null;
             const sortState = this.state.sortFunction;
-            console.log("Routelist.js props", this.props.routeData.places);
             switch (sortState) {
                 case 'Duration':
                     activeSort = this.durationSort;
