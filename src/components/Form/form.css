@@ -133,6 +133,13 @@ form {
 
 .mainDivInfo {}
 
+.routeDiv {
+    display: flex;
+    flex-flow: wrap;
+    justify-content: center;
+    margin-bottom: 50px;
+    margin: 5%;
+}
 .routeProperties {
     color: #ffe991;
     width: 100%;
@@ -166,9 +173,9 @@ text-align: center;
     grid-area: 2/5/2/5; 
 }
 
-
+ /*  //    grid-area: 2/2/4/4; */
   .saveButton{
-    grid-area: 2/2/2/3;
+    grid-area:10/1/10/5;
     background-color: #006699;
     color: #ffcc00;
     height: 6vh;
@@ -177,50 +184,30 @@ text-align: center;
     font-size: 15px;
     transition: all 0.5s;
     cursor: pointer;
-    margin-bottom: 5%;
-    margin-left: 2%;
-    padding: 5%;
-    margin-top: 15%;
-    margin-bottom: 5%;
+    margin-bottom: 7%;
     
   }
-  .mapButton{
-    grid-area: 2/3/2/4;
-    background-color: #006699;
-    color: #ffcc00;
-    height: 6vh;
-    border-radius: 14px;
-    border: none;
-    font-size: 15px;
-    transition: all 0.5s;
-    cursor: pointer;
-    margin-bottom: 5%;
-    margin-top: 15%;
-  }
- 
-   .mapDiv{
-    grid-area: 3/2/5/4;
-    height : 60vh;
-    margin-bottom: 10%;
-    margin-top: 4%;
+     .mapDiv{
+    height: 35vh;
+    grid-area:3/1/7/5;
+   
    }
-  
+
+ 
+
    .cardContainer {
     display: grid;
     grid-template-columns: repeat(4, 25%);
     grid-template-rows: repeat(10, 10%);
     background-color: #ffe991;
     width: 90%;
-    margin: 5px;
     border-radius: 30px 10px;
     border-color: #0088bb;
     justify-content: space-between;
     padding: 10px;
-    
+    margin-bottom: 2%;
 }
 
-.routeDiv{
-}
 
 .transport{
     grid-area: 1/2/1/2;

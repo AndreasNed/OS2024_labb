@@ -8,24 +8,14 @@
         display: flex;
         text-align: center;
     }
-        .cardContainer{
-            display: grid;
-            grid-template-columns: repeat(4, 25%);
-            grid-template-rows: repeat(5, 20%);
-
-        }
+       .mapDiv{
+           margin-top: 10%;
+       }
   .saveButton{
-      margin:0%;
-    
-       grid-area: 4/2/4/4; 
-    }
-    .mapButton{
-        margin:0%;
-        grid-area: 4/1/4/2;  
-    }
-    .mapDiv{
-    }
 
+       grid-area:10/1/10/5;
+    }
+  
     form {
         display: grid;
         grid-template-columns: repeat(10, 10%);

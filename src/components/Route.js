@@ -1,11 +1,13 @@
 import React from 'react';
+import Collapsible from 'react-collapsible';
 import { Trans } from "@lingui/macro"
 import MapContainer from './MyMap';
 import Notifications, { notify } from 'react-notify-toast';
 export default class Route extends React.Component {
 
+
     state = {
-        collapseArrow: true,
+        isHidden: true,
     }
 
     getHours(min) {
@@ -28,12 +30,12 @@ export default class Route extends React.Component {
 
     componentDidMount = () => {
         this.setState({
-            collapseArrow: true,
+            isHidden: true,
         })
     }
 
     handleOnClick = () => {
-        this.setState({ collapseArrow: !this.state.collapseArrow })
+        this.setState({ isHidden: !this.state.isHidden })
     }
 
     render() {
@@ -44,7 +46,8 @@ export default class Route extends React.Component {
         const distance = this.getKm(props.distance);
         const duration = this.getHours(props.totalDuration) + " " + this.getMin(props.totalDuration);
         const transport = props.name;
-       let Mappis = this.state.collapseArrow ? null : <MapContainer places ={this.props.places}segmentData ={this.props.segments}></MapContainer>
+        const mapTrigger = <button className="mapButton glow-button">show map</button>
+
 
         function putRouteToSavedList() {
             console.log("We are here!")
@@ -59,7 +62,7 @@ export default class Route extends React.Component {
         /${userId}/${distance}/${duration}/${price}/${transport}`)
             notify.show(<Trans>Route is saved!</Trans>, "success", 5000) // make custom instead of success and add a forth parameter for color option
         }
-     
+
         return (
 
             <div className="cardContainer">
@@ -68,7 +71,7 @@ export default class Route extends React.Component {
                 <div className="transport">
                     {props.segments.map(element => {
                         const vehicle = props.vehicles[element.vehicle].name;
-                        switch(vehicle){
+                        switch (vehicle) {
                             case "Car":
                             case "Taxi":
                             case "Towncar":
@@ -101,11 +104,19 @@ export default class Route extends React.Component {
                 </div>
 
                 <button className="saveButton glow-button" onClick={putRouteToSavedList}><Trans>Add Route to saved list</Trans></button>
-                <button className="mapButton glow-button" onClick={this.handleOnClick}>show map</button>
-                                {Mappis}
-                                
-                                <MapContainer places ={this.props.places}segmentData ={this.props.segments}></MapContainer>
-                             
+                <MapContainer  places={this.props.places} segmentData={this.props.segments}></MapContainer>
+
+
+{/* 
+                <Collapsible className="collapse" trigger={mapTrigger} triggerWhenOpen={mapTrigger} openedClassName="collapse"
+                    contentInnerClassName="triggerInner" contentOuterClassName="triggerOuter" >
+                    <div>
+                        <MapContainer places={this.props.places} segmentData={this.props.segments}></MapContainer>
+                    </div>
+                </Collapsible> */}
+
+
+
             </div>
         )
     }

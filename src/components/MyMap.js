@@ -41,7 +41,7 @@ function createPathMapping(segmentData, places) {
     return (
       <Polyline
         path={path}
-        options={{ strokeColor: array.strokeColor, strokeWeight: 3 }}
+        options={{ strokeColor:'#006699', strokeWeight: 3 }}
         visible={true}
       />
     );
@@ -55,7 +55,7 @@ function createMarkerMapping(segmentData, places) {
     function getIcon(transport) {
       switch (transport) {
         case "Walk":
-          return <IoIosWalk />;
+          return  <IoIosWalk />;
         case "Bus":
           return <IoIosBus />;
         case "Plane":
@@ -71,7 +71,7 @@ function createMarkerMapping(segmentData, places) {
 
     // Hack to remove google-maps marker.
     var removeMarker = new window.google.maps.MarkerImage(
-      "http://maps.google.com/mapfiles/ms/icons/blue-dot.png", // url
+      <i class="fas fa-map-marker-alt"></i>, // url
       null, // size
       null, // origin
       null, // anchor
@@ -87,9 +87,9 @@ function createMarkerMapping(segmentData, places) {
         icon={removeMarker}
         labelAnchor={new window.google.maps.Point(0, 0)}
         labelStyle={{
-          backgroundColor: "white",
-          color: "#006699",
-          fontSize: "15px",
+          backgroundColor: "NONE",
+          color: "NONE",
+          fontSize: "0px",
           border: "solid #ffcc00 1px",
           borderRadius: "5px",
           padding: "0"
