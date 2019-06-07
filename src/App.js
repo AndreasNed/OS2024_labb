@@ -39,7 +39,7 @@ class App extends Component {
   componentDidMount() {
     this.loadLanguage(this.state.language)
     if (!localStorage.getItem("userId")) {
-      localStorage.setItem("userId", (+new Date).toString(36));
+      localStorage.setItem("userId", (+new Date()).toString(36));
     }
   }
 

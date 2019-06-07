@@ -1,5 +1,4 @@
 import React from 'react';
-import Collapsible from 'react-collapsible';
 import { Trans } from "@lingui/macro"
 import MapContainer from './MyMap';
 import Notifications, { notify } from 'react-notify-toast';
@@ -46,7 +45,6 @@ export default class Route extends React.Component {
         const distance = this.getKm(props.distance);
         const duration = this.getHours(props.totalDuration) + " " + this.getMin(props.totalDuration);
         const transport = props.name;
-        const mapTrigger = <button className="mapButton glow-button">show map</button>
 
 
         async function putRouteToSavedList() {
@@ -67,28 +65,28 @@ export default class Route extends React.Component {
 
                 <Notifications options={{ top: '120px' }} />
                 <div className="transport">
-                    {props.segments.map(element => {
+                    {props.segments.map((element, index) => {
                         const vehicle = props.vehicles[element.vehicle].name;
                         switch (vehicle) {
                             case "Car":
                             case "Taxi":
                             case "Towncar":
                             case "Uber":
-                                return <i className="fas fa-car"></i>;
+                                return <i key={index} className="fas fa-car"></i>;
                             case "Plane":
-                                return <i className="fas fa-plane"></i>;
+                                return <i key={index} className="fas fa-plane"></i>;
                             case "Bus":
-                                return <i className="fas fa-bus"></i>;
+                                return <i key={index} className="fas fa-bus"></i>;
                             case "Tram":
-                                return <i className="fas fa-tram"></i>;
+                                return <i key={index} className="fas fa-tram"></i>;
                             case "Metro":
                             case "Subway":
                             case "Train":
-                                return <i className="fas fa-train"></i>;
+                                return <i key={index} className="fas fa-train"></i>;
                             case "Walk":
-                                return <i className="fab fa-accessible-icon"></i>;
+                                return <i key={index} className="fab fa-accessible-icon"></i>;
                             default:
-                                return <p>{vehicle}</p>
+                                return <p key={index}>{vehicle}</p>
                         }
                     })}
                 </div>
