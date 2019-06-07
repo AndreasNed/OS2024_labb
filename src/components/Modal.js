@@ -1,7 +1,6 @@
 import React from 'react'
 import '../style/App.css';
 import Modal from 'react-modal';
-import Form from './Form/Form'
 const customStyles = {
   content : {
     top                   : '50%',
@@ -13,42 +12,35 @@ const customStyles = {
   }
 };
 
-
-
 export default class DetalisModal extends React.Component {
 
-    constructor(props) {
-        super();
+  constructor(props) {
+    super();
+    this.state = {
+      modalIsOpen: false
+    };
+    this.openModal = this.openModal.bind(this);
+    this.afterOpenModal = this.afterOpenModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
+  }
     
-        this.state = {
-          modalIsOpen: false
-        };
+  openModal() {
+    this.setState({modalIsOpen: true});
+  }
     
-        this.openModal = this.openModal.bind(this);
-        this.afterOpenModal = this.afterOpenModal.bind(this);
-        this.closeModal = this.closeModal.bind(this);
-      }
+  afterOpenModal() {
+    // references are now sync'd and can be accessed.
+    // this.subtitle.style.color = '#f00';
+  }
     
-      openModal() {
-        this.setState({modalIsOpen: true});
-      }
-    
-      afterOpenModal() {
-        // references are now sync'd and can be accessed.
-        // this.subtitle.style.color = '#f00';
-      }
-    
-      closeModal() {
-        this.setState({modalIsOpen: false});
-      }
+  closeModal() {
+    this.setState({modalIsOpen: false});
+  }
 
-
-
-    render() {
-      const data1 = this.props.routeData;
-        return (
-
-            <div>
+  render() {
+    const data1 = this.props.routeData;
+    return (
+      <div>
         <button onClick={this.openModal}>Open Modal</button>
         <Modal
           isOpen={this.state.modalIsOpen}
@@ -57,7 +49,6 @@ export default class DetalisModal extends React.Component {
           style={customStyles}
           contentLabel="Example Modal"
         >   
-        
           <button onClick={this.closeModal}>close</button>
           <div>id: {this.props.id}</div>
           <div>From: {this.props.from}</div>
@@ -66,11 +57,8 @@ export default class DetalisModal extends React.Component {
           <div>Distance: {this.props.distance}</div>
           <div>Duration: {this.props.durationH}{this.props.durationM}</div>
           <div>Price: {this.props.pricing}</div>
-
         </Modal>
       </div>
-
-
-        )
-    }
+    )
+  }
 }

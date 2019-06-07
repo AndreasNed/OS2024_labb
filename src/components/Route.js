@@ -1,11 +1,13 @@
 import React from 'react';
 import { Trans } from "@lingui/macro"
-import Modal from "../components/Modal";
-import SimpleMap from './SimpleMap';
-
-
-
+import MapContainer from './MyMap';
+import Notifications, { notify } from 'react-notify-toast';
 export default class Route extends React.Component {
+
+
+    state = {
+        isHidden: true,
+    }
 
     getHours(min) {
         return Math.trunc(min / 60) + "h";
@@ -19,13 +21,21 @@ export default class Route extends React.Component {
         return Math.trunc(distance) + "km";
     }
 
-
     openTripDetails = () => {
         document.getElementById('tripDetails').addEventListener('click', function () {
             document.querySelector('.background-modal').style.display = 'flex';
         })
     }
 
+    componentDidMount = () => {
+        this.setState({
+            isHidden: true,
+        })
+    }
+
+    handleOnClick = () => {
+        this.setState({ isHidden: !this.state.isHidden })
+    }
 
     render() {
         const props = this.props;
@@ -36,60 +46,76 @@ export default class Route extends React.Component {
         const duration = this.getHours(props.totalDuration) + " " + this.getMin(props.totalDuration);
         const transport = props.name;
 
-        function putRouteToSavedList() {
+
+        async function putRouteToSavedList() {
             let price;
             const priceList = props.indicativePrices;
             if (priceList) {
-                if (priceList[0].priceLow) { price = priceList[0].priceLow }
-                else if (priceList[0].name) { price = priceList[0].price }
+                if (priceList[0].priceLow) { price = priceList[0].priceLow + " " + priceList[0].currency}
+                else if (priceList[0].name) { price = priceList[0].price + " " + priceList[0].currency}
             } else { price = "Not available" }
-
-            fetch(`http://localhost:8080/os2024back/webresources/savedtravelentity/${origin}/${destination}
+            await fetch(`http://localhost:3000/os2024back/webresources/savedtravelentity/${origin}/${destination}
         /${userId}/${distance}/${duration}/${price}/${transport}`)
-            // "{origin}/{destination}/{userId}/{distance}/{duration}/{price}/{transport}")
+            notify.show(<Trans>Route is saved!</Trans>, "success", 5000) // make custom instead of success and add a forth parameter for color option
         }
 
         return (
 
             <div className="cardContainer">
-                <div>Transport: {props.name}</div>
-                <div>Distance: {this.getKm(props.distance)}</div>
-                <div>Total Duration: {this.getHours(props.totalDuration)} {this.getMin(props.totalDuration)}</div>
-                <div>Price: {props.indicativePrices ?
-                    props.indicativePrices.map(x => (
-                        <span>{x.priceLow ? x.priceLow + " - " + x.priceHigh
+
+                <Notifications options={{ top: '120px' }} />
+                <div className="transport">
+                    {props.segments.map((element, index) => {
+                        const vehicle = props.vehicles[element.vehicle].name;
+                        switch (vehicle) {
+                            case "Car":
+                            case "Taxi":
+                            case "Towncar":
+                            case "Uber":
+                                return <i key={index} className="fas fa-car"></i>;
+                            case "Plane":
+                                return <i key={index} className="fas fa-plane"></i>;
+                            case "Bus":
+                                return <i key={index} className="fas fa-bus"></i>;
+                            case "Tram":
+                                return <i key={index} className="fas fa-tram"></i>;
+                            case "Metro":
+                            case "Subway":
+                            case "Train":
+                                return <i key={index} className="fas fa-train"></i>;
+                            case "Walk":
+                                return <i key={index} className="fab fa-accessible-icon"></i>;
+                            default:
+                                return <p key={index}>{vehicle}</p>
+                        }
+                    })}
+                </div>
+                <div className="distance"><i className="fas fa-road fa-2x" ></i>: {this.getKm(props.distance)}</div>
+                <div className="duration"><i className="far fa-clock fa-2x"></i>: {this.getHours(props.totalDuration)} {this.getMin(props.totalDuration)}</div>
+                <div className="price"><i className="far fa-money-bill-alt fa-2x"></i>: {props.indicativePrices ?
+                    props.indicativePrices.map((x, index) => (
+                        <span key={index}>{x.priceLow ? x.priceLow + " - " + x.priceHigh
                             : x.name ? x.name + " " + x.price : x.price} {x.currency} </span>
                     )) : "Not available"}
-
-                    <button onClick={putRouteToSavedList}> Add Route to saved list </button>
-
-
-
-                    <SimpleMap />
-
                 </div>
 
+                <button className="saveButton glow-button" onClick={putRouteToSavedList}><Trans>Add Route to saved list</Trans></button>
+                <MapContainer  places={this.props.places} segmentData={this.props.segments}></MapContainer>
 
-                {/*                 <Modal
-                    to={props.to}
-                    from={props.from}
-                    transport={props.name}
-                    distance={this.getKm(props.distance)}
-                    durationH={this.getHours(props.totalDuration)}
-                    durationM={this.getMin(props.totalDuration)}
-                    pricing={
-                        this.props.indicativePrices ?
-                            props.indicativePrices.map(x => (
-                                <span>{x.priceLow ? x.priceLow + " - " + x.priceHigh
-                                    : x.name ? x.name + " " + x.price : x.price} {x.currency} </span>
-                            )) : "Not available"
-                    }
-                /> */}
+
+{/* 
+                <Collapsible className="collapse" trigger={mapTrigger} triggerWhenOpen={mapTrigger} openedClassName="collapse"
+                    contentInnerClassName="triggerInner" contentOuterClassName="triggerOuter" >
+                    <div>
+                        <MapContainer places={this.props.places} segmentData={this.props.segments}></MapContainer>
+                    </div>
+                </Collapsible> */}
+
 
 
             </div>
-
-
         )
     }
 }
+
+

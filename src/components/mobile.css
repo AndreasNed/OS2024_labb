@@ -1,10 +1,21 @@
 @media (max-width: 700px) {
 
+    .routeDiv{
+        margin-bottom: 10%;
+     }
+
     nav {
         display: flex;
         text-align: center;
     }
+       .mapDiv{
+           margin-top: 10%;
+       }
+  .saveButton{
 
+       grid-area:10/1/10/5;
+    }
+  
     form {
         display: grid;
         grid-template-columns: repeat(10, 10%);
@@ -39,10 +50,56 @@
     footer{
         display: flex;
         justify-content: space-around;
+       
     }
 
     .currencyDiv {
         grid-area: 2/1/2/2;
+    }
+
+    .deleteRouteButton{
+        grid-area: 6/6/6/6;
+        width: 5vw;
+        height: 3.8vh;
+        margin-left: 60%;
+    }
+
+    .savedRoutesListContainer{
+        width: 89%;
+    }
+
+    .shareSavedRoute{
+        grid-area: 6/1/6/1;
+        display: flex;
+        margin-top: -15px;
+     }
+
+    .savedListFrom{
+        grid-area: 1/1/1/4;
+    }
+    
+    .savedListTo{
+        grid-area: 1/4/1/7;
+    }
+    
+    .savedListDistance{
+        grid-area: 3/1/3/3;
+        margin-top: -10%;
+    }
+    
+    .savedListDuration{
+        grid-area: 4/1/4/4;
+        margin-bottom: 5%;
+    }
+    
+    .savedListPrice{
+        grid-area: 3/4/3/6;
+        margin-top: -5%;
+    }
+    
+    .savedListTransport {
+        grid-area: 4/4/4/6;
+        margin-top: 5%;
     }
 
 }

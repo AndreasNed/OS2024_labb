@@ -1,6 +1,10 @@
-@media (max-width: 1000px) {
+@media (max-width: 1000px) and (min-width: 701px) {
 
-
+    .deleteRouteButton{
+        width: 3.5vw;
+        height: 2.8vh;
+        margin-left: 60%;
+    }
 
 }
 

@@ -2,9 +2,6 @@
 import React from 'react'
 import './style/App.css';
 import headerLogo from "./pics/headerLogo.jpg"
-import { isFlowType } from '@babel/types';
-import { async } from 'q';
-const axios = require('axios');
 
 export default class Stats extends React.Component {
 
