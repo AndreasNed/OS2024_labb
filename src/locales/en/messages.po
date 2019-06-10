@@ -13,62 +13,86 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/RouteList/RouteList.js:77
-msgid "<0>From: {0}</0><1>To: {1}</1><2><3>Sort by Duration</3><4>Sort by Price</4><5>Sort by distance</5><6>Sort by segments</6></2>"
-msgstr "<0>From: {0}</0><1>To: {1}</1><2><3>Sort by Duration</3><4>Sort by Price</4><5>Sort by distance</5><6>Sort by segments</6></2>"
+#: src/components/RouteList/RouteList.js:79
+msgid "<0><1>Share search on social media: </1><2/><3/></0><4>From: {0}</4><5>To: {1}</5><6><7>Sort by Duration</7><8>Sort by Price</8><9>Sort by distance</9><10>Sort by segments</10></6>"
+msgstr "<0><1>Share search on social media: </1><2/><3/></0><4>From: {0}</4><5>To: {1}</5><6><7>Sort by Duration</7><8>Sort by Price</8><9>Sort by distance</9><10>Sort by segments</10></6>"
 
-#: src/App.js:148
+#: src/components/RouteList/RouteList.js:77
+#~ msgid "<0>From: {0}</0><1>To: {1}</1><2><3>Sort by Duration</3><4>Sort by Price</4><5>Sort by distance</5><6>Sort by segments</6></2>"
+#~ msgstr "<0>From: {0}</0><1>To: {1}</1><2><3>Sort by Duration</3><4>Sort by Price</4><5>Sort by distance</5><6>Sort by segments</6></2>"
+
+#: src/App.js:167
 msgid "<0>Travel</0><1>Read about the event</1><2>Read about the cities</2><3>See recommendations</3>"
 msgstr "<0>Travel</0><1>Read about the event</1><2>Read about the cities</2><3>See recommendations</3>"
 
-#: src/App.js:166
+#: src/App.js:187
 msgid "About us"
 msgstr "About us"
 
-#: src/App.js:169
+#: src/components/Route.js:102
+msgid "Add Route to saved list"
+msgstr "Add Route to saved list"
+
+#: src/components/MySavedModal.js:95
+msgid "Close"
+msgstr "Close"
+
+#: src/App.js:190
 msgid "Contact"
 msgstr "Contact"
 
 #: src/components/Route.js:24
-msgid "Distance:"
-msgstr "Distance:"
+#~ msgid "Distance:"
+#~ msgstr "Distance:"
 
 #: src/components/Filters.js:44
-msgid "Don't show bus"
-msgstr "Don't show bus"
+#~ msgid "Don't show bus"
+#~ msgstr "Don't show bus"
 
 #: src/components/Filters.js:58
-msgid "Don't show car"
-msgstr "Don't show car"
+#~ msgid "Don't show car"
+#~ msgstr "Don't show car"
 
 #: src/components/Filters.js:16
-msgid "Don't show flights"
-msgstr "Don't show flights"
+#~ msgid "Don't show flights"
+#~ msgstr "Don't show flights"
 
 #: src/components/Filters.js:30
-msgid "Don't show trains"
-msgstr "Don't show trains"
+#~ msgid "Don't show trains"
+#~ msgstr "Don't show trains"
 
-#: src/components/Form/Form.js:111
+#: src/components/MySavedModal.js:65
+msgid "From"
+msgstr "From"
+
+#: src/components/Form/Form.js:103
 msgid "Go!"
 msgstr "Go!"
 
 #: src/components/Form/Form.js:120
-msgid "New search"
-msgstr "New search"
+#~ msgid "New search"
+#~ msgstr "New search"
 
 #: src/components/Route.js:26
-msgid "Price:"
-msgstr "Price:"
+#~ msgid "Price:"
+#~ msgstr "Price:"
 
-#: src/components/RouteList/RouteList.js:95
+#: src/components/Route.js:59
+msgid "Route is saved!"
+msgstr "Route is saved!"
+
+#: src/components/RouteList/RouteList.js:100
 msgid "Sorry, there are no transports for that journey."
 msgstr "Sorry, there are no transports for that journey."
 
+#: src/components/MySavedModal.js:66
+msgid "To"
+msgstr "To"
+
 #: src/components/Route.js:25
-msgid "Total Duration:"
-msgstr "Total Duration:"
+#~ msgid "Total Duration:"
+#~ msgstr "Total Duration:"
 
 #: src/components/Route.js:23
-msgid "Transport type:"
-msgstr "Transport type:"
+#~ msgid "Transport type:"
+#~ msgstr "Transport type:"
