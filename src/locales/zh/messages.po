@@ -17,66 +17,90 @@ msgstr ""
 #~ msgid "<0><1><2>From: {0}</2><3>To: {1}</3></1>{2}<4><5>Sort by Duration</5><6>Sort by Price</6><7>Sort by distance</7><8>Sort by segments</8></4>{3}</0>"
 #~ msgstr "<0><1><2>从: {0}</2><3>至: {1}</3></1>{2}<4><5>按持续时间排序</5><6>按价格排序</6><7>按距离排序</7><8>按细分排序</8></4>{3}</0>"
 
+#: src/components/RouteList/RouteList.js:79
+msgid "<0><1>Share search on social media: </1><2/><3/></0><4>From: {0}</4><5>To: {1}</5><6><7>Sort by Duration</7><8>Sort by Price</8><9>Sort by distance</9><10>Sort by segments</10></6>"
+msgstr ""
+
 #: src/App.js:164
 #~ msgid "<0>Contact</0><1>About us</1>"
 #~ msgstr "<0>联系</0><1>关于我们</1>"
 
 #: src/components/RouteList/RouteList.js:77
-msgid "<0>From: {0}</0><1>To: {1}</1><2><3>Sort by Duration</3><4>Sort by Price</4><5>Sort by distance</5><6>Sort by segments</6></2>"
-msgstr "<0>从: {0}</0><1>Zhì: {1}</1><2><3>按持续时间排序</3><4>Sort by Price</4><5>按价格排序</5><6>按细分排序</6></2>"
+#~ msgid "<0>From: {0}</0><1>To: {1}</1><2><3>Sort by Duration</3><4>Sort by Price</4><5>Sort by distance</5><6>Sort by segments</6></2>"
+#~ msgstr "<0>从: {0}</0><1>Zhì: {1}</1><2><3>按持续时间排序</3><4>Sort by Price</4><5>按价格排序</5><6>按细分排序</6></2>"
 
-#: src/App.js:148
-#~ msgid "<0>Travel</0><1>Read about the event</1><2>Read about the cities</2><3>See recommendations</3>"
-#~ msgstr "<0>搜索旅行</0><1>了解活动</1><2>了解城市</2><3>见建议</3>"
+#: src/App.js:167
+msgid "<0>Travel</0><1>Read about the event</1><2>Read about the cities</2><3>See recommendations</3>"
+msgstr "<0>搜索旅行</0><1>了解活动</1><2>了解城市</2><3>见建议</3>"
 
-#: src/App.js:166
+#: src/App.js:187
 msgid "About us"
 msgstr "关于我们"
 
-#: src/App.js:169
+#: src/components/Route.js:102
+msgid "Add Route to saved list"
+msgstr ""
+
+#: src/components/MySavedModal.js:95
+msgid "Close"
+msgstr ""
+
+#: src/App.js:190
 msgid "Contact"
 msgstr "联系"
 
 #: src/components/Route.js:24
-msgid "Distance:"
-msgstr "距离:"
+#~ msgid "Distance:"
+#~ msgstr "距离:"
 
 #: src/components/Filters.js:44
-msgid "Don't show bus"
-msgstr "不要显示公共汽车"
+#~ msgid "Don't show bus"
+#~ msgstr "不要显示公共汽车"
 
 #: src/components/Filters.js:58
-msgid "Don't show car"
-msgstr "不要展示汽车"
+#~ msgid "Don't show car"
+#~ msgstr "不要展示汽车"
 
 #: src/components/Filters.js:16
-msgid "Don't show flights"
-msgstr "不要显示航班"
+#~ msgid "Don't show flights"
+#~ msgstr "不要显示航班"
 
 #: src/components/Filters.js:30
-msgid "Don't show trains"
-msgstr "不要显示火车"
+#~ msgid "Don't show trains"
+#~ msgstr "不要显示火车"
 
-#: src/components/Form/Form.js:111
+#: src/components/MySavedModal.js:65
+msgid "From"
+msgstr ""
+
+#: src/components/Form/Form.js:103
 msgid "Go!"
 msgstr "走!"
 
 #: src/components/Form/Form.js:120
-msgid "New search"
-msgstr "新搜索"
+#~ msgid "New search"
+#~ msgstr "新搜索"
 
 #: src/components/Route.js:26
-msgid "Price:"
-msgstr "价钱:"
+#~ msgid "Price:"
+#~ msgstr "价钱:"
 
-#: src/components/RouteList/RouteList.js:95
+#: src/components/Route.js:59
+msgid "Route is saved!"
+msgstr ""
+
+#: src/components/RouteList/RouteList.js:100
 msgid "Sorry, there are no transports for that journey."
 msgstr "对不起，这段旅程没有交通工具。"
 
+#: src/components/MySavedModal.js:66
+msgid "To"
+msgstr ""
+
 #: src/components/Route.js:25
-msgid "Total Duration:"
-msgstr "总持续时间:"
+#~ msgid "Total Duration:"
+#~ msgstr "总持续时间:"
 
 #: src/components/Route.js:23
-msgid "Transport type:"
-msgstr "运输类型:"
+#~ msgid "Transport type:"
+#~ msgstr "运输类型:"

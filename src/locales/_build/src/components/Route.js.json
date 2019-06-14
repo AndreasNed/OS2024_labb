@@ -1,33 +1,17 @@
 {
-  "Transport type:": {
+  "Add Route to saved list": {
     "origin": [
       [
         "src/components/Route.js",
-        23
+        102
       ]
     ]
   },
-  "Distance:": {
+  "Route is saved!": {
     "origin": [
       [
         "src/components/Route.js",
-        24
-      ]
-    ]
-  },
-  "Total Duration:": {
-    "origin": [
-      [
-        "src/components/Route.js",
-        25
-      ]
-    ]
-  },
-  "Price:": {
-    "origin": [
-      [
-        "src/components/Route.js",
-        26
+        59
       ]
     ]
   }

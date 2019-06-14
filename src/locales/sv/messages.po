@@ -13,69 +13,90 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#: src/components/RouteList/RouteList.js:79
+msgid "<0><1>Share search on social media: </1><2/><3/></0><4>From: {0}</4><5>To: {1}</5><6><7>Sort by Duration</7><8>Sort by Price</8><9>Sort by distance</9><10>Sort by segments</10></6>"
+msgstr ""
 
 #: src/App.js:164
 #~ msgid "<0>Contact</0><1>About us</1>"
 #~ msgstr "<0>Kontakt</0><1>Om oss</1>"
 
 #: src/components/RouteList/RouteList.js:77
-msgid "<0>From: {0}</0><1>To: {1}</1><2><3>Sort by Duration</3><4>Sort by Price</4><5>Sort by distance</5><6>Sort by segments</6></2>"
-msgstr "<0>Från: {0}</0><1>Till: {1}</1><2><3>Sortera efter tid</3><4>Sortera efter pris</4><5>Sortera efter distans</5><6>Sortera efter segment</6></2>""
+#~ msgid "<0>From: {0}</0><1>To: {1}</1><2><3>Sort by Duration</3><4>Sort by Price</4><5>Sort by distance</5><6>Sort by segments</6></2>"
+#~ msgstr "<0>Från: {0}</0><1>Till: {1}</1><2><3>Sortera efter tid</3><4>Sortera efter pris</4><5>Sortera efter distans</5><6>Sortera efter segment</6></2>\""
 
-#: src/App.js:148
-#~ msgid "<0>Travel</0><1>Read about the event</1><2>Read about the cities</2><3>See recommendations</3>"
-#~ msgstr "<0>Sök resa</0><1>Läs mer om eventet</1><2>Läs mer om orterna</2><3>Se rekomendationer</3>"
+#: src/App.js:167
+msgid "<0>Travel</0><1>Read about the event</1><2>Read about the cities</2><3>See recommendations</3>"
+msgstr "<0>Sök resa</0><1>Läs mer om eventet</1><2>Läs mer om orterna</2><3>Se rekomendationer</3>"
 
-#: src/App.js:166
+#: src/App.js:187
 msgid "About us"
 msgstr "Om oss"
 
-#: src/App.js:169
+#: src/components/Route.js:102
+msgid "Add Route to saved list"
+msgstr ""
+
+#: src/components/MySavedModal.js:95
+msgid "Close"
+msgstr ""
+
+#: src/App.js:190
 msgid "Contact"
 msgstr "Kontakt"
 
 #: src/components/Route.js:24
-msgid "Distance:"
-msgstr "Distans:"
+#~ msgid "Distance:"
+#~ msgstr "Distans:"
 
 #: src/components/Filters.js:44
-msgid "Don't show bus"
-msgstr "Visa inte bussar"
+#~ msgid "Don't show bus"
+#~ msgstr "Visa inte bussar"
 
 #: src/components/Filters.js:58
-msgid "Don't show car"
-msgstr "Visa inte bilfärd"
+#~ msgid "Don't show car"
+#~ msgstr "Visa inte bilfärd"
 
 #: src/components/Filters.js:16
-msgid "Don't show flights"
-msgstr "Visa inte flyg"
+#~ msgid "Don't show flights"
+#~ msgstr "Visa inte flyg"
 
 #: src/components/Filters.js:30
-msgid "Don't show trains"
-msgstr "Visa inte tåg"
+#~ msgid "Don't show trains"
+#~ msgstr "Visa inte tåg"
 
-#: src/components/Form/Form.js:111
+#: src/components/MySavedModal.js:65
+msgid "From"
+msgstr ""
+
+#: src/components/Form/Form.js:103
 msgid "Go!"
 msgstr "Sök!"
 
-
 #: src/components/Form/Form.js:120
-msgid "New search"
-msgstr "Ny sökning"
+#~ msgid "New search"
+#~ msgstr "Ny sökning"
 
 #: src/components/Route.js:26
-msgid "Price:"
-msgstr "Pris:"
+#~ msgid "Price:"
+#~ msgstr "Pris:"
 
-#: src/components/RouteList/RouteList.js:95
+#: src/components/Route.js:59
+msgid "Route is saved!"
+msgstr ""
+
+#: src/components/RouteList/RouteList.js:100
 msgid "Sorry, there are no transports for that journey."
 msgstr "Tyvärr hittades inga resor med dom sökkriterierna."
 
+#: src/components/MySavedModal.js:66
+msgid "To"
+msgstr ""
 
 #: src/components/Route.js:25
-msgid "Total Duration:"
-msgstr "Total restid:"
+#~ msgid "Total Duration:"
+#~ msgstr "Total restid:"
 
 #: src/components/Route.js:23
-msgid "Transport type:"
-msgstr "Färdsätt:"
+#~ msgid "Transport type:"
+#~ msgstr "Färdsätt:"
