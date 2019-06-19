@@ -4,6 +4,13 @@
     
 }
 
+/*
+@feedback
+Be careful to select by tagname.
+The css is not isolated to components
+whith the current project setup.
+Prefer the usage of class-names.
+*/
 form {
     display: grid;
     grid-template-columns: repeat(20, 5%);
