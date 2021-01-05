@@ -9,7 +9,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.8.2",
     "@fortawesome/react-fontawesome": "^0.1.4",
     "@lingui/react": "^2.8.1",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "decode-google-map-polyline": "^1.0.1",
     "dotenv": "^8.0.0",
     "font-awesome": "^4.7.0",
